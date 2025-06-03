@@ -65,4 +65,4 @@ if __name__ == "__main__":
     else:
         seiten = [user_url] + finde_interne_links(user_url)
         print(f"\n🚀 Starte Accessibility-Checks für {len(seiten)} Seiten...")
-        accessibility_checks(seiten[:5])  # optional: begrenze auf 5 Seiten
+        accessibility_checks(seiten[:5])
