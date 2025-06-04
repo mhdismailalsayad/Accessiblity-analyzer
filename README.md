@@ -1,6 +1,6 @@
 # Website Accessibility Analyzer
 
-A simple Python-based **Accessibility Analyzer** 🧑‍🦯 that crawls a website, collects internal links, and runs automated accessibility checks using:
+A simple Python-based **Accessibility Analyzer** that crawls a website, collects internal links, and runs automated accessibility checks using:
 
 - [Pa11y](https://github.com/pa11y/pa11y)
 - [axe-core/cli](https://github.com/dequelabs/axe-core-npm)
