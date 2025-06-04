@@ -6,7 +6,7 @@ A simple Python-based **Accessibility Analyzer** that crawls a website, collects
 - [axe-core/cli](https://github.com/dequelabs/axe-core-npm)
 - [Lighthouse](https://github.com/GoogleChrome/lighthouse)
 
-Results are saved in an easy-to-read CSV file for further analysis.
+Results from each tool are stored separately in `pa11y_result.json`, `axe_result.txt` and `lighthouse_results.json`.
 
 ---
 
@@ -14,10 +14,11 @@ Results are saved in an easy-to-read CSV file for further analysis.
 
 - Crawl a given URL and extract internal links  
 - Run multiple accessibility tools: Pa11y, Axe, Lighthouse  
-- Save results as:
+- Save results to these files:
   - `gefundene_urls.txt` → list of internal URLs
-  - `ergebnisse.csv` → accessibility results per page
-
+  - `pa11y_result.json` → Pa11y results in JSON format
+  - `axe_result.txt` → raw output from axe-core
+  - `lighthouse_results.json` → Lighthouse results in JSON format
 ---
 
 ## Requirements
@@ -57,4 +58,4 @@ cd Accessiblity-analyzer
     - Crawl the page
     - Extract internal links
     - Run accessibility tests
-    - Save the results
+    - Save the results to `pa11y_result.json`, `axe_result.txt` and `lighthouse_results.json`
