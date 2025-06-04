@@ -245,9 +245,14 @@ def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_re
     combined = _combine_tool_results(pa11y_data, lighthouse_data)
     scores = _calculate_scores(combined)
 
+    rating = {
+        "info": "Tools kombinieren",
+        "scores": scores,
+    }
+
     try:
         with open(output, "w", encoding="utf-8") as f:
-            json.dump(scores, f, indent=2, ensure_ascii=False)
+            json.dump(rating, f, indent=2, ensure_ascii=False)
         print(f"Bewertung in '{output}' gespeichert.")
     except Exception as e:
         print(f"Fehler beim Speichern der Bewertung: {e}")
