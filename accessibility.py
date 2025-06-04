@@ -80,7 +80,7 @@ def run_pa11y(url, filename="pa11y_result.json"):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
-def run_axe(url, filename="axe_results.json"):
+def run_axe(url, filename="axe_result.json"):
     """Führt axe-core aus und speichert das Ergebnis als JSON."""
     print(f"axe-core: {url}")
     result = subprocess.run(
@@ -130,7 +130,7 @@ def run_lighthouse(url, filename="lighthouse_results.json"):
         "--only-categories=accessibility",
         "--output=json",
         "--chrome-flags=--headless",
-        "--output-path=./lh_tmp.json"
+        "--output-path=./lighthouse_results.json"
     ], capture_output=True, text=True)
 
     if result.returncode != 0:
