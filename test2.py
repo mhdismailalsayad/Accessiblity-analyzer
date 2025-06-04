@@ -71,7 +71,7 @@ def accessibility_checks(urls):
                 "Axe": axe_result,
                 "Lighthouse": lighthouse_result
             })
-    print("\n📁 Ergebnisse gespeichert in 'ergebnisse.csv'")
+    print("\n Ergebnisse gespeichert in 'ergebnisse.csv'")
 
 if __name__ == "__main__":
     user_url = input("🔗 Gib eine URL ein (inkl. https://): ").strip()
