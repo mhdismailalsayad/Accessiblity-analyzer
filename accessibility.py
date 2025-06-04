@@ -168,6 +168,91 @@ def convert_pa11y_to_custom_format():
         print(f"Fehler beim Verarbeiten der Datei: {e}")
 
 
+def _load_json(path):
+    """Lädt eine JSON-Datei oder gibt eine leere Liste zurück."""
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+
+def _combine_tool_results(pa11y_data, lighthouse_data):
+    """Kombiniert Ergebnisse verschiedener Tools und vermeidet Duplikate."""
+    combined = {}
+
+    for entry in pa11y_data:
+        url = entry.get("url")
+        if not url:
+            continue
+        combined.setdefault(url, {"pa11y": [], "lighthouse": [], "lh_score": 1})
+        for res in entry.get("results", []):
+            msg = res.get("message", "")
+            severity = res.get("typeCode", 3)
+            combined[url]["pa11y"].append((msg, severity))
+
+    for entry in lighthouse_data:
+        url = entry.get("url")
+        if not url:
+            continue
+        combined.setdefault(url, {"pa11y": [], "lighthouse": [], "lh_score": 1})
+        lh_result = entry.get("lighthouse_result", {})
+        audits = lh_result.get("audits", {})
+        fail_msgs = []
+        for audit in audits.values():
+            if audit.get("score") is not None and audit.get("score") < 1:
+                fail_msgs.append(audit.get("title", ""))
+        combined[url]["lighthouse"] = fail_msgs
+        acc_cat = lh_result.get("categories", {}).get("accessibility", {})
+        combined[url]["lh_score"] = acc_cat.get("score", 1)
+    return combined
+
+
+def _calculate_scores(combined):
+    """Berechnet eine Bewertung pro Seite basierend auf Schwere der Probleme."""
+    scores = {}
+    for url, data in combined.items():
+        seen = set()
+        penalty = 0
+        for msg, sev in data.get("pa11y", []):
+            if msg in seen:
+                continue
+            seen.add(msg)
+            if sev == 1:
+                penalty += 5  # Fehler
+            elif sev == 2:
+                penalty += 3  # Warnung
+            else:
+                penalty += 1  # Hinweis
+        for msg in data.get("lighthouse", []):
+            if msg not in seen:
+                seen.add(msg)
+                penalty += 2
+        base = data.get("lh_score", 1) * 100
+        scores[url] = max(0, round(base - penalty, 2))
+    return scores
+
+
+def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_results.json", output="bewertung.json"):
+    """Erstellt eine Bewertung pro Seite und speichert sie als JSON."""
+    pa11y_data = _load_json(pa11y_file)
+    lighthouse_data = _load_json(lighthouse_file)
+
+    if not pa11y_data and not lighthouse_data:
+        print("Keine Ergebnisdaten für die Bewertung gefunden.")
+        return
+
+    combined = _combine_tool_results(pa11y_data, lighthouse_data)
+    scores = _calculate_scores(combined)
+
+    try:
+        with open(output, "w", encoding="utf-8") as f:
+            json.dump(scores, f, indent=2, ensure_ascii=False)
+        print(f"Bewertung in '{output}' gespeichert.")
+    except Exception as e:
+        print(f"Fehler beim Speichern der Bewertung: {e}")
+
+
 
 def delete_old_results():
     """Löscht vorhandene Ergebnisdateien, falls sie existieren."""
@@ -195,3 +280,4 @@ if __name__ == "__main__":
             print(f"\n Starte Accessibility-Checks für {len(seiten)} Seiten...")
             accessibility_checks(seiten[:1])
             convert_pa11y_to_custom_format()
+            create_rating()
