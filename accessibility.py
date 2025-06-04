@@ -60,27 +60,42 @@ def run_pa11y(url, filename="pa11y_result.json"):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
-def run_axe(url):
+def run_axe(url, filename="axe_results.json"):
+    """Führt axe-core aus und speichert das Ergebnis als JSON."""
     print(f"axe-core: {url}")
     result = subprocess.run(
-        [NPX, "@axe-core/cli", "-q", url],
+        [NPX, "@axe-core/cli", url, "-o", "axe_tmp.json", "-f", "json"],
         capture_output=True,
         text=True
     )
-    
+
+    if result.returncode != 0:
+        print("Fehler bei axe-core:", result.stderr)
+
     try:
-        with open("axe_result.txt", "a", encoding="utf-8") as f:
-            f.write(f"\n=== Ergebnisse für: {url} ===\n")
-            if result.stdout:
-                f.write(result.stdout)
-            else:
-                f.write(" Keine Ausgabe von axe-core erhalten.\n")
-            if result.stderr:
-                f.write("\n[Fehlermeldung]\n" + result.stderr)
-            f.write("\n\n")
-        print(" axe-core-Ergebnisse gespeichert.")
+        with open("axe_tmp.json", "r", encoding="utf-8") as tmp:
+            data = json.load(tmp)
+        os.remove("axe_tmp.json")
     except Exception as e:
-        print(f" Fehler beim Schreiben in die Datei: {e}")
+        print(f"Fehler beim Lesen der axe-core Ausgabe: {e}")
+        data = {}
+
+    entry = {
+        "url": url,
+        "axe_result": data,
+    }
+
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            all_data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        all_data = []
+
+    all_data.append(entry)
+
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(all_data, f, indent=2, ensure_ascii=False)
+    print(" axe-core-Ergebnisse gespeichert.")
 
 
 
@@ -168,11 +183,120 @@ def convert_pa11y_to_custom_format():
         print(f"Fehler beim Verarbeiten der Datei: {e}")
 
 
+def _load_json(path):
+    """Lädt eine JSON-Datei oder gibt eine leere Liste zurück."""
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+
+def _combine_tool_results(pa11y_data, lighthouse_data, axe_data):
+    """Kombiniert Ergebnisse der drei Tools und vermeidet Duplikate."""
+    combined = {}
+
+    for entry in pa11y_data:
+        url = entry.get("url")
+        if not url:
+            continue
+        combined.setdefault(url, {"pa11y": [], "lighthouse": [], "axe": [], "lh_score": 1})
+        for res in entry.get("results", []):
+            msg = res.get("message", "")
+            severity = res.get("typeCode", 3)
+            combined[url]["pa11y"].append((msg, severity))
+
+    for entry in lighthouse_data:
+        url = entry.get("url")
+        if not url:
+            continue
+        combined.setdefault(url, {"pa11y": [], "lighthouse": [], "axe": [], "lh_score": 1})
+        lh_result = entry.get("lighthouse_result", {})
+        audits = lh_result.get("audits", {})
+        fail_msgs = []
+        for audit in audits.values():
+            if audit.get("score") is not None and audit.get("score") < 1:
+                fail_msgs.append(audit.get("title", ""))
+        combined[url]["lighthouse"] = fail_msgs
+        acc_cat = lh_result.get("categories", {}).get("accessibility", {})
+        combined[url]["lh_score"] = acc_cat.get("score", 1)
+
+    for entry in axe_data:
+        url = entry.get("url")
+        if not url:
+            continue
+        combined.setdefault(url, {"pa11y": [], "lighthouse": [], "axe": [], "lh_score": 1})
+        axe_result = entry.get("axe_result", {})
+        violations = axe_result.get("violations", [])
+        for viol in violations:
+            msg = viol.get("help", viol.get("description", ""))
+            impact = viol.get("impact", "minor")
+            severity = {"minor": 1, "moderate": 3, "serious": 5, "critical": 7}.get(impact, 1)
+            combined[url]["axe"].append((msg, severity))
+    return combined
+
+
+def _calculate_scores(combined):
+    """Berechnet eine Bewertung pro Seite basierend auf Schwere der Probleme."""
+    scores = {}
+    for url, data in combined.items():
+        seen = set()
+        penalty = 0
+        for msg, sev in data.get("pa11y", []):
+            if msg in seen:
+                continue
+            seen.add(msg)
+            if sev == 1:
+                penalty += 5  # Fehler
+            elif sev == 2:
+                penalty += 3  # Warnung
+            else:
+                penalty += 1  # Hinweis
+        for msg, sev in data.get("axe", []):
+            if msg in seen:
+                continue
+            seen.add(msg)
+            penalty += sev
+        for msg in data.get("lighthouse", []):
+            if msg not in seen:
+                seen.add(msg)
+                penalty += 2
+        base = data.get("lh_score", 1) * 100
+        scores[url] = max(0, round(base - penalty, 2))
+    return scores
+
+
+def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_results.json", axe_file="axe_results.json", output="bewertung.json"):
+    """Erstellt eine Bewertung pro Seite und speichert sie als JSON."""
+    pa11y_data = _load_json(pa11y_file)
+    lighthouse_data = _load_json(lighthouse_file)
+    axe_data = _load_json(axe_file)
+
+    if not pa11y_data and not lighthouse_data and not axe_data:
+        print("Keine Ergebnisdaten für die Bewertung gefunden.")
+        return
+
+    combined = _combine_tool_results(pa11y_data, lighthouse_data, axe_data)
+    scores = _calculate_scores(combined)
+
+    rating = {
+        "info": "Tools kombinieren",
+        "scores": scores,
+    }
+
+    try:
+        with open(output, "w", encoding="utf-8") as f:
+            json.dump(rating, f, indent=2, ensure_ascii=False)
+        print(f"Bewertung in '{output}' gespeichert.")
+    except Exception as e:
+        print(f"Fehler beim Speichern der Bewertung: {e}")
+
+
 
 def delete_old_results():
     """Löscht vorhandene Ergebnisdateien, falls sie existieren."""
     temp_files = [
-        "axe_result.txt",
+        "axe_results.json",
         "lighthouse_results.json",
         "pa11y_result.json"
     ]
@@ -195,3 +319,4 @@ if __name__ == "__main__":
             print(f"\n Starte Accessibility-Checks für {len(seiten)} Seiten...")
             accessibility_checks(seiten[:1])
             convert_pa11y_to_custom_format()
+            create_rating()
