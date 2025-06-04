@@ -8,6 +8,26 @@ import os
 # Für Windows: NPX = r"C:\Users\memom\AppData\Roaming\npm\npx.cmd"
 NPX = r"C:\Users\memom\AppData\Roaming\npm\npx.cmd"
 
+def _check_node_version(min_major=20):
+    """Return True if the installed Node.js version meets the requirement."""
+    try:
+        result = subprocess.run(["node", "-v"], capture_output=True, text=True)
+        if result.returncode != 0:
+            print("Node.js konnte nicht gefunden werden. Bitte installieren Sie Node.js.")
+            return False
+        version = result.stdout.strip().lstrip("v")
+        major = int(version.split(".")[0])
+        if major < min_major:
+            print(
+                f"Gefundene Node.js Version {version}."
+                f" Bitte aktualisieren Sie Node.js auf Version {min_major} oder neuer."
+            )
+            return False
+    except Exception as exc:
+        print(f"Konnte Node.js Version nicht bestimmen: {exc}")
+        return False
+    return True
+
 def ist_internal_link(base_url, link):
     base_domain = urlparse(base_url).netloc
     target_domain = urlparse(link).netloc
@@ -64,9 +84,9 @@ def run_axe(url, filename="axe_results.json"):
     """Führt axe-core aus und speichert das Ergebnis als JSON."""
     print(f"axe-core: {url}")
     result = subprocess.run(
-        [NPX, "@axe-core/cli", url, "-o", "axe_tmp.json", "-f", "json"],
+        [NPX, "@axe-core/cli", url, "--save", "axe_tmp.json"],
         capture_output=True,
-        text=True
+        text=True,
     )
 
     if result.returncode != 0:
@@ -309,7 +329,8 @@ def delete_old_results():
 
 
 if __name__ == "__main__":
-
+        if not _check_node_version():
+            exit(1)
         delete_old_results()
         user_url = input(" Gib eine URL ein (inkl. https://) : ").strip()
         if not user_url.startswith("http"):
