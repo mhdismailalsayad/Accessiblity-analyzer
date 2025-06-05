@@ -17,6 +17,7 @@ Results are saved in an easy-to-read CSV file for further analysis.
 - Save results as:
   - `gefundene_urls.txt` → list of internal URLs
   - `ergebnisse.csv` → accessibility results per page
+  - `bewertung.json` → rating per page based on combined results
 
 ---
 
@@ -60,6 +61,7 @@ cd Accessiblity-analyzer
   - Extract internal links
   - Run accessibility tests
   - Save the results
+  - Run `python bewertung.py` to create a per-page rating
 
 
 ## Troubleshooting
