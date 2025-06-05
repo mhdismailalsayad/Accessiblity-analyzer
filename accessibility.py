@@ -207,7 +207,13 @@ def _load_json(path):
     """Lädt eine JSON-Datei oder gibt eine leere Liste zurück."""
     try:
         with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
+            data = json.load(f)
+            # Einige Ergebnisdateien enthalten nur ein einzelnes
+            # Objekt. Um die Verarbeitung zu vereinfachen, wird ein
+            # solches Objekt in eine Liste gepackt.
+            if isinstance(data, dict):
+                return [data]
+            return data
     except (FileNotFoundError, json.JSONDecodeError):
         return []
 
@@ -246,13 +252,22 @@ def _combine_tool_results(pa11y_data, lighthouse_data, axe_data):
         if not url:
             continue
         combined.setdefault(url, {"pa11y": [], "lighthouse": [], "axe": [], "lh_score": 1})
+
         axe_result = entry.get("axe_result", {})
-        violations = axe_result.get("violations", [])
-        for viol in violations:
-            msg = viol.get("help", viol.get("description", ""))
-            impact = viol.get("impact", "minor")
-            severity = {"minor": 1, "moderate": 3, "serious": 5, "critical": 7}.get(impact, 1)
-            combined[url]["axe"].append((msg, severity))
+
+        # ``axe_result`` may be a single object or a list of objects.
+        if isinstance(axe_result, list):
+            results = axe_result
+        else:
+            results = [axe_result]
+
+        for result in results:
+            violations = result.get("violations", [])
+            for viol in violations:
+                msg = viol.get("help", viol.get("description", ""))
+                impact = viol.get("impact", "minor")
+                severity = {"minor": 1, "moderate": 3, "serious": 5, "critical": 7}.get(impact, 1)
+                combined[url]["axe"].append((msg, severity))
     return combined
 
 
@@ -286,7 +301,7 @@ def _calculate_scores(combined):
     return scores
 
 
-def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_results.json", axe_file="axe_results.json", output="bewertung.json"):
+def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_results.json", axe_file="axe_result.json", output="bewertung.json"):
     """Erstellt eine Bewertung pro Seite und speichert sie als JSON."""
     pa11y_data = _load_json(pa11y_file)
     lighthouse_data = _load_json(lighthouse_file)
@@ -316,7 +331,7 @@ def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_re
 def delete_old_results():
     """Löscht vorhandene Ergebnisdateien, falls sie existieren."""
     temp_files = [
-        "axe_results.json",
+        "axe_result.json",
         "lighthouse_results.json",
         "pa11y_result.json"
     ]
