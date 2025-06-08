@@ -134,7 +134,7 @@ def run_lighthouse(url, filename="lighthouse_results.json"):
         "--only-categories=accessibility",
         "--output=json",
         "--chrome-flags=--headless",
-        "--output-path=/lh_tmp.json"
+        "--output-path=./lh_tmp.json"
     ], capture_output=True, text=True)
 
     if result.returncode != 0:
