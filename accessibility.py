@@ -4,9 +4,13 @@ from urllib.parse import urljoin, urlparse
 import subprocess
 import json
 import os
-# <<< Pfad zu npx anpassen >>>
-# Für Windows: NPX = r"C:\Users\memom\AppData\Roaming\npm\npx.cmd"
-NPX = r"C:\Users\memom\AppData\Roaming\npm\npx.cmd"
+
+# Pfad zu "npx" plattformunabhängig bestimmen. Unter Windows wird "npx.cmd"
+# verwendet, auf anderen Systemen reicht "npx".
+if os.name == "nt":
+    NPX = "npx.cmd"
+else:
+    NPX = "npx"
 
 def _check_node_version(min_major=20):
     """Return True if the installed Node.js version meets the requirement."""
@@ -130,7 +134,7 @@ def run_lighthouse(url, filename="lighthouse_results.json"):
         "--only-categories=accessibility",
         "--output=json",
         "--chrome-flags=--headless",
-        "--output-path=./lighthouse_results.json"
+        "--output-path=/lh_tmp.json"
     ], capture_output=True, text=True)
 
     if result.returncode != 0:
@@ -271,34 +275,51 @@ def _combine_tool_results(pa11y_data, lighthouse_data, axe_data):
     return combined
 
 
-def _calculate_scores(combined):
-    """Berechnet eine Bewertung pro Seite basierend auf Schwere der Probleme."""
-    scores = {}
+def _extract_messages(combined):
+    """Gibt alle Meldungen pro URL gruppiert nach Tool zurück."""
+    results = {}
     for url, data in combined.items():
+        pa11y_msgs = [msg for msg, _ in data.get("pa11y", [])]
+        axe_msgs = [msg for msg, _ in data.get("axe", [])]
+        lighthouse_msgs = data.get("lighthouse", [])
+
+        all_msgs = []
         seen = set()
-        penalty = 0
-        for msg, sev in data.get("pa11y", []):
-            if msg in seen:
-                continue
-            seen.add(msg)
-            if sev == 1:
-                penalty += 5  # Fehler
-            elif sev == 2:
-                penalty += 3  # Warnung
-            else:
-                penalty += 1  # Hinweis
-        for msg, sev in data.get("axe", []):
-            if msg in seen:
-                continue
-            seen.add(msg)
-            penalty += sev
-        for msg in data.get("lighthouse", []):
-            if msg not in seen:
-                seen.add(msg)
-                penalty += 2
-        base = data.get("lh_score", 1) * 100
-        scores[url] = max(0, round(base - penalty, 2))
-    return scores
+        for m in pa11y_msgs + axe_msgs + lighthouse_msgs:
+            if m not in seen:
+                seen.add(m)
+                all_msgs.append(m)
+
+        results[url] = {
+            "all_tools": all_msgs,
+            "pa11y": pa11y_msgs,
+            "axe": axe_msgs,
+            "lighthouse": lighthouse_msgs,
+        }
+    return results
+
+def _extract_messages(combined):
+    """Gibt alle Meldungen pro URL gruppiert nach Tool zurück."""
+    results = {}
+    for url, data in combined.items():
+        pa11y_msgs = [msg for msg, _ in data.get("pa11y", [])]
+        axe_msgs = [msg for msg, _ in data.get("axe", [])]
+        lighthouse_msgs = data.get("lighthouse", [])
+
+        all_msgs = []
+        seen = set()
+        for m in pa11y_msgs + axe_msgs + lighthouse_msgs:
+            if m not in seen:
+                seen.add(m)
+                all_msgs.append(m)
+
+        results[url] = {
+            "all_tools": all_msgs,
+            "pa11y": pa11y_msgs,
+            "axe": axe_msgs,
+            "lighthouse": lighthouse_msgs,
+        }
+    return results
 
 
 def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_results.json", axe_file="axe_result.json", output="bewertung.json"):
@@ -312,11 +333,11 @@ def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_re
         return
 
     combined = _combine_tool_results(pa11y_data, lighthouse_data, axe_data)
-    scores = _calculate_scores(combined)
+    messages = _extract_messages(combined)
 
     rating = {
         "info": "Tools kombinieren",
-        "scores": scores,
+        "scores": messages,
     }
 
     try:
@@ -339,9 +360,7 @@ def delete_old_results():
     for file in temp_files:
         if os.path.exists(file):
             os.remove(file)
-
-
-
+    print(" Alte Ergebnisdateien gelöscht.")
 
 if __name__ == "__main__":
         if not _check_node_version():

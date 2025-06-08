@@ -1,5 +1,4 @@
 import json
-import os
 
 
 def load_json(path):
@@ -31,11 +30,18 @@ def combine_tool_results(pa11y_data, lighthouse_data, axe_data):
             combined[url]["pa11y"].append((msg, sev))
 
     for entry in lighthouse_data:
-        url = entry.get("url")
+        if "lighthouse_result" in entry:
+            lh_result = entry.get("lighthouse_result", {})
+            url = entry.get("url") or lh_result.get("finalUrl") or lh_result.get("requestedUrl")
+        else:
+            lh_result = entry
+            url = lh_result.get("finalUrl") or lh_result.get("requestedUrl")
+
         if not url:
             continue
+
         combined.setdefault(url, {"pa11y": [], "lighthouse": [], "axe": [], "lh_score": 1})
-        lh_result = entry.get("lighthouse_result", {})
+
         audits = lh_result.get("audits", {})
         msgs = []
         for audit in audits.values():
@@ -72,37 +78,28 @@ def combine_tool_results(pa11y_data, lighthouse_data, axe_data):
     return combined
 
 
-def calculate_scores(combined):
-    """Calculate a score per page based on severity of issues."""
-    scores = {}
+def extract_messages(combined):
+    """Return all messages per URL grouped by tool."""
+    results = {}
     for url, data in combined.items():
+        pa11y_msgs = [msg for msg, _ in data.get("pa11y", [])]
+        axe_msgs = [msg for msg, _ in data.get("axe", [])]
+        lighthouse_msgs = data.get("lighthouse", [])
+
+        all_msgs = []
         seen = set()
-        penalty = 0
-        for msg, sev in data.get("pa11y", []):
-            if msg in seen:
-                continue
-            seen.add(msg)
-            if sev == 1:
-                penalty += 5
-            elif sev == 2:
-                penalty += 3
-            else:
-                penalty += 1
+        for m in pa11y_msgs + axe_msgs + lighthouse_msgs:
+            if m not in seen:
+                seen.add(m)
+                all_msgs.append(m)
 
-        for msg, sev in data.get("axe", []):
-            if msg in seen:
-                continue
-            seen.add(msg)
-            penalty += sev
-
-        for msg in data.get("lighthouse", []):
-            if msg not in seen:
-                seen.add(msg)
-                penalty += 2
-
-        base = data.get("lh_score", 1) * 100
-        scores[url] = max(0, round(base - penalty, 2))
-    return scores
+        results[url] = {
+            "all_tools": all_msgs,
+            "pa11y": pa11y_msgs,
+            "axe": axe_msgs,
+            "lighthouse": lighthouse_msgs,
+        }
+    return results
 
 
 def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_results.json", axe_file="axe_result.json", output="bewertung.json"):
@@ -116,11 +113,11 @@ def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_re
         return
 
     combined = combine_tool_results(pa11y_data, lighthouse_data, axe_data)
-    scores = calculate_scores(combined)
+    messages = extract_messages(combined)
 
     rating = {
         "info": "Tools kombiniert, Duplikate entfernt",
-        "scores": scores,
+        "scores": messages,
     }
 
     try:

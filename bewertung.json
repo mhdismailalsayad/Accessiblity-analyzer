@@ -1,0 +1,54 @@
+{
+  "info": "Tools kombinieren",
+  "scores": {
+    "https://www2.pnwx.com/": {
+      "all_tools": [
+        "The html element should have a lang or xml:lang attribute which describes the language of the document.",
+        "Anchor element found with a valid href attribute, but no link content has been supplied.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+        "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+        "<html> element must have a lang attribute",
+        "Images must have alternative text",
+        "Form elements must have labels",
+        "Document should have one main landmark",
+        "Links must have discernible text",
+        "Page should contain a level-one heading",
+        "All page content should be contained by landmarks"
+      ],
+      "pa11y": [
+        "The html element should have a lang or xml:lang attribute which describes the language of the document.",
+        "Anchor element found with a valid href attribute, but no link content has been supplied.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+        "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative."
+      ],
+      "axe": [
+        "<html> element must have a lang attribute",
+        "Images must have alternative text",
+        "Form elements must have labels",
+        "Document should have one main landmark",
+        "Links must have discernible text",
+        "Page should contain a level-one heading",
+        "All page content should be contained by landmarks"
+      ],
+      "lighthouse": []
+    }
+  }
+}
