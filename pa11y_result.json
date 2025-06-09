@@ -8,7 +8,7 @@
         "typeCode": 1,
         "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
         "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>",
-        "selector": "#6847290ba8cfb > div",
+        "selector": "#68472c47acb47 > div",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
@@ -17,8 +17,8 @@
         "type": "error",
         "typeCode": 1,
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6847290ba8cfb\"...</form>",
-        "selector": "#6847290ba8cfb > form",
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_68472c47acb47\"...</form>",
+        "selector": "#68472c47acb47 > form",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
@@ -55,7 +55,7 @@
     ]
   },
   {
-    "url": "https://moodle.uni-due.de/course/index.php?categoryid=1378",
+    "url": "https://moodle.uni-due.de/course/index.php?categoryid=1393",
     "results": [
       {
         "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name",
@@ -63,7 +63,7 @@
         "typeCode": 1,
         "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
         "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>",
-        "selector": "#684729325b519 > div",
+        "selector": "#68472c6d2ad89 > div",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
@@ -72,8 +72,8 @@
         "type": "error",
         "typeCode": 1,
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_684729325b519\"...</form>",
-        "selector": "#684729325b519 > form",
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_68472c6d2ad89\"...</form>",
+        "selector": "#68472c6d2ad89 > form",
         "runner": "htmlcs",
         "runnerExtras": {}
       },

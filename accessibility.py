@@ -48,13 +48,9 @@ def finde_interne_links(start_url):
             full_url = urljoin(start_url, raw_link)
             if ist_internal_link(start_url, full_url):
                 visited.add(full_url)
-        # Alle gefundenen Links speichern
-        with open("gefundene_urls.txt", "w", encoding="utf-8") as f:
-            for url in sorted(visited):
-                f.write(url + "\n")
-        print(f"\n Alle {len(visited)} internen Links in 'gefundene_urls.txt' gespeichert.")
-    except Exception as e:
-        print(f" Fehler beim Crawlen von {start_url}: {e}")
+    except requests.RequestException as e:
+        print(f"Fehler beim Abrufen der Seite {start_url}: {e}")
+        return []
     return list(visited)
 
 
