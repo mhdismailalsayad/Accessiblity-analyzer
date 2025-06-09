@@ -457,5 +457,11 @@ if __name__ == "__main__":
         else:
             seiten = [user_url] + finde_interne_links(user_url)
             print(f"\n Starte Accessibility-Checks für {len(seiten)} Seiten...")
-            accessibility_checks(seiten[:3])
+            anzahl_seiten = int(input(" Wie viele Seiten sollen getestet werden? (0 für alle): ").strip())
+            if anzahl_seiten == 0:
+                print(" Keine internen Links gefunden.")
+            else:
+                print(f" Gefundene Seiten: {anzahl_seiten}")
+                print(" Starte Accessibility-Checks...")
+            accessibility_checks(seiten[:anzahl_seiten])
             combine_errors()

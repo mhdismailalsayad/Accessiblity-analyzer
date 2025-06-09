@@ -8,7 +8,7 @@
         "typeCode": 1,
         "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
         "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>",
-        "selector": "#6847256170292 > div",
+        "selector": "#6847290ba8cfb > div",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
@@ -17,8 +17,8 @@
         "type": "error",
         "typeCode": 1,
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6847256170292\"...</form>",
-        "selector": "#6847256170292 > form",
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6847290ba8cfb\"...</form>",
+        "selector": "#6847290ba8cfb > form",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
@@ -55,7 +55,7 @@
     ]
   },
   {
-    "url": "https://moodle.uni-due.de/course/index.php?categoryid=3767",
+    "url": "https://moodle.uni-due.de/course/index.php?categoryid=1378",
     "results": [
       {
         "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name",
@@ -63,7 +63,7 @@
         "typeCode": 1,
         "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
         "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>",
-        "selector": "#6847258a22b27 > div",
+        "selector": "#684729325b519 > div",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
@@ -72,63 +72,8 @@
         "type": "error",
         "typeCode": 1,
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6847258a22b27\"...</form>",
-        "selector": "#6847258a22b27 > form",
-        "runner": "htmlcs",
-        "runnerExtras": {}
-      },
-      {
-        "code": "WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2",
-        "type": "error",
-        "typeCode": 1,
-        "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form method=\"get\" action=\"https://moodle.uni-due.de/course/index.php\" class=\"form-inline\" id=\"switchcategory\">\n            <label for=\"single...</form>",
-        "selector": "#switchcategory",
-        "runner": "htmlcs",
-        "runnerExtras": {}
-      },
-      {
-        "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Fieldset.Name",
-        "type": "error",
-        "typeCode": 1,
-        "message": "This fieldset element does not have a name available to an accessibility API. Valid names are: legend element, aria-label undefined, aria-labelledby undefined.",
-        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"coursesear...</fieldset>",
-        "selector": "#coursesearch > fieldset",
-        "runner": "htmlcs",
-        "runnerExtras": {}
-      },
-      {
-        "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H71.NoLegend",
-        "type": "error",
-        "typeCode": 1,
-        "message": "Fieldset does not contain a legend element. All fieldsets should contain a legend element that describes a description of the field group.",
-        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"coursesear...</fieldset>",
-        "selector": "#coursesearch > fieldset",
-        "runner": "htmlcs",
-        "runnerExtras": {}
-      }
-    ]
-  },
-  {
-    "url": "https://moodle.uni-due.de/course/index.php?categoryid=1228",
-    "results": [
-      {
-        "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name",
-        "type": "error",
-        "typeCode": 1,
-        "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
-        "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>",
-        "selector": "#684725c5ae9a0 > div",
-        "runner": "htmlcs",
-        "runnerExtras": {}
-      },
-      {
-        "code": "WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2",
-        "type": "error",
-        "typeCode": 1,
-        "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_684725c5ae9a0\"...</form>",
-        "selector": "#684725c5ae9a0 > form",
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_684729325b519\"...</form>",
+        "selector": "#684729325b519 > form",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
