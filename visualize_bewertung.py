@@ -1,6 +1,7 @@
 import json
 from collections import Counter
 from pathlib import Path
+import matplotlib.pyplot as plt
 
 
 DEF_PATH = Path(__file__).with_name("bewertung.json")
@@ -54,18 +55,11 @@ def write_summary_text(counts, counter, output: Path = Path("visualization_summa
 
 def plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
     """Create a bar chart comparing issue counts per tool."""
-    try:
-        import matplotlib.pyplot as plt
-    except ModuleNotFoundError:
-        print("matplotlib is not installed; skipping tool comparison plot.")
-        return
-
     labels = [c["url"] for c in counts]
     pa11y = [c["pa11y"] for c in counts]
     axe = [c["axe"] for c in counts]
     lighthouse = [c["lighthouse"] for c in counts]
     all_tools = [c["all"] for c in counts]
-
     colors = plt.get_cmap("tab10").colors
 
     x = range(len(labels))
@@ -108,7 +102,7 @@ def plot_common_errors(counter: Counter, output: Path = Path("common_errors.png"
     print(f"Common errors plot saved to {output}")
 
 
-def main():
+def visualisation():
     entries = load_bewertung()
     counts = count_issues(entries)
     counter = count_common_errors(entries)
