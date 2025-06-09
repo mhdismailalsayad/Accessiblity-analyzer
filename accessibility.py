@@ -467,7 +467,10 @@ def delete_old_results():
     temp_files = [
         "axe_result.json",
         "lighthouse_results.json",
-        "pa11y_result.json"
+        "pa11y_result.json",
+        "Bewertung.json",
+        "gefundene_urls.txt",
+        "lh_tmp.json"
     ]
 
     for file in temp_files:
