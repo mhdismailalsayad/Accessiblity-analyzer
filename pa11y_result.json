@@ -8,7 +8,7 @@
         "typeCode": 1,
         "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
         "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>",
-        "selector": "#684629b4a4336 > div",
+        "selector": "#6846d04269f41 > div",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
@@ -17,8 +17,8 @@
         "type": "error",
         "typeCode": 1,
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_684629b4a4336\"...</form>",
-        "selector": "#684629b4a4336 > form",
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6846d04269f41\"...</form>",
+        "selector": "#6846d04269f41 > form",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
@@ -55,7 +55,7 @@
     ]
   },
   {
-    "url": "https://moodle.uni-due.de/course/index.php?categoryid=3012",
+    "url": "https://moodle.uni-due.de/course/index.php?categoryid=3616",
     "results": [
       {
         "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name",
@@ -63,7 +63,7 @@
         "typeCode": 1,
         "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
         "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>",
-        "selector": "#684629cc8e2c5 > div",
+        "selector": "#6846d056533d9 > div",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
@@ -72,8 +72,8 @@
         "type": "error",
         "typeCode": 1,
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_684629cc8e2c5\"...</form>",
-        "selector": "#684629cc8e2c5 > form",
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6846d056533d9\"...</form>",
+        "selector": "#6846d056533d9 > form",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
@@ -110,7 +110,7 @@
     ]
   },
   {
-    "url": "https://moodle.uni-due.de/course/index.php?categoryid=1972",
+    "url": "https://moodle.uni-due.de/course/index.php?categoryid=3516",
     "results": [
       {
         "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name",
@@ -118,7 +118,7 @@
         "typeCode": 1,
         "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
         "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>",
-        "selector": "#684629e946b34 > div",
+        "selector": "#6846d07539b90 > div",
         "runner": "htmlcs",
         "runnerExtras": {}
       },
@@ -127,8 +127,8 @@
         "type": "error",
         "typeCode": 1,
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_684629e946b34\"...</form>",
-        "selector": "#684629e946b34 > form",
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6846d07539b90\"...</form>",
+        "selector": "#6846d07539b90 > form",
         "runner": "htmlcs",
         "runnerExtras": {}
       },

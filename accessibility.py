@@ -1,3 +1,4 @@
+import tempfile
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
@@ -128,28 +129,36 @@ def run_axe(url, filename="axe_result.json"):
 
 
 def run_lighthouse(url, filename="lighthouse_results.json"):
+    """Run Lighthouse for ``url`` and append the JSON result to ``filename``."""
     print(f"Lighthouse: {url}")
-    result = subprocess.run([
-        NPX, "lighthouse", url,
-        "--only-categories=accessibility",
-        "--output=json",
-        "--chrome-flags=--headless",
-        "--output-path=./lh_tmp.json"
-    ], capture_output=True, text=True)
+
+    # Use a temporary file for the Lighthouse output to avoid permission issues
+    # on some platforms (e.g. Windows). The file is removed afterwards.
+    fd, tmp_path = tempfile.mkstemp(suffix=".json")
+    os.close(fd)
+
+    result = subprocess.run(
+        [
+            NPX,
+            "lighthouse",
+            url,
+            "--only-categories=accessibility",
+            "--output=json",
+            "--chrome-flags=--headless",
+            f"--output-path={tmp_path}",
+        ],
+        capture_output=True,
+        text=True,
+    )
 
     if result.returncode != 0:
         print("Fehler bei Lighthouse:", result.stderr)
-        return
 
     try:
-        with open("lh_tmp.json", "r", encoding="utf-8") as tmp_file:
+        with open(tmp_path, "r", encoding="utf-8") as tmp_file:
             data = json.load(tmp_file)
-
-        entry = {
-            "url": url,
-            "lighthouse_result": data
-        }
-
+        entry = {"url": url, "lighthouse_result": data}
+        
         try:
             with open(filename, "r", encoding="utf-8") as f:
                 all_data = json.load(f)
@@ -160,11 +169,14 @@ def run_lighthouse(url, filename="lighthouse_results.json"):
 
         with open(filename, "w", encoding="utf-8") as out_file:
             json.dump(all_data, out_file, indent=2, ensure_ascii=False)
+    except Exception as exc:
+        print(f"Fehler beim Lesen/Speichern von Lighthouse-Ergebnissen: {exc}")
+    finally:
+        try:
+            os.remove(tmp_path)
+        except OSError:
+            pass
 
-        os.remove("lh_tmp.json")
-
-    except Exception as e:
-        print(f"Fehler beim Lesen/Speichern von Lighthouse-Ergebnissen: {e}")
 
 def accessibility_checks(urls):
     for url in urls:
@@ -299,7 +311,7 @@ def combine_errors(
         print(f"Kombinierte Fehler in '{output}' gespeichert.")
     except Exception as exc:
         print(f"Fehler beim Speichern der kombinierten Fehler: {exc}")
-        
+
 def convert_pa11y_to_custom_format():
     input_file = "pa11y_result.json"
     output_file = "end_ergebnis.json"
