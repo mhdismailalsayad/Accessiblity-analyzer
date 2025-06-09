@@ -312,37 +312,6 @@ def combine_errors(
     except Exception as exc:
         print(f"Fehler beim Speichern der kombinierten Fehler: {exc}")
 
-def convert_pa11y_to_custom_format():
-    input_file = "pa11y_result.json"
-    output_file = "end_ergebnis.json"
-
-    try:
-        with open(input_file, "r", encoding="utf-8") as f:
-            data = json.load(f)
-
-        # Wir erwarten eine Liste von Einträgen, jeder mit "url" und "results"
-        output_list = []
-
-        for entry in data:
-            url_obj = {"url": entry.get("url", "")}
-            output_list.append(url_obj)
-
-            for result in entry.get("results", []):
-                filtered_result = {
-                    "message": result.get("message", ""),
-                    "context": result.get("context", "")
-                }
-                output_list.append(filtered_result)
-
-        with open(output_file, "w", encoding="utf-8") as out:
-            json.dump(output_list, out, indent=2, ensure_ascii=False)
-
-        print(f"Ergebnis gespeichert in '{output_file}'.")
-
-    except Exception as e:
-        print(f"Fehler beim Verarbeiten der Datei: {e}")
-
-
 def _load_json(path):
     """Lädt eine JSON-Datei oder gibt eine leere Liste zurück."""
     try:
@@ -489,5 +458,4 @@ if __name__ == "__main__":
             seiten = [user_url] + finde_interne_links(user_url)
             print(f"\n Starte Accessibility-Checks für {len(seiten)} Seiten...")
             accessibility_checks(seiten[:3])
-            convert_pa11y_to_custom_format()
             combine_errors()
