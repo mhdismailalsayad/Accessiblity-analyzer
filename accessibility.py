@@ -56,7 +56,7 @@ def finde_interne_links(start_url):
 
 def run_pa11y(url, filename="pa11y_result.json"):
     print(f" Pa11y: {url}")
-    result = subprocess.run([NPX, "pa11y", "--reporter", "json", url], capture_output=True, text=True)
+    result = subprocess.run([NPX, "pa11y", "--reporter", "json", "--include-warnings", url], capture_output=True, text=True)
 
     try:
         results_json = json.loads(result.stdout)
