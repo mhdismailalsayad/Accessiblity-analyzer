@@ -8,7 +8,7 @@
       },
       {
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_68472c47acb47\"...</form>"
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_684759c5971f3\"...</form>"
       },
       {
         "message": "This fieldset element does not have a name available to an accessibility API. Valid names are: legend element, aria-label undefined, aria-labelledby undefined.",
@@ -60,15 +60,15 @@
       },
       {
         "message": "All page content should be contained by landmarks",
-        "context": "<a href=\"#sb-1\" class=\"sr-only sr-only-focusable\">Skip Moodle Update</a>"
+        "context": "<a href=\"#sb-1\" class=\"sr-only sr-only-focusable\">Moodle Update überspringen</a>"
       },
       {
         "message": "All page content should be contained by landmarks",
-        "context": "<a href=\"#sb-2\" class=\"sr-only sr-only-focusable\">Skip Wichtige Hinweise</a>"
+        "context": "<a href=\"#sb-2\" class=\"sr-only sr-only-focusable\">Wichtige Hinweise überspringen</a>"
       },
       {
         "message": "All page content should be contained by landmarks",
-        "context": "<a href=\"#sb-3\" class=\"sr-only sr-only-focusable\">Skip Neu an der UDE?</a>"
+        "context": "<a href=\"#sb-3\" class=\"sr-only sr-only-focusable\">Neu an der UDE? überspringen</a>"
       },
       {
         "message": "Fix all of the following:\n  Focusable content should have tabindex=\"-1\" or be removed from the DOM",
@@ -142,7 +142,7 @@
       },
       {
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_68472c47acb47\"...</form>"
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_684759c5971f3\"...</form>"
       },
       {
         "message": "This fieldset element does not have a name available to an accessibility API. Valid names are: legend element, aria-label undefined, aria-labelledby undefined.",
@@ -196,15 +196,15 @@
       },
       {
         "message": "All page content should be contained by landmarks",
-        "context": "<a href=\"#sb-1\" class=\"sr-only sr-only-focusable\">Skip Moodle Update</a>"
+        "context": "<a href=\"#sb-1\" class=\"sr-only sr-only-focusable\">Moodle Update überspringen</a>"
       },
       {
         "message": "All page content should be contained by landmarks",
-        "context": "<a href=\"#sb-2\" class=\"sr-only sr-only-focusable\">Skip Wichtige Hinweise</a>"
+        "context": "<a href=\"#sb-2\" class=\"sr-only sr-only-focusable\">Wichtige Hinweise überspringen</a>"
       },
       {
         "message": "All page content should be contained by landmarks",
-        "context": "<a href=\"#sb-3\" class=\"sr-only sr-only-focusable\">Skip Neu an der UDE?</a>"
+        "context": "<a href=\"#sb-3\" class=\"sr-only sr-only-focusable\">Neu an der UDE? überspringen</a>"
       }
     ],
     "lighthouse": [
@@ -275,7 +275,7 @@
     ]
   },
   {
-    "URL": "https://moodle.uni-due.de/course/index.php?categoryid=1393",
+    "URL": "https://moodle.uni-due.de/course/index.php?categoryid=820",
     "All tools": [
       {
         "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
@@ -283,7 +283,7 @@
       },
       {
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_68472c6d2ad89\"...</form>"
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_684759db4e245\"...</form>"
       },
       {
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
@@ -307,7 +307,7 @@
       },
       {
         "message": "Heading levels should only increase by one",
-        "context": "<h3 id=\"yui_3_17_2_1_1461966109334_10633\">Universitärer Fernstudiengang Executive Master - Automotive Engineering &amp; Management</h3>"
+        "context": "<h3 class=\"categoryname\"><a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2297\">Ärztliche Weiterbildung</a></h3>"
       },
       {
         "message": "Links must have discernible text",
@@ -323,35 +323,35 @@
       },
       {
         "message": "Fix any of the following:\n  Heading order invalid",
-        "context": "<h3 id=\"yui_3_17_2_1_1461966109334_10633\">"
+        "context": "<h3 class=\"categoryname\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (70.1px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=da\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=da\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (83.6px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.6px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=de\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=de\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (76.5px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.6px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=en\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=en\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (76.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 22.8px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=fr\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=fr\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (63.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=pl\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=pl\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (67.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=tr\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=tr\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (81.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=ru\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=ru\">"
       }
     ],
     "pa11y": [
@@ -361,7 +361,7 @@
       },
       {
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_68472c6d2ad89\"...</form>"
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_684759db4e245\"...</form>"
       },
       {
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
@@ -387,7 +387,7 @@
       },
       {
         "message": "Heading levels should only increase by one",
-        "context": "<h3 id=\"yui_3_17_2_1_1461966109334_10633\">Universitärer Fernstudiengang Executive Master - Automotive Engineering &amp; Management</h3>"
+        "context": "<h3 class=\"categoryname\"><a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2297\">Ärztliche Weiterbildung</a></h3>"
       },
       {
         "message": "Links must have discernible text",
@@ -405,35 +405,35 @@
       },
       {
         "message": "Fix any of the following:\n  Heading order invalid",
-        "context": "<h3 id=\"yui_3_17_2_1_1461966109334_10633\">"
+        "context": "<h3 class=\"categoryname\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (70.1px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=da\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=da\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (83.6px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.6px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=de\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=de\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (76.5px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.6px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=en\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=en\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (76.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 22.8px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=fr\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=fr\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (63.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=pl\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=pl\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (67.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=tr\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=tr\">"
       },
       {
         "message": "Fix any of the following:\n  Target has insufficient size (81.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393&amp;lang=ru\">"
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820&amp;lang=ru\">"
       }
     ]
   }
