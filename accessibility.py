@@ -174,8 +174,132 @@ def accessibility_checks(urls):
         run_lighthouse(url)
 
 
+def _extract_pa11y_errors(data):
+    """Return a list of dicts with message and context from Pa11y results."""
+    errors = []
+    for entry in data:
+        for res in entry.get("results", []):
+            if res.get("type") == "error":
+                errors.append({
+                    "message": res.get("message", ""),
+                    "context": res.get("context", ""),
+                })
+    return errors
 
 
+def _extract_axe_errors(data):
+    """Return a list of dicts with message and context from Axe results."""
+    errors = []
+    for entry in data:
+        axe_result = entry.get("axe_result", {})
+        results = axe_result if isinstance(axe_result, list) else [axe_result]
+        for result in results:
+            for viol in result.get("violations", []):
+                msg = viol.get("help", viol.get("description", ""))
+                for node in viol.get("nodes", []):
+                    errors.append({
+                        "message": msg,
+                        "context": node.get("html", ""),
+                    })
+    return errors
+
+
+def _extract_lighthouse_errors(data):
+    """Return a list of dicts with message and context from Lighthouse results."""
+    errors = []
+    for entry in data:
+        lh = entry.get("lighthouse_result", entry)
+        audits = lh.get("audits", {})
+        for audit in audits.values():
+            score = audit.get("score")
+            if score is not None and score < 1:
+                title = audit.get("title", "")
+                details = audit.get("details", {})
+                items = details.get("items", [])
+                if items:
+                    for it in items:
+                        node = it.get("node", {})
+                        context = node.get("snippet", "")
+                        msg = node.get("explanation", title)
+                        errors.append({"message": msg, "context": context})
+                else:
+                    errors.append({"message": title, "context": ""})
+    return errors
+
+
+def combine_errors(
+    pa11y_file="pa11y_result.json",
+    axe_file="axe_result.json",
+    lighthouse_file="lighthouse_results.json",
+    output="bewertung.json",
+):
+    """Combine errors from all tools and write them to ``output``.
+
+    The resulting JSON is a list of objects, each containing the URL and a
+    message/context list for every tool. A unified list ``All tools`` merges and
+    deduplicates messages across Pa11y, Axe and Lighthouse.
+    """
+
+    pa11y_data = _load_json(pa11y_file)
+    axe_data = _load_json(axe_file)
+    lighthouse_data = _load_json(lighthouse_file)
+
+    grouped = {}
+
+    # Collect Pa11y errors
+    for entry in pa11y_data:
+        url = entry.get("url")
+        if not url:
+            continue
+        grouped.setdefault(url, {"pa11y": [], "axe": [], "lighthouse": []})
+        grouped[url]["pa11y"].extend(_extract_pa11y_errors([entry]))
+
+    # Collect Axe errors
+    for entry in axe_data:
+        url = entry.get("url")
+        if not url:
+            continue
+        grouped.setdefault(url, {"pa11y": [], "axe": [], "lighthouse": []})
+        grouped[url]["axe"].extend(_extract_axe_errors([entry]))
+
+    # Collect Lighthouse errors
+    for entry in lighthouse_data:
+        url = entry.get("url")
+        if not url:
+            lh = entry.get("lighthouse_result", {})
+            url = lh.get("finalUrl") or lh.get("requestedUrl")
+        if not url:
+            continue
+        grouped.setdefault(url, {"pa11y": [], "axe": [], "lighthouse": []})
+        grouped[url]["lighthouse"].extend(_extract_lighthouse_errors([entry]))
+
+    # Build final list in requested format
+    result_list = []
+    for url, data in grouped.items():
+        seen = set()
+        all_tools = []
+        for tool_name in ("pa11y", "axe", "lighthouse"):
+            for err in data[tool_name]:
+                key = (err.get("message", ""), err.get("context", ""))
+                if key not in seen:
+                    seen.add(key)
+                    all_tools.append(err)
+
+        result_list.append({
+            "URL": url,
+            "All tools": all_tools,
+            "pa11y": data["pa11y"],
+            "axe": data["axe"],
+            "lighthouse": data["lighthouse"],
+        })
+
+    try:
+        with open(output, "w", encoding="utf-8") as f:
+            json.dump(result_list, f, indent=2, ensure_ascii=False)
+        print(f"Kombinierte Fehler in '{output}' gespeichert.")
+    except Exception as exc:
+        print(f"Fehler beim Speichern der kombinierten Fehler: {exc}")
+        
 def convert_pa11y_to_custom_format():
     input_file = "pa11y_result.json"
     output_file = "end_ergebnis.json"
@@ -298,29 +422,6 @@ def _extract_messages(combined):
         }
     return results
 
-def _extract_messages(combined):
-    """Gibt alle Meldungen pro URL gruppiert nach Tool zurück."""
-    results = {}
-    for url, data in combined.items():
-        pa11y_msgs = [msg for msg, _ in data.get("pa11y", [])]
-        axe_msgs = [msg for msg, _ in data.get("axe", [])]
-        lighthouse_msgs = data.get("lighthouse", [])
-
-        all_msgs = []
-        seen = set()
-        for m in pa11y_msgs + axe_msgs + lighthouse_msgs:
-            if m not in seen:
-                seen.add(m)
-                all_msgs.append(m)
-
-        results[url] = {
-            "all_tools": all_msgs,
-            "pa11y": pa11y_msgs,
-            "axe": axe_msgs,
-            "lighthouse": lighthouse_msgs,
-        }
-    return results
-
 
 def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_results.json", axe_file="axe_result.json", output="bewertung.json"):
     """Erstellt eine Bewertung pro Seite und speichert sie als JSON."""
@@ -372,6 +473,6 @@ if __name__ == "__main__":
         else:
             seiten = [user_url] + finde_interne_links(user_url)
             print(f"\n Starte Accessibility-Checks für {len(seiten)} Seiten...")
-            accessibility_checks(seiten[:1])
+            accessibility_checks(seiten[:3])
             convert_pa11y_to_custom_format()
-            create_rating()
+            combine_errors()
