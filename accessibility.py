@@ -239,6 +239,24 @@ def _extract_lighthouse_errors(data):
                     errors.append({"message": title, "context": ""})
     return errors
 
+def _canonicalize_message(msg: str) -> str:
+    """Return a simplified representation for comparison across tools."""
+    msg_l = msg.lower()
+    if "alt attribute" in msg_l or "alternative text" in msg_l:
+        return "images must have alternative text"
+    if "landmark" in msg_l:
+        return "all page content should be contained by landmarks"
+    if "lang attribute" in msg_l:
+        return "document must have a language attribute"
+    if "no link content" in msg_l or "discernible text" in msg_l:
+        return "links must have discernible text"
+    if "form" in msg_l and "label" in msg_l:
+        return "form elements must have labels"
+    if "accessible name" in msg_l:
+        return "element requires an accessible name"
+    return msg_l.strip()
+
+
 
 def combine_errors(
     pa11y_file="pa11y_result.json",
@@ -293,10 +311,12 @@ def combine_errors(
         all_tools = []
         for tool_name in ("pa11y", "axe", "lighthouse"):
             for err in data[tool_name]:
-                key = (err.get("message", ""), err.get("context", ""))
+                msg = err.get("message", "")
+                ctx = err.get("context", "")
+                key = (_canonicalize_message(msg), ctx)
                 if key not in seen:
                     seen.add(key)
-                    all_tools.append(err)
+                    all_tools.append({"message": key[0], "context": ctx})
 
         result_list.append({
             "URL": url,
@@ -553,9 +573,9 @@ def _plot_common_errors(counter: Counter, output: Path = Path("common_errors.png
 
 
 def visualisation():
-    entries = load_bewertung()
-    counts = count_issues(entries)
-    counter = count_common_errors(entries)
+    entries = _load_bewertung()
+    counts = _count_issues(entries)
+    counter = _count_common_errors(entries)
 
     print("Issues per tool and page:")
     for c in counts:
@@ -565,9 +585,9 @@ def visualisation():
     for msg, num in counter.most_common(5):
         print(f"{num}x {msg}")
 
-    plot_tool_comparison(counts)
-    plot_common_errors(counter)
-    write_summary_text(counts, counter)
+    _plot_tool_comparison(counts)
+    _plot_common_errors(counter)
+    _write_summary_text(counts, counter)
 
 
 

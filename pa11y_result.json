@@ -1,0 +1,2737 @@
+[
+  {
+    "url": "https://moodle.uni-due.de/",
+    "results": [
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.",
+        "context": "<a class=\"sr-only sr-only-focusable\" href=\"#maincontent\">Zum Hauptinhalt</a>",
+        "selector": "#page-wrapper > div:nth-child(1) > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_10.C32,C31,C33,C38,SCR34,G206",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element has \"position: fixed\". This may require scrolling in two dimensions, which is considered a failure of this Success Criterion.",
+        "context": "<nav class=\"fixed-top navbar navbar-light bg-white navbar-expand moodle-has-zindex\" aria-label=\"Site-Navigation\">\n    \n            <div data-reg...</nav>",
+        "selector": "#page-wrapper > nav",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.",
+        "context": "<span class=\"sr-only\">Website-Ãœbersicht</span>",
+        "selector": "#page-wrapper > nav > div > button > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Alpha",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 3:1.",
+        "context": "<span class=\"site-name d-none d-md-inline\">Moodle UDE</span>",
+        "selector": "#page-wrapper > nav > a > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.",
+        "context": "<a class=\"dropdown-toggle nav-link\" id=\"drop-down-6848c942576db6848c9425669d4\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" href=\"#\" aria-controls=\"drop-down-menu-6848c942576db6848c9425669d4\">\n        Deutsch â€Ž(de)â€Ž\n    </a>",
+        "selector": "#drop-down-6848c942576db6848c9425669d4",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name",
+        "type": "error",
+        "typeCode": 1,
+        "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
+        "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>",
+        "selector": "#6848c94257753 > div",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H42",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "Heading markup should be used if this content is intended as a heading.",
+        "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>",
+        "selector": "#6848c94257753 > div",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2",
+        "type": "error",
+        "typeCode": 1,
+        "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6848c94257753\"...</form>",
+        "selector": "#6848c94257753 > form",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.",
+        "context": "<label for=\"id_q_6848c94257753\" class=\"accesshide\">Suchanfrage eintragen</label>",
+        "selector": "#6848c94257753 > form > label",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a class=\"collapseexpand collapse-all\" href=\"#\">Alles einklappen</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(1) > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3868\">Wintersemester 2024/2025</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3869\">Geisteswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (29)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3892\">Gesellschaftswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (7)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3901\">Bildungswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (35)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3915\">Wirtschaftswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (43)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3922\">Betriebswirtschaftslehre / Merc...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3948\">Mathematik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (75)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3951\">Physik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (2)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3964\">Chemie</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (11)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3977\">Informatik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (3)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3985\">Ingenieurwissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (36)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3687\">Sommersemester 2024</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3764\">Geisteswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (29)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3765\">Gesellschaftswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (1)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3766\">Bildungswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (40)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3767\">Wirtschaftswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (22)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3688\">Betriebswirtschaftslehre / Merc...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3734\">Mathematik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (69)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3737\">Physik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3751\">Chemie</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (57)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3824\">Informatik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3830\">Ingenieurwissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (27)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3492\">Wintersemester 2023/2024</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3493\">Geisteswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (29)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3516\">Gesellschaftswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (7)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3525\">Bildungswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (31)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3539\">Wirtschaftswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (34)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3552\">Betriebswirtschaftslehre / Merc...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3599\">Mathematik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (70)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3602\">Physik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (5)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3616\">Chemie</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (6)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3629\">Ingenieurwissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (23)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3672\">Informatik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (2)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3668\">Profilschwerpunkt Urbane System...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3331\">Sommersemester 2023</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3332\">Geisteswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (26)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3351\">Gesellschaftswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (6)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360\">Bildungswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (36)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3373\">Wirtschaftswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (25)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3390\">Betriebswirtschaftslehre / Merc...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3418\">Mathematik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (53)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3421\">Physik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3435\">Chemie</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (12)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3448\">Ingenieurwissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (18)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3484\">Profilschwerpunkt Urbane System...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1228\">Biologie</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (11)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1229\">Allgemeine Zoologie (Begall/Sch...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (20)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1230\">Botanischer Garten (Wittmann)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (12)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1227\">Aquatische Ã–kologie (AG Sures/H...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (33)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1232\">Aquatische Ã–kosystemforschung (...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (12)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1233\">BiodiversitÃ¤t (AG Boenigk)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (21)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1234\">Bioinformatik (AG Hoffmann)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (15)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1235\">Chemische Biologie (AG Kaiser)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (15)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1236\">Didaktik der Biologie (AGs Sand...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (179)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1226\">Entwicklungsbiologie (AG Vortka...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (26)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2294\">Eukaryotische Mikrobiologie (AG...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1253\">Experimentelle Immunologie und ...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1222\">Mikrobiologie (AG Ehrmann)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (23)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1231\">Molekularbiologie I (AG Meyer)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (10)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1238\">Molekularbiologie II (AG Knauer...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(14) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(14) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1240\">Molekulare Genetik I (AG Wester...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (12)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1241\">Molekulare Genetik II (AG Boos)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(16) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(16) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1242\">Molekulare Zellbiologie (AG Nal...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(17) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(17) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2293\">Phykologie (AG Beszteri)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (14)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1243\">Strukturelle und Medizinische B...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (10)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1244\">Bionanotechnologie (AG Sacca)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(20) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (7)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(20) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=345\">Medizin</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=348\">Vorklinische FÃ¤cher</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=349\">Klinische FÃ¤cher</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=350\">Praktisches Jahr</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (6)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3669\">Longitudinale Curricula</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (3)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=385\">Mentoring</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (1)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3490\">Skillslab</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1982\">Angebot fÃ¼r Promovierende</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1969\">Lehrpraxen</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (1)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3685\">Pflegewissenschaft</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=820\">Weiterbildung</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1217\">Online-Master AEM-e</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (5)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1390\">Module BWL</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1392\">Module Technik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1402\">Zusatzmodul</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (2)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1393\">Vormodule (Auflagenkurse)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=638\">Online-Master EIT</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (67)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1378\">Virtuelle Lerngruppen</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(2) > div > div > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (5)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(2) > div > div > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1403\">Online Master GESCR</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (1)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=759\">Praxissemester Master of Educat...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (1)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=760\">FakultÃ¤ten/Einrichtungen</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=802\">Praxissemester E-Support-Statio...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (1)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1219\">Kommunikations- und Kooperation...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (25)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=319\">FachverbÃ¼nde fÃ¼r das Praxisseme...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (16)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=477\">Moodle-Kompetenzzentrum</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (5)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=479\">Schulungsmaterial</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (12)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3486\">Archiv Schulungsmaterial</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (31)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=957\">Testbereich</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (112)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=116\">Zentrale Einrichtungen</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=117\">Akademisches Beratungs-Zentrum ...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (56)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3170\">Science Support Centre (SSC)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (5)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=181\">Zentrum fÃ¼r Informations- und M...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (47)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=320\">Zentrum fÃ¼r HochschulqualitÃ¤tse...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (15)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=180\">UniversitÃ¤tsbibliothek (UB)</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (87)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=51\">Zentrale wissenschaftliche Einr...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (13)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=138\">Zentrum fÃ¼r LehrkrÃ¤ftebildung</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (89)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=52\">Institut fÃ¼r wissenschaftliche ...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (106)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1966\">Essener Kolleg fÃ¼r Geschlechter...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=63\">CCSS - Center for Computational...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (1)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=523\">Mittelbau</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (3)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2102\">InterdisziplinÃ¤res Zentrum fÃ¼r ...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (10)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(13) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2468\">Studierendenschaft</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(14) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (66)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(14) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1\">Verschiedenes</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (261)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=74\">Studentenwerk</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (1)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2453\">Akademisches Auslandsamt</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (25)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=97\">Personalentwicklung</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (58)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=90\">Ganz In</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (9)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=59\">Ruhr Campus Academy (RCA) - Wis...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (25)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=480\">Nikolaus-GroÃŸ-Abendgymnasium</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3171\">ProViel</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (3)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1218\">Arbeitssicherheit</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (6)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=504\">Projekt PRASEDEC</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (4)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(15) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1684\">Open UDE</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(16) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (89)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(16) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3681\">Stabsstelle Arbeitssicherheit</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(17) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (7)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(17) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1971\">UDE-Mentoring-System</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (2)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(1) > h3 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1972\">Geisteswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1973\">Gesellschaftswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1974\">Bildungswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (2)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1975\">Wirtschaftswissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (2)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3864\">Informatik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (1)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1976\">Betriebswirtschaftslehre / Merc...</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1977\">Mathematik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (2)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1978\">Physik</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (12)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1979\">Chemie</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(9) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=1980\">Ingenieurwissenschaften</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (3)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(10) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2301\">Biologie</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(11) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2302\">Medizin</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (1)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(18) > div:nth-child(2) > div > div:nth-child(12) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=462\">Archiv</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(1) > h3 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3174\">Wintersemester 2022/2023</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3012\">Sommersemester 2022</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2849\">Wintersemester 2021/2022</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<span title=\"Anzahl der Kurse\" class=\"numberofcourse\"> (2)</span>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > h4 > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2635\">Sommersemester 2021</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2469\">Wintersemester 2020/2021</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(2) > div > div:nth-child(5) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2307\">Sommersemester 2020</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(2) > div > div:nth-child(6) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2150\">Wintersemester 2019/2020</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(2) > div > div:nth-child(7) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=2002\">Sommersemester 2019</a>",
+        "selector": "#frontpage-category-names > div > div:nth-child(2) > div > div:nth-child(19) > div:nth-child(2) > div > div:nth-child(8) > div:nth-child(1) > h4 > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Fieldset.Name",
+        "type": "error",
+        "typeCode": 1,
+        "message": "This fieldset element does not have a name available to an accessibility API. Valid names are: legend element, aria-label undefined, aria-labelledby undefined.",
+        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"shortsearc...</fieldset>",
+        "selector": "#coursesearch > fieldset",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H71.NoLegend",
+        "type": "error",
+        "typeCode": 1,
+        "message": "Fieldset does not contain a legend element. All fieldsets should contain a legend element that describes a description of the field group.",
+        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"shortsearc...</fieldset>",
+        "selector": "#coursesearch > fieldset",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.",
+        "context": "<a href=\"#sb-1\" class=\"sr-only sr-only-focusable\">Moodle Update Ã¼berspringen</a>",
+        "selector": "#block-region-side-pre > a:nth-child(1)",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.",
+        "context": "<a href=\"#sb-2\" class=\"sr-only sr-only-focusable\">Wichtige Hinweise Ã¼berspringen</a>",
+        "selector": "#block-region-side-pre > a:nth-child(4)",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H42",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "Heading markup should be used if this content is intended as a heading.",
+        "context": "<div><b style=\"font-size: 0.9375rem;...</div>",
+        "selector": "#inst946247 > div > div > div:nth-child(1) > div:nth-child(1)",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.",
+        "context": "<a href=\"#sb-3\" class=\"sr-only sr-only-focusable\">Neu an der UDE? Ã¼berspringen</a>",
+        "selector": "#block-region-side-pre > a:nth-child(7)",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3_F24.F24.FGColour",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "Check that this element has an inherited background colour or image to complement the corresponding inline foreground colour.",
+        "context": "<span style=\"color: #cf1d1d;\"> vor deinem Login</span>",
+        "selector": "#inst43302 > div > div > div:nth-child(1) > p:nth-child(2) > span:nth-child(1)",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3_F24.F24.FGColour",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "Check that this element has an inherited background colour or image to complement the corresponding inline foreground colour.",
+        "context": "<span style=\"color: #cf1d1d;\"><a target=\"_blank\" href=\"https:...</span>",
+        "selector": "#inst43302 > div > div > div:nth-child(1) > p:nth-child(2) > strong > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+        "type": "error",
+        "typeCode": 1,
+        "message": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+        "context": "<a target=\"_blank\" href=\"https://wiki.uni-due.de/moodle/images/d/db/Moodle_Einstieg.pdf\"><span style=\"color: #004c93;\"> ...</a>",
+        "selector": "#inst43302 > div > div > div:nth-child(1) > p:nth-child(2) > strong > span > a",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3_F24.F24.FGColour",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "Check that this element has an inherited background colour or image to complement the corresponding inline foreground colour.",
+        "context": "<span style=\"color: #004c93;\"> </span>",
+        "selector": "#inst43302 > div > div > div:nth-child(1) > p:nth-child(2) > strong > span > a > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3_F24.F24.FGColour",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "Check that this element has an inherited background colour or image to complement the corresponding inline foreground colour.",
+        "context": "<span style=\"color: #cf1d1d;\"><a target=\"_blank\" href=\"https:...</span>",
+        "selector": "#inst43302 > div > div > div:nth-child(1) > p:nth-child(2) > span:nth-child(3)",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3_F24.F24.FGColour",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "Check that this element has an inherited background colour or image to complement the corresponding inline foreground colour.",
+        "context": "<span style=\"color: #004c93;\">Infos fÃ¼r Studierende</span>",
+        "selector": "#inst43302 > div > div > div:nth-child(1) > p:nth-child(2) > span:nth-child(3) > a > span",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "If this element contains a navigation section, it is recommended that it be marked up as a list.",
+        "context": "<div style=\"width:70%; height:100%; float:left;\">\n    \t<br>Moodle an der UDE ist...</div>",
+        "selector": "#page-footer > div > div:nth-child(6) > div:nth-child(1)",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      }
+    ]
+  }
+]
