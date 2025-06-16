@@ -11,15 +11,15 @@ from collections import Counter
 import matplotlib.pyplot as plt
 
 
-# Pfad zu "npx" plattformunabhängig bestimmen. Unter Windows wird "npx.cmd"
-# verwendet, auf anderen Systemen reicht "npx".
+""" Pfad zu "npx" plattformunabhängig bestimmen. Unter Windows wird "npx.cmd"
+ verwendet, auf anderen Systemen reicht "npx"."""
 if os.name == "nt":
     NPX = "npx.cmd"
 else:
     NPX = "npx"
 
 def _check_node_version(min_major=20):
-    """Return True if the installed Node.js version meets the requirement."""
+    """Gibt True zurück, wenn die installierte Node.js-Version die Mindestanforderung erfüllt."""
     try:
         result = subprocess.run(["node", "-v"], capture_output=True, text=True)
         if result.returncode != 0:
@@ -39,11 +39,13 @@ def _check_node_version(min_major=20):
     return True
 
 def ist_internal_link(base_url, link):
+    """Prüft, ob link zur selben Domain gehört wie base_url."""
     base_domain = urlparse(base_url).netloc
     target_domain = urlparse(link).netloc
     return (target_domain == "" or target_domain == base_domain)
 
 def finde_interne_links(start_url):
+    """Findet alle internen Links auf der Startseite und gibt sie als Liste zurück."""
     visited = set()
     try:
         response = requests.get(start_url)
@@ -58,8 +60,8 @@ def finde_interne_links(start_url):
         return []
     return list(visited)
 
-
 def run_pa11y(url, filename="pa11y_result.json"):
+    """Führt Pa11y aus und speichert das Ergebnis in einer JSON-Datei."""
     print(f" Pa11y: {url}")
     result = subprocess.run([NPX, "pa11y", "--reporter", "json", "--include-warnings", url], capture_output=True, text=True)
 
@@ -85,9 +87,8 @@ def run_pa11y(url, filename="pa11y_result.json"):
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-
 def run_axe(url, filename="axe_result.json"):
-    """Führt axe-core aus und speichert das Ergebnis als JSON."""
+    """Führt axe-core aus und speichert das Ergebnis als JSON-Datei."""
     print(f"axe-core: {url}")
     result = subprocess.run(
         [NPX, "@axe-core/cli", url, "--save", "axe_tmp.json"],
@@ -123,18 +124,9 @@ def run_axe(url, filename="axe_result.json"):
         json.dump(all_data, f, indent=2, ensure_ascii=False)
     print(" axe-core-Ergebnisse gespeichert.")
 
-
-
-
-
-
-
 def run_lighthouse(url, filename="lighthouse_results.json"):
-    """Run Lighthouse for ``url`` and append the JSON result to ``filename``."""
+    """Führt Lighthouse für die angegebene URL aus und hängt das JSON-Ergebnis an die angegebene Datei an."""
     print(f"Lighthouse: {url}")
-
-    # Use a temporary file for the Lighthouse output to avoid permission issues
-    # on some platforms (e.g. Windows). The file is removed afterwards.
     fd, tmp_path = tempfile.mkstemp(suffix=".json")
     os.close(fd)
 
@@ -178,17 +170,18 @@ def run_lighthouse(url, filename="lighthouse_results.json"):
         except OSError:
             pass
 
-
 def accessibility_checks(urls):
+    """Führt alle Tests für jede URL in urls aus."""
+    """Die Ergebnisse werden in den Dateien pa11y_result.json, axe_result.json und lighthouse_results.json gespeichert."""
     for url in urls:
         print(f"\n=== Teste Seite: {url} ===")
         run_pa11y(url)
         run_axe(url)
         run_lighthouse(url)
 
-
 def _extract_pa11y_errors(data):
-    """Return a list of dicts with message and context from Pa11y results."""
+    """Gibt eine Liste mit Fehlern aus den Pa11y-Ergebnissen zurück,"""
+    """jeweils bestehend aus einer Nachricht (message) und dem Kontext (context)."""    
     errors = []
     for entry in data:
         for res in entry.get("results", []):
@@ -199,9 +192,8 @@ def _extract_pa11y_errors(data):
                 })
     return errors
 
-
 def _extract_axe_errors(data):
-    """Return a list of dicts with message and context from Axe results."""
+    """Gibt eine Liste mit Fehlernachrichten und HTML-Kontext aus den Axe-Ergebnissen zurück."""
     errors = []
     for entry in data:
         axe_result = entry.get("axe_result", {})
@@ -216,9 +208,9 @@ def _extract_axe_errors(data):
                     })
     return errors
 
-
 def _extract_lighthouse_errors(data):
-    """Return a list of dicts with message and context from Lighthouse results."""
+    """Gibt eine Liste von Fehlern aus den Lighthouse-Ergebnissen zurück,""" 
+    """jeweils mit Nachricht (message) und HTML-Kontext (Context)."""
     errors = []
     for entry in data:
         lh = entry.get("lighthouse_result", entry)
@@ -258,26 +250,17 @@ def _canonicalize_message(msg: str) -> str:
 
 
 
-def combine_errors(
-    pa11y_file="pa11y_result.json",
-    axe_file="axe_result.json",
-    lighthouse_file="lighthouse_results.json",
-    output="bewertung.json",
-):
-    """Combine errors from all tools and write them to ``output``.
-
-    The resulting JSON is a list of objects, each containing the URL and a
-    message/context list for every tool. A unified list ``All tools`` merges and
-    deduplicates messages across Pa11y, Axe and Lighthouse.
-    """
-
+def combine_errors(pa11y_file="pa11y_result.json", axe_file="axe_result.json", lighthouse_file="lighthouse_results.json", output="bewertung.json",):
+    """Fehler aus allen Tools kombinieren und in „output“ schreiben."""
+    """Die resultierende JSON-Datei ist eine Liste von Objekten, die jeweils die URL und eine"""
+    """Meldungs-/Kontextliste für jedes Tool enthalten. Eine einheitliche Liste „All tools“ führt"""
+    """die Meldungen aus Pa11y, Axe und Lighthouse zusammen und entfernt Duplikate."""
     pa11y_data = _load_json(pa11y_file)
     axe_data = _load_json(axe_file)
     lighthouse_data = _load_json(lighthouse_file)
 
     grouped = {}
 
-    # Collect Pa11y errors
     for entry in pa11y_data:
         url = entry.get("url")
         if not url:
@@ -285,7 +268,6 @@ def combine_errors(
         grouped.setdefault(url, {"pa11y": [], "axe": [], "lighthouse": []})
         grouped[url]["pa11y"].extend(_extract_pa11y_errors([entry]))
 
-    # Collect Axe errors
     for entry in axe_data:
         url = entry.get("url")
         if not url:
@@ -293,7 +275,6 @@ def combine_errors(
         grouped.setdefault(url, {"pa11y": [], "axe": [], "lighthouse": []})
         grouped[url]["axe"].extend(_extract_axe_errors([entry]))
 
-    # Collect Lighthouse errors
     for entry in lighthouse_data:
         url = entry.get("url")
         if not url:
@@ -304,7 +285,6 @@ def combine_errors(
         grouped.setdefault(url, {"pa11y": [], "axe": [], "lighthouse": []})
         grouped[url]["lighthouse"].extend(_extract_lighthouse_errors([entry]))
 
-    # Build final list in requested format
     result_list = []
     for url, data in grouped.items():
         seen = set()
@@ -338,119 +318,11 @@ def _load_json(path):
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
-            # Einige Ergebnisdateien enthalten nur ein einzelnes
-            # Objekt. Um die Verarbeitung zu vereinfachen, wird ein
-            # solches Objekt in eine Liste gepackt.
             if isinstance(data, dict):
                 return [data]
             return data
     except (FileNotFoundError, json.JSONDecodeError):
         return []
-
-
-def _combine_tool_results(pa11y_data, lighthouse_data, axe_data):
-    """Kombiniert Ergebnisse der drei Tools und vermeidet Duplikate."""
-    combined = {}
-
-    for entry in pa11y_data:
-        url = entry.get("url")
-        if not url:
-            continue
-        combined.setdefault(url, {"pa11y": [], "lighthouse": [], "axe": [], "lh_score": 1})
-        for res in entry.get("results", []):
-            msg = res.get("message", "")
-            severity = res.get("typeCode", 3)
-            combined[url]["pa11y"].append((msg, severity))
-
-    for entry in lighthouse_data:
-        url = entry.get("url")
-        if not url:
-            continue
-        combined.setdefault(url, {"pa11y": [], "lighthouse": [], "axe": [], "lh_score": 1})
-        lh_result = entry.get("lighthouse_result", {})
-        audits = lh_result.get("audits", {})
-        fail_msgs = []
-        for audit in audits.values():
-            if audit.get("score") is not None and audit.get("score") < 1:
-                fail_msgs.append(audit.get("title", ""))
-        combined[url]["lighthouse"] = fail_msgs
-        acc_cat = lh_result.get("categories", {}).get("accessibility", {})
-        combined[url]["lh_score"] = acc_cat.get("score", 1)
-
-    for entry in axe_data:
-        url = entry.get("url")
-        if not url:
-            continue
-        combined.setdefault(url, {"pa11y": [], "lighthouse": [], "axe": [], "lh_score": 1})
-
-        axe_result = entry.get("axe_result", {})
-
-        # ``axe_result`` may be a single object or a list of objects.
-        if isinstance(axe_result, list):
-            results = axe_result
-        else:
-            results = [axe_result]
-
-        for result in results:
-            violations = result.get("violations", [])
-            for viol in violations:
-                msg = viol.get("help", viol.get("description", ""))
-                impact = viol.get("impact", "minor")
-                severity = {"minor": 1, "moderate": 3, "serious": 5, "critical": 7}.get(impact, 1)
-                combined[url]["axe"].append((msg, severity))
-    return combined
-
-
-def _extract_messages(combined):
-    """Gibt alle Meldungen pro URL gruppiert nach Tool zurück."""
-    results = {}
-    for url, data in combined.items():
-        pa11y_msgs = [msg for msg, _ in data.get("pa11y", [])]
-        axe_msgs = [msg for msg, _ in data.get("axe", [])]
-        lighthouse_msgs = data.get("lighthouse", [])
-
-        all_msgs = []
-        seen = set()
-        for m in pa11y_msgs + axe_msgs + lighthouse_msgs:
-            if m not in seen:
-                seen.add(m)
-                all_msgs.append(m)
-
-        results[url] = {
-            "all_tools": all_msgs,
-            "pa11y": pa11y_msgs,
-            "axe": axe_msgs,
-            "lighthouse": lighthouse_msgs,
-        }
-    return results
-
-
-def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_results.json", axe_file="axe_result.json", output="bewertung.json"):
-    """Erstellt eine Bewertung pro Seite und speichert sie als JSON."""
-    """Kombiniert Ergebnisse der Tools und speichert sie in einer JSON-Datei."""
-    pa11y_data = _load_json(pa11y_file)
-    lighthouse_data = _load_json(lighthouse_file)
-    axe_data = _load_json(axe_file)
-
-    if not pa11y_data and not lighthouse_data and not axe_data:
-        print("Keine Ergebnisdaten für die Bewertung gefunden.")
-        return
-
-    combined = _combine_tool_results(pa11y_data, lighthouse_data, axe_data)
-    messages = _extract_messages(combined)
-
-    rating = {
-        "info": "Tools kombinieren",
-        "scores": messages,
-    }
-
-    try:
-        with open(output, "w", encoding="utf-8") as f:
-            json.dump(rating, f, indent=2, ensure_ascii=False)
-        print(f"Bewertung in '{output}' gespeichert.")
-    except Exception as e:
-        print(f"Fehler beim Speichern der Bewertung: {e}")
-
 
 
 def delete_old_results():
@@ -471,6 +343,23 @@ def delete_old_results():
         if os.path.exists(file):
             os.remove(file)
     print(" Alte Ergebnisdateien gelöscht.")
+
+def delete_results():
+    """Tool-Ergebnisdateien löschen."""
+    temp_files = [
+        "axe_result.json",
+        "lighthouse_results.json",
+        "pa11y_result.json"
+    ]
+
+    for path in temp_files:
+        if os.path.exists(path):
+            try:
+                os.remove(path)
+            except Exception as e:
+                print(f"Fehler beim Löschen von {path}: {e}")
+        else:
+            print(f"Nicht gefunden (oder schon gelöscht): {path}")
 
 
 
@@ -609,4 +498,5 @@ if __name__ == "__main__":
                 print(" Starte Accessibility-Checks...")
             accessibility_checks(seiten[:anzahl_seiten])
             combine_errors()
+            delete_results()
             visualisation()
