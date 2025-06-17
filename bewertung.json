@@ -1,455 +1,216 @@
 [
   {
-    "URL": "https://moodle.uni-due.de/",
+    "URL": "https://www2.pnwx.com/",
     "All tools": [
       {
-        "message": "element requires an accessible name",
-        "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>"
-      },
-      {
-        "message": "this form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. submit buttons are input elements with type attribute \"submit\" or \"image\", or button elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6850b801667e8\"...</form>"
-      },
-      {
-        "message": "element requires an accessible name",
-        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"shortsearc...</fieldset>"
-      },
-      {
-        "message": "fieldsets must contain a legend element",
-        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"shortsearc...</fieldset>"
+        "message": "document must have a language attribute",
+        "context": "<html><head>\n<title>pnwx.com - Pacifi...</html>"
       },
       {
         "message": "links must have discernible text",
-        "context": "<a target=\"_blank\" href=\"https://wiki.uni-due.de/moodle/images/d/db/Moodle_Einstieg.pdf\"><span style=\"color: #004c93;\"> ...</a>"
+        "context": "<a href=\"http://www.pnwx.com/cgi-bin/e-mail\"></a>"
       },
       {
-        "message": "aria-hidden element must not be focusable",
-        "context": "<div id=\"nav-drawer\" data-region=\"drawer\" class=\"d-print-none moodle-has-zindex closed\" aria-hidden=\"true\" tabindex=\"-1\">"
-      },
-      {
-        "message": "elements must meet minimum color contrast ratio thresholds",
-        "context": "<div style=\"width:70%; height:100%; float:left;\">"
-      },
-      {
-        "message": "links must be distinguishable without relying on color",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/\" target=\"_blank\">lehre.moodle.uni-due.de</a>"
-      },
-      {
-        "message": "links must be distinguishable without relying on color",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/course/view.php?id=147\" target=\"_blank\" style=\"background-color: rgb(255, 255, 255); font-size: 0.9375rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;\">"
-      },
-      {
-        "message": "links must be distinguishable without relying on color",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/course/section.php?id=1732\" target=\"_blank\">Informationen zum Kurs-Transfer</a>"
-      },
-      {
-        "message": "links must be distinguishable without relying on color",
-        "context": "<a href=\"https://uni-due.zoom.us/j/66655049215?pwd=NVdUMzN1dlU2c3h4UWFUeGdBQjZiUT09\" target=\"_blank\">Sprechstunde des Moodle-Kompetenzzentrums</a>"
-      },
-      {
-        "message": "links must have discernible text",
-        "context": "<a href=\"https://moodle.uni-due.de\" class=\"navbar-brand \n                    d-none d-sm-inline\n                    \">\n                <span class=\"site-name d-none d-md-inline\">Moodle UDE</span>\n            </a>"
-      },
-      {
-        "message": "links must have discernible text",
-        "context": "<a target=\"_blank\" href=\"https://wiki.uni-due.de/moodle/images/d/db/Moodle_Einstieg.pdf\"><span style=\"color: #004c93;\"> </span></a>"
-      },
-      {
-        "message": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
-        "context": "<ul>"
-      },
-      {
-        "message": "all page content should be contained by landmarks",
-        "context": "<a href=\"#sb-1\" class=\"sr-only sr-only-focusable\">Moodle Update überspringen</a>"
-      },
-      {
-        "message": "all page content should be contained by landmarks",
-        "context": "<a href=\"#sb-2\" class=\"sr-only sr-only-focusable\">Wichtige Hinweise überspringen</a>"
-      },
-      {
-        "message": "all page content should be contained by landmarks",
-        "context": "<a href=\"#sb-3\" class=\"sr-only sr-only-focusable\">Neu an der UDE? überspringen</a>"
+        "message": "images must have alternative text",
+        "context": "<img src=\"Arrow.png\" border=\"0\">"
       },
       {
         "message": "element requires an accessible name",
-        "context": "<a target=\"_blank\" href=\"https://wiki.uni-due.de/moodle/images/d/db/Moodle_Einstieg.pdf\">"
+        "context": "<input type=\"text\" name=\"SearchWords\" size=\"35\" maxlength=\"75\">"
       },
       {
-        "message": "elements must meet minimum color contrast ratio thresholds",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/\" target=\"_blank\">"
+        "message": "form elements must have labels",
+        "context": "<input type=\"text\" name=\"SearchWords\" size=\"35\" maxlength=\"75\">"
       },
       {
-        "message": "elements must meet minimum color contrast ratio thresholds",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/course/view.php?id=147\" target=\"_blank\" style=\"background-color: rgb(255, 255, 255); font-size: 0.9375rem; font-family: -…;\">"
+        "message": "images must have alternative text",
+        "context": "<img src=\"ButtonSkull.jpg\" border=\"0\" align=\"center\">"
       },
       {
-        "message": "elements must meet minimum color contrast ratio thresholds",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/course/section.php?id=1732\" target=\"_blank\">"
+        "message": "document must have a language attribute",
+        "context": "<html>"
       },
       {
-        "message": "elements must meet minimum color contrast ratio thresholds",
-        "context": "<a href=\"https://uni-due.zoom.us/j/66655049215?pwd=NVdUMzN1dlU2c3h4UWFUeGdBQjZiUT09\" target=\"_blank\">"
+        "message": "all page content should be contained by landmarks",
+        "context": "<html>"
       },
       {
-        "message": "elements must meet minimum color contrast ratio thresholds",
-        "context": "<a href=\"mailto:moodle@uni-due.de\">"
+        "message": "page should contain a level-one heading",
+        "context": "<html>"
       },
       {
-        "message": "lists must only contain allowed children",
-        "context": "<ul>"
+        "message": "all page content should be contained by landmarks",
+        "context": "<center><img src=\"/pnwx_ani.gif\" alt=\"Pacific Northwest X-Ray Inc.\"><img src=\"/pnwx.gif\" alt=\"X-Ray - radiology equipment, supplies, parts and accessories!\"></center>"
       },
       {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=da\">"
+        "message": "all page content should be contained by landmarks",
+        "context": "<td>\n    <center><font face=\"Arial\" color=\"#000000\" size=\"+3\">Search for X-Ray Products.</font></center>\n   </td>"
       },
       {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=de\">"
+        "message": "all page content should be contained by landmarks",
+        "context": "<td><img src=\"Arrow.png\" border=\"0\"></td>"
       },
       {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=en\">"
+        "message": "all page content should be contained by landmarks",
+        "context": "<input type=\"text\" name=\"SearchWords\" size=\"35\" maxlength=\"75\">"
       },
       {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=fr\">"
+        "message": "all page content should be contained by landmarks",
+        "context": "<center><font face=\"Arial\" color=\"#000000\" size=\"+3\">...Or select from some of our most popular....</font></center>"
       },
       {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=pl\">"
+        "message": "all page content should be contained by landmarks",
+        "context": "<center>"
       },
       {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=tr\">"
+        "message": "all page content should be contained by landmarks",
+        "context": "<center><font face=\"Arial\" size=\"+3\"><b><i>Pacific Northwest X-Ray Inc.</i></b></font></center>"
       },
       {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=ru\">"
+        "message": "all page content should be contained by landmarks",
+        "context": "<center><font face=\"Arial\" size=\"+1\">P.O. Box 625 * Gresham, OR 97030 U.S.A.</font></center>"
+      },
+      {
+        "message": "all page content should be contained by landmarks",
+        "context": "<center><font face=\"Arial\" size=\"+2\"><b>503-667-3000 * Toll Free U.S.A: 800-827-9729 * Fax : 503-666-8855</b></font></center>"
+      },
+      {
+        "message": "all page content should be contained by landmarks",
+        "context": "<font face=\"Arial\" size=\"+2\">"
+      },
+      {
+        "message": "fix any of the following:\n  element does not have an implicit (wrapped) <label>\n  element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  element has no title attribute\n  element has no placeholder attribute\n  element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+        "context": "<input type=\"text\" name=\"SearchWords\" size=\"35\" maxlength=\"75\">"
+      },
+      {
+        "message": "element requires an accessible name",
+        "context": "<a href=\"http://www.pnwx.com/cgi-bin/e-mail\">"
+      },
+      {
+        "message": "fix all of the following:\n  some non-empty data cells do not have table headers",
+        "context": "<table border=\"0\" cellspacing=\"10\" cellpadding=\"0\">"
       }
     ],
     "pa11y": [
       {
-        "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
-        "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>"
-      },
-      {
-        "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6850b801667e8\"...</form>"
-      },
-      {
-        "message": "This fieldset element does not have a name available to an accessibility API. Valid names are: legend element, aria-label undefined, aria-labelledby undefined.",
-        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"shortsearc...</fieldset>"
-      },
-      {
-        "message": "Fieldset does not contain a legend element. All fieldsets should contain a legend element that describes a description of the field group.",
-        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"shortsearc...</fieldset>"
+        "message": "The html element should have a lang or xml:lang attribute which describes the language of the document.",
+        "context": "<html><head>\n<title>pnwx.com - Pacifi...</html>"
       },
       {
         "message": "Anchor element found with a valid href attribute, but no link content has been supplied.",
-        "context": "<a target=\"_blank\" href=\"https://wiki.uni-due.de/moodle/images/d/db/Moodle_Einstieg.pdf\"><span style=\"color: #004c93;\"> ...</a>"
+        "context": "<a href=\"http://www.pnwx.com/cgi-bin/e-mail\"></a>"
+      },
+      {
+        "message": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "context": "<img src=\"Arrow.png\" border=\"0\">"
+      },
+      {
+        "message": "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+        "context": "<input type=\"text\" name=\"SearchWords\" size=\"35\" maxlength=\"75\">"
+      },
+      {
+        "message": "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+        "context": "<input type=\"text\" name=\"SearchWords\" size=\"35\" maxlength=\"75\">"
+      },
+      {
+        "message": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+        "context": "<img src=\"ButtonSkull.jpg\" border=\"0\" align=\"center\">"
       }
     ],
     "axe": [
       {
-        "message": "ARIA hidden element must not be focusable or contain focusable elements",
-        "context": "<div id=\"nav-drawer\" data-region=\"drawer\" class=\"d-print-none moodle-has-zindex closed\" aria-hidden=\"true\" tabindex=\"-1\">"
+        "message": "<html> element must have a lang attribute",
+        "context": "<html>"
       },
       {
-        "message": "Elements must meet minimum color contrast ratio thresholds",
-        "context": "<div style=\"width:70%; height:100%; float:left;\">"
+        "message": "Images must have alternative text",
+        "context": "<img src=\"Arrow.png\" border=\"0\">"
       },
       {
-        "message": "Links must be distinguishable without relying on color",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/\" target=\"_blank\">lehre.moodle.uni-due.de</a>"
+        "message": "Images must have alternative text",
+        "context": "<img src=\"ButtonSkull.jpg\" border=\"0\" align=\"center\">"
       },
       {
-        "message": "Links must be distinguishable without relying on color",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/course/view.php?id=147\" target=\"_blank\" style=\"background-color: rgb(255, 255, 255); font-size: 0.9375rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;\">"
+        "message": "Form elements must have labels",
+        "context": "<input type=\"text\" name=\"SearchWords\" size=\"35\" maxlength=\"75\">"
       },
       {
-        "message": "Links must be distinguishable without relying on color",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/course/section.php?id=1732\" target=\"_blank\">Informationen zum Kurs-Transfer</a>"
-      },
-      {
-        "message": "Links must be distinguishable without relying on color",
-        "context": "<a href=\"https://uni-due.zoom.us/j/66655049215?pwd=NVdUMzN1dlU2c3h4UWFUeGdBQjZiUT09\" target=\"_blank\">Sprechstunde des Moodle-Kompetenzzentrums</a>"
+        "message": "Document should have one main landmark",
+        "context": "<html>"
       },
       {
         "message": "Links must have discernible text",
-        "context": "<a href=\"https://moodle.uni-due.de\" class=\"navbar-brand \n                    d-none d-sm-inline\n                    \">\n                <span class=\"site-name d-none d-md-inline\">Moodle UDE</span>\n            </a>"
+        "context": "<a href=\"http://www.pnwx.com/cgi-bin/e-mail\"></a>"
       },
       {
-        "message": "Links must have discernible text",
-        "context": "<a target=\"_blank\" href=\"https://wiki.uni-due.de/moodle/images/d/db/Moodle_Einstieg.pdf\"><span style=\"color: #004c93;\"> </span></a>"
-      },
-      {
-        "message": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
-        "context": "<ul>"
+        "message": "Page should contain a level-one heading",
+        "context": "<html>"
       },
       {
         "message": "All page content should be contained by landmarks",
-        "context": "<a href=\"#sb-1\" class=\"sr-only sr-only-focusable\">Moodle Update überspringen</a>"
+        "context": "<center><img src=\"/pnwx_ani.gif\" alt=\"Pacific Northwest X-Ray Inc.\"><img src=\"/pnwx.gif\" alt=\"X-Ray - radiology equipment, supplies, parts and accessories!\"></center>"
       },
       {
         "message": "All page content should be contained by landmarks",
-        "context": "<a href=\"#sb-2\" class=\"sr-only sr-only-focusable\">Wichtige Hinweise überspringen</a>"
+        "context": "<td>\n    <center><font face=\"Arial\" color=\"#000000\" size=\"+3\">Search for X-Ray Products.</font></center>\n   </td>"
       },
       {
         "message": "All page content should be contained by landmarks",
-        "context": "<a href=\"#sb-3\" class=\"sr-only sr-only-focusable\">Neu an der UDE? überspringen</a>"
+        "context": "<td><img src=\"Arrow.png\" border=\"0\"></td>"
+      },
+      {
+        "message": "All page content should be contained by landmarks",
+        "context": "<input type=\"text\" name=\"SearchWords\" size=\"35\" maxlength=\"75\">"
+      },
+      {
+        "message": "All page content should be contained by landmarks",
+        "context": "<center><font face=\"Arial\" color=\"#000000\" size=\"+3\">...Or select from some of our most popular....</font></center>"
+      },
+      {
+        "message": "All page content should be contained by landmarks",
+        "context": "<center>"
+      },
+      {
+        "message": "All page content should be contained by landmarks",
+        "context": "<center><font face=\"Arial\" size=\"+3\"><b><i>Pacific Northwest X-Ray Inc.</i></b></font></center>"
+      },
+      {
+        "message": "All page content should be contained by landmarks",
+        "context": "<center><font face=\"Arial\" size=\"+1\">P.O. Box 625 * Gresham, OR 97030 U.S.A.</font></center>"
+      },
+      {
+        "message": "All page content should be contained by landmarks",
+        "context": "<center><font face=\"Arial\" size=\"+2\"><b>503-667-3000 * Toll Free U.S.A: 800-827-9729 * Fax : 503-666-8855</b></font></center>"
+      },
+      {
+        "message": "All page content should be contained by landmarks",
+        "context": "<font face=\"Arial\" size=\"+2\">"
       }
     ],
     "lighthouse": [
       {
-        "message": "Fix all of the following:\n  Focusable content should have tabindex=\"-1\" or be removed from the DOM",
-        "context": "<div id=\"nav-drawer\" data-region=\"drawer\" class=\"d-print-none moodle-has-zindex closed\" aria-hidden=\"true\" tabindex=\"-1\">"
+        "message": "Fix any of the following:\n  The <html> element does not have a lang attribute",
+        "context": "<html>"
       },
       {
-        "message": "Fix any of the following:\n  Element has insufficient color contrast of 1.05 (foreground color: #f8f9fa, background color: #ffffff, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
-        "context": "<div style=\"width:70%; height:100%; float:left;\">"
+        "message": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+        "context": "<img src=\"Arrow.png\" border=\"0\">"
+      },
+      {
+        "message": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+        "context": "<img src=\"ButtonSkull.jpg\" border=\"0\" align=\"center\">"
+      },
+      {
+        "message": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+        "context": "<input type=\"text\" name=\"SearchWords\" size=\"35\" maxlength=\"75\">"
       },
       {
         "message": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
-        "context": "<a target=\"_blank\" href=\"https://wiki.uni-due.de/moodle/images/d/db/Moodle_Einstieg.pdf\">"
+        "context": "<a href=\"http://www.pnwx.com/cgi-bin/e-mail\">"
       },
       {
-        "message": "Fix any of the following:\n  The link has insufficient color contrast of 1.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #004c93, surrounding text: #373a3c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/\" target=\"_blank\">"
-      },
-      {
-        "message": "Fix any of the following:\n  The link has insufficient color contrast of 1.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #004c93, surrounding text: #373a3c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/course/view.php?id=147\" target=\"_blank\" style=\"background-color: rgb(255, 255, 255); font-size: 0.9375rem; font-family: -…;\">"
-      },
-      {
-        "message": "Fix any of the following:\n  The link has insufficient color contrast of 1.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #004c93, surrounding text: #373a3c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text",
-        "context": "<a href=\"https://lehre.moodle.uni-due.de/course/section.php?id=1732\" target=\"_blank\">"
-      },
-      {
-        "message": "Fix any of the following:\n  The link has insufficient color contrast of 1.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #004c93, surrounding text: #373a3c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text",
-        "context": "<a href=\"https://uni-due.zoom.us/j/66655049215?pwd=NVdUMzN1dlU2c3h4UWFUeGdBQjZiUT09\" target=\"_blank\">"
-      },
-      {
-        "message": "Fix any of the following:\n  The link has insufficient color contrast of 1.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #004c93, surrounding text: #373a3c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text",
-        "context": "<a href=\"mailto:moodle@uni-due.de\">"
-      },
-      {
-        "message": "Fix all of the following:\n  List element has direct children that are not allowed: ul",
-        "context": "<ul>"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (70.1px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=da\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (83.6px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.6px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=de\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (76.5px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.6px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=en\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (76.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 22.8px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=fr\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (63.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=pl\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (67.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=tr\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (81.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/?lang=ru\">"
-      }
-    ]
-  },
-  {
-    "URL": "https://moodle.uni-due.de/course/index.php?categoryid=3360",
-    "All tools": [
-      {
-        "message": "element requires an accessible name",
-        "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>"
-      },
-      {
-        "message": "this form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. submit buttons are input elements with type attribute \"submit\" or \"image\", or button elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6850b81593eb9\"...</form>"
-      },
-      {
-        "message": "this form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. submit buttons are input elements with type attribute \"submit\" or \"image\", or button elements with type \"submit\" or omitted/invalid.",
-        "context": "<form method=\"get\" action=\"https://moodle.uni-due.de/course/index.php\" class=\"form-inline\" id=\"switchcategory\">\n            <label for=\"single...</form>"
-      },
-      {
-        "message": "element requires an accessible name",
-        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"coursesear...</fieldset>"
-      },
-      {
-        "message": "fieldsets must contain a legend element",
-        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"coursesear...</fieldset>"
-      },
-      {
-        "message": "aria-hidden element must not be focusable",
-        "context": "<div id=\"nav-drawer\" data-region=\"drawer\" class=\"d-print-none moodle-has-zindex closed\" aria-hidden=\"true\" tabindex=\"-1\">"
-      },
-      {
-        "message": "elements must only use permitted aria attributes",
-        "context": "<i class=\"icon fa fa-key fa-fw \" title=\"Selbsteinschreibung\" aria-label=\"Selbsteinschreibung\"></i>"
-      },
-      {
-        "message": "elements must meet minimum color contrast ratio thresholds",
-        "context": "<div style=\"width:70%; height:100%; float:left;\">"
-      },
-      {
-        "message": "heading levels should only increase by one",
-        "context": "<h3 class=\"categoryname\"><a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3361\">Entwicklungspsychologie</a></h3>"
-      },
-      {
-        "message": "links must have discernible text",
-        "context": "<a href=\"https://moodle.uni-due.de\" class=\"navbar-brand \n                    d-none d-sm-inline\n                    \">\n                <span class=\"site-name d-none d-md-inline\">Moodle UDE</span>\n            </a>"
-      },
-      {
-        "message": "fix all of the following:\n  aria-label attribute cannot be used on a i with no valid role attribute.",
-        "context": "<i class=\"icon fa fa-key fa-fw \" aria-label=\"Selbsteinschreibung\">"
-      },
-      {
-        "message": "fix any of the following:\n  heading order invalid",
-        "context": "<h3 class=\"categoryname\">"
-      },
-      {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php\">"
-      },
-      {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360\" aria-current=\"page\">"
-      },
-      {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=da\">"
-      },
-      {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=de\">"
-      },
-      {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=en\">"
-      },
-      {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=fr\">"
-      },
-      {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=pl\">"
-      },
-      {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=tr\">"
-      },
-      {
-        "message": "interactive elements must have sufficient size",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=ru\">"
-      }
-    ],
-    "pa11y": [
-      {
-        "message": "This element has role of \"button\" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.",
-        "context": "<div role=\"button\" tabindex=\"0\"><i class=\"icon fa fa-search fa-...</div>"
-      },
-      {
-        "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_6850b81593eb9\"...</form>"
-      },
-      {
-        "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form method=\"get\" action=\"https://moodle.uni-due.de/course/index.php\" class=\"form-inline\" id=\"switchcategory\">\n            <label for=\"single...</form>"
-      },
-      {
-        "message": "This fieldset element does not have a name available to an accessibility API. Valid names are: legend element, aria-label undefined, aria-labelledby undefined.",
-        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"coursesear...</fieldset>"
-      },
-      {
-        "message": "Fieldset does not contain a legend element. All fieldsets should contain a legend element that describes a description of the field group.",
-        "context": "<fieldset class=\"coursesearchbox invisiblefieldset\">\n        <label for=\"coursesear...</fieldset>"
-      }
-    ],
-    "axe": [
-      {
-        "message": "ARIA hidden element must not be focusable or contain focusable elements",
-        "context": "<div id=\"nav-drawer\" data-region=\"drawer\" class=\"d-print-none moodle-has-zindex closed\" aria-hidden=\"true\" tabindex=\"-1\">"
-      },
-      {
-        "message": "Elements must only use permitted ARIA attributes",
-        "context": "<i class=\"icon fa fa-key fa-fw \" title=\"Selbsteinschreibung\" aria-label=\"Selbsteinschreibung\"></i>"
-      },
-      {
-        "message": "Elements must meet minimum color contrast ratio thresholds",
-        "context": "<div style=\"width:70%; height:100%; float:left;\">"
-      },
-      {
-        "message": "Heading levels should only increase by one",
-        "context": "<h3 class=\"categoryname\"><a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3361\">Entwicklungspsychologie</a></h3>"
-      },
-      {
-        "message": "Links must have discernible text",
-        "context": "<a href=\"https://moodle.uni-due.de\" class=\"navbar-brand \n                    d-none d-sm-inline\n                    \">\n                <span class=\"site-name d-none d-md-inline\">Moodle UDE</span>\n            </a>"
-      }
-    ],
-    "lighthouse": [
-      {
-        "message": "Fix all of the following:\n  Focusable content should have tabindex=\"-1\" or be removed from the DOM",
-        "context": "<div id=\"nav-drawer\" data-region=\"drawer\" class=\"d-print-none moodle-has-zindex closed\" aria-hidden=\"true\" tabindex=\"-1\">"
-      },
-      {
-        "message": "Fix all of the following:\n  aria-label attribute cannot be used on a i with no valid role attribute.",
-        "context": "<i class=\"icon fa fa-key fa-fw \" aria-label=\"Selbsteinschreibung\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Element has insufficient color contrast of 1.05 (foreground color: #f8f9fa, background color: #ffffff, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
-        "context": "<div style=\"width:70%; height:100%; float:left;\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Heading order invalid",
-        "context": "<h3 class=\"categoryname\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (36.6px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (155.9px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360\" aria-current=\"page\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (70.1px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=da\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (83.6px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.6px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=de\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (76.5px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.6px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=en\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (76.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 22.8px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=fr\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (63.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=pl\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (67.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 21.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=tr\">"
-      },
-      {
-        "message": "Fix any of the following:\n  Target has insufficient size (81.3px by 20px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23.2px instead of at least 24px.",
-        "context": "<a href=\"https://moodle.uni-due.de/course/index.php?categoryid=3360&amp;lang=ru\">"
+        "message": "Fix all of the following:\n  Some non-empty data cells do not have table headers",
+        "context": "<table border=\"0\" cellspacing=\"10\" cellpadding=\"0\">"
       }
     ]
   }

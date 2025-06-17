@@ -293,8 +293,31 @@ def _canonicalize_message(msg: str) -> str:
     if "fieldset" in msg_l and "legend" in msg_l:
         return "fieldsets must contain a legend element"
 
-    if "list element has direct children" in msg_l:
+    if "list element has direct children" in msg_l or "<ul> and <ol> must only directly contain" in msg_l:
         return "lists must only contain allowed children"
+
+    if "level-one heading" in msg_l:
+        return "page should contain a level-one heading"
+
+    if "one main landmark" in msg_l:
+        return "document should have one main landmark"
+
+    if "data cells" in msg_l and "table headers" in msg_l:
+        return "table cells must have headers"
+
+    if "duplicate id" in msg_l:
+        return "elements must have unique ids"
+
+    if "meta http-equiv\"refresh" in msg_l or "timed refresh" in msg_l:
+        return "page must not use timed refresh"
+
+    if "user-scalable\"=" in msg_l or "maximum-scale" in msg_l:
+        return "page must allow zooming"
+
+    if "aria role" in msg_l and (
+        "not allowed" in msg_l or "appropriate" in msg_l or "invalid" in msg_l
+    ):
+        return "element has an invalid aria role"
 
     return msg_l.strip()
 
