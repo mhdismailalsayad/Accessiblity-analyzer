@@ -247,14 +247,19 @@ def _extract_lighthouse_errors(data):
     return errors
 
 def _canonicalize_message(msg: str) -> str:
-    """Return a simplified representation for comparison across tools."""
+    """Vereinfachte Darstellung zum Vergleich verschiedener Tools zurückgegeben."""
     msg_l = msg.lower()
-
-    if "alt attribute" in msg_l or "alternative text" in msg_l or "missing alt" in msg_l:
+    if ("alt attribute" in msg_l or "alternative text" in msg_l or "missing alt" in msg_l):
         return "images must have alternative text"
+
+    if "one main landmark" in msg_l:
+        return "document should have one main landmark"
 
     if "landmark" in msg_l:
         return "all page content should be contained by landmarks"
+
+    if "page title" in msg_l or "title element" in msg_l:
+        return "document must have a title element"
 
     if "lang attribute" in msg_l or "document language" in msg_l:
         return "document must have a language attribute"
@@ -269,6 +274,9 @@ def _canonicalize_message(msg: str) -> str:
     if "form" in msg_l and "label" in msg_l:
         return "form elements must have labels"
 
+    if "<label>" in msg_l and ("implicit" in msg_l or "explicit" in msg_l):
+        return "form elements must have labels"
+
     if (
         "accessible name" in msg_l
         or "name available to an accessibility api" in msg_l
@@ -280,6 +288,12 @@ def _canonicalize_message(msg: str) -> str:
         "aria hidden" in msg_l and "focusable" in msg_l
     ) or "focusable content should have tabindex" in msg_l:
         return "aria-hidden element must not be focusable"
+
+    if "tabindex" in msg_l and "+" in msg_l:
+        return "avoid positive tabindex values"
+
+    if "frame" in msg_l and "tabindex" in msg_l:
+        return "frames must not remove focusable content"
 
     if "color contrast" in msg_l:
         return "elements must meet minimum color contrast ratio thresholds"
@@ -293,14 +307,26 @@ def _canonicalize_message(msg: str) -> str:
     if "fieldset" in msg_l and "legend" in msg_l:
         return "fieldsets must contain a legend element"
 
+    if "invalid autocomplete" in msg_l:
+        return "autocomplete attribute must be valid"
+
     if "list element has direct children" in msg_l or "<ul> and <ol> must only directly contain" in msg_l:
         return "lists must only contain allowed children"
+
+    if "scrollable" in msg_l and "focusable" in msg_l:
+        return "scrollable region must be focusable"
 
     if "level-one heading" in msg_l:
         return "page should contain a level-one heading"
 
-    if "one main landmark" in msg_l:
-        return "document should have one main landmark"
+    if "aria" in msg_l and "attribute" in msg_l and "valid" in msg_l:
+        return "aria attributes must be valid"
+
+    if "interactive controls" in msg_l and "nested" in msg_l:
+        return "interactive controls must not be nested"
+
+    if "bypass" in msg_l and "repeated blocks" in msg_l:
+        return "page must have a skip link or landmark"
 
     if "data cells" in msg_l and "table headers" in msg_l:
         return "table cells must have headers"

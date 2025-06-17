@@ -1,19 +1,17 @@
 Issues per tool and page:
-https://www2.pnwx.com/: pa11y=6, axe=17, lighthouse=6, all=22
+https://www.deutschebahn.com/: pa11y=2, axe=7, lighthouse=9, all=17
 
 Most common issues:
-10x All page content should be contained by landmarks
-2x Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.
-2x Images must have alternative text
+3x Heading levels should only increase by one
+3x Fix any of the following:
+  Heading order invalid
 2x Fix any of the following:
-  Element does not have an alt attribute
-  aria-label attribute does not exist or is empty
-  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
-  Element has no title attribute
-  Element's default semantics were not overridden with role="none" or role="presentation"
-1x The html element should have a lang or xml:lang attribute which describes the language of the document.
-1x Anchor element found with a valid href attribute, but no link content has been supplied.
-1x This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.
-1x This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.
-1x <html> element must have a lang attribute
-1x Form elements must have labels
+  ARIA role group is not allowed for given element
+2x Fix any of the following:
+  Text inside the element is not included in the accessible name
+1x This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute "submit" or "image", or BUTTON elements with type "submit" or omitted/invalid.
+1x This element's role is "presentation" but contains child elements with semantic meaning.
+1x ARIA role should be appropriate for the element
+1x ARIA attributes must conform to valid values
+1x Landmarks should have a unique role or role/label/title (i.e. accessible name) combination
+1x All page content should be contained by landmarks
