@@ -575,6 +575,9 @@ if __name__ == "__main__":
             print(f"\n Starte Accessibility-Checks für {len(seiten)} Seiten...")
             anzahl_seiten = int(input(" Wie viele Seiten sollen getestet werden? (0 für alle): ").strip())
             if anzahl_seiten == 0:
+                anzahl_seiten = len(seiten)
+            if anzahl_seiten > len(seiten):
+                print(f" Warnung: Es gibt nur {len(seiten)} Seiten, die getestet werden können.")
                 print(" Keine internen Links gefunden.")
             else:
                 print(f" Gefundene Seiten: {anzahl_seiten}")
@@ -583,3 +586,9 @@ if __name__ == "__main__":
             combine_errors()
             delete_results()
             visualisation()
+            print("_________________________________________________________________________________________________")
+            print(" Alle Tests abgeschlossen. Ergebnisse gespeichert.")
+            print(" Sie können die Ergebnisse in den Dateien pa11y_result.json, axe_result.json und lighthouse_results.json finden.")
+            print(" Kombinierte Ergebnisse in bewertung.json.")         
+            print(" Visualisierungen in tool_comparison.png und common_errors.png.")
+            print(" Zusammenfassung in visualization_summary.txt.") 
