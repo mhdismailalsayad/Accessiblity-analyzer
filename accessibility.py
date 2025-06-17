@@ -10,7 +10,6 @@ from pathlib import Path
 from collections import Counter
 import matplotlib.pyplot as plt
 
-
 """ Pfad zu "npx" plattformunabhängig bestimmen. Unter Windows wird "npx.cmd"
  verwendet, auf anderen Systemen reicht "npx"."""
 if os.name == "nt":
@@ -183,18 +182,23 @@ def _extract_pa11y_errors(data):
     """Gibt eine Liste mit Fehlern aus den Pa11y-Ergebnissen zurück,"""
     """jeweils bestehend aus einer Nachricht (message) und dem Kontext (context)."""    
     errors = []
+    seen = set()
     for entry in data:
         for res in entry.get("results", []):
             if res.get("type") == "error":
-                errors.append({
-                    "message": res.get("message", ""),
-                    "context": res.get("context", ""),
-                })
+                msg = res.get("message", "")
+                ctx = res.get("context", "")
+                key = (_canonicalize_message(msg), ctx)
+                if key in seen:
+                    continue
+                seen.add(key)
+                errors.append({"message": msg, "context": ctx})
     return errors
 
 def _extract_axe_errors(data):
     """Gibt eine Liste mit Fehlernachrichten und HTML-Kontext aus den Axe-Ergebnissen zurück."""
     errors = []
+    seen = set()
     for entry in data:
         axe_result = entry.get("axe_result", {})
         results = axe_result if isinstance(axe_result, list) else [axe_result]
@@ -202,16 +206,19 @@ def _extract_axe_errors(data):
             for viol in result.get("violations", []):
                 msg = viol.get("help", viol.get("description", ""))
                 for node in viol.get("nodes", []):
-                    errors.append({
-                        "message": msg,
-                        "context": node.get("html", ""),
-                    })
+                    ctx = node.get("html", "")
+                    key = (_canonicalize_message(msg), ctx)
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    errors.append({"message": msg, "context": ctx})
     return errors
 
 def _extract_lighthouse_errors(data):
     """Gibt eine Liste von Fehlern aus den Lighthouse-Ergebnissen zurück,""" 
     """jeweils mit Nachricht (message) und HTML-Kontext (Context)."""
     errors = []
+    seen = set()
     for entry in data:
         lh = entry.get("lighthouse_result", entry)
         audits = lh.get("audits", {})
@@ -224,31 +231,72 @@ def _extract_lighthouse_errors(data):
                 if items:
                     for it in items:
                         node = it.get("node", {})
-                        context = node.get("snippet", "")
+                        ctx = node.get("snippet", "")
                         msg = node.get("explanation", title)
-                        errors.append({"message": msg, "context": context})
+                        key = (_canonicalize_message(msg), ctx)
+                        if key in seen:
+                            continue
+                        seen.add(key)
+                        errors.append({"message": msg, "context": ctx})
                 else:
+                    key = (_canonicalize_message(title), "")
+                    if key in seen:
+                        continue
+                    seen.add(key)
                     errors.append({"message": title, "context": ""})
     return errors
 
 def _canonicalize_message(msg: str) -> str:
     """Return a simplified representation for comparison across tools."""
     msg_l = msg.lower()
-    if "alt attribute" in msg_l or "alternative text" in msg_l:
+
+    if "alt attribute" in msg_l or "alternative text" in msg_l or "missing alt" in msg_l:
         return "images must have alternative text"
+
     if "landmark" in msg_l:
         return "all page content should be contained by landmarks"
-    if "lang attribute" in msg_l:
+
+    if "lang attribute" in msg_l or "document language" in msg_l:
         return "document must have a language attribute"
-    if "no link content" in msg_l or "discernible text" in msg_l:
+
+    if (
+        "no link content" in msg_l
+        or "discernible text" in msg_l
+        or "anchor element found with a valid href" in msg_l
+    ):
         return "links must have discernible text"
+
     if "form" in msg_l and "label" in msg_l:
         return "form elements must have labels"
-    if "accessible name" in msg_l:
+
+    if (
+        "accessible name" in msg_l
+        or "name available to an accessibility api" in msg_l
+        or "does not have accessible text" in msg_l
+    ):
         return "element requires an accessible name"
+
+    if (
+        "aria hidden" in msg_l and "focusable" in msg_l
+    ) or "focusable content should have tabindex" in msg_l:
+        return "aria-hidden element must not be focusable"
+
+    if "color contrast" in msg_l:
+        return "elements must meet minimum color contrast ratio thresholds"
+
+    if "link has no styling" in msg_l or "relying on color" in msg_l:
+        return "links must be distinguishable without relying on color"
+
+    if "insufficient size" in msg_l or "tap target" in msg_l:
+        return "interactive elements must have sufficient size"
+
+    if "fieldset" in msg_l and "legend" in msg_l:
+        return "fieldsets must contain a legend element"
+
+    if "list element has direct children" in msg_l:
+        return "lists must only contain allowed children"
+
     return msg_l.strip()
-
-
 
 def combine_errors(pa11y_file="pa11y_result.json", axe_file="axe_result.json", lighthouse_file="lighthouse_results.json", output="bewertung.json",):
     """Fehler aus allen Tools kombinieren und in „output“ schreiben."""
@@ -324,7 +372,6 @@ def _load_json(path):
     except (FileNotFoundError, json.JSONDecodeError):
         return []
 
-
 def delete_old_results():
     """Löscht vorhandene Ergebnisdateien, falls sie existieren."""
     temp_files = [
@@ -361,16 +408,10 @@ def delete_results():
         else:
             print(f"Nicht gefunden (oder schon gelöscht): {path}")
 
-
-
-DEF_PATH = Path(__file__).with_name("bewertung.json")
-
-
-def _load_bewertung(path: Path = DEF_PATH):
+def _load_bewertung(path: Path = Path(__file__).with_name("bewertung.json")):
     """Load rating data from JSON file."""
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
-
 
 def _count_issues(entries):
     """Return list of issue counts per tool for every URL."""
@@ -385,7 +426,6 @@ def _count_issues(entries):
         })
     return counts
 
-
 def _count_common_errors(entries):
     """Return Counter of issue messages across all tools and URLs."""
     counter = Counter()
@@ -398,7 +438,6 @@ def _count_common_errors(entries):
                     counter[msg] += 1
     return counter
 
-
 def _write_summary_text(counts, counter, output: Path = Path("visualization_summary.txt")):
     """Write a textual summary of the visualization data for screen readers."""
     with output.open("w", encoding="utf-8") as f:
@@ -410,7 +449,6 @@ def _write_summary_text(counts, counter, output: Path = Path("visualization_summ
         f.write("\nMost common issues:\n")
         for msg, num in counter.most_common(10):
             f.write(f"{num}x {msg}\n")
-
 
 def _plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
     """Create a bar chart comparing issue counts per tool."""
@@ -437,7 +475,6 @@ def _plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
     fig.savefig(output)
     print(f"Tool comparison saved to {output}")
 
-
 def _plot_common_errors(counter: Counter, output: Path = Path("common_errors.png"), top_n: int = 10):
     """Plot the most frequent accessibility issues."""
     try:
@@ -460,7 +497,6 @@ def _plot_common_errors(counter: Counter, output: Path = Path("common_errors.png
     fig.savefig(output)
     print(f"Common errors plot saved to {output}")
 
-
 def visualisation():
     entries = _load_bewertung()
     counts = _count_issues(entries)
@@ -477,8 +513,6 @@ def visualisation():
     _plot_tool_comparison(counts)
     _plot_common_errors(counter)
     _write_summary_text(counts, counter)
-
-
 
 if __name__ == "__main__":
         if not _check_node_version():
