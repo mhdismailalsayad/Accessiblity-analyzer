@@ -8,7 +8,7 @@
       },
       {
         "message": "this form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. submit buttons are input elements with type attribute \"submit\" or \"image\", or button elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_68518d3765069\"...</form>"
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_688789f612144\"...</form>"
       },
       {
         "message": "element requires an accessible name",
@@ -130,7 +130,7 @@
       },
       {
         "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
-        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_68518d3765069\"...</form>"
+        "context": "<form class=\"search-input-form\" action=\"https://moodle.uni-due.de/search/index.php\"><label for=\"id_q_688789f612144\"...</form>"
       },
       {
         "message": "This fieldset element does not have a name available to an accessibility API. Valid names are: legend element, aria-label undefined, aria-labelledby undefined.",

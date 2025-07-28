@@ -1,0 +1,76 @@
+{
+  "total_deduction": 101.1,
+  "score": 0.0,
+  "issues": [
+    {
+      "label": "Kleine interaktive Elemente",
+      "severity": 3,
+      "frequency": 7,
+      "type_factor": 1.5,
+      "deduction": 31.5
+    },
+    {
+      "label": "Geringer Farbkontrast",
+      "severity": 2,
+      "frequency": 6,
+      "type_factor": 1.2,
+      "deduction": 14.4
+    },
+    {
+      "label": "Links nur durch Farbe unterscheidbar",
+      "severity": 3,
+      "frequency": 4,
+      "type_factor": 1.2,
+      "deduction": 14.4
+    },
+    {
+      "label": "Fehlender Accessible Name",
+      "severity": 4,
+      "frequency": 3,
+      "type_factor": 1.0,
+      "deduction": 12.0
+    },
+    {
+      "label": "Nicht erkennbare Linktexte",
+      "severity": 4,
+      "frequency": 3,
+      "type_factor": 1.0,
+      "deduction": 12.0
+    },
+    {
+      "label": "Inhalt außerhalb von Landmarken",
+      "severity": 2,
+      "frequency": 3,
+      "type_factor": 1.2,
+      "deduction": 7.2
+    },
+    {
+      "label": "ARIA-hidden ist fokussierbar",
+      "severity": 3,
+      "frequency": 1,
+      "type_factor": 1.2,
+      "deduction": 3.6
+    },
+    {
+      "label": "this form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. submit buttons are input elements with type attribute \"submit\" or \"image\", or button elements with type \"submit\" or omitted/invalid.",
+      "severity": 2,
+      "frequency": 1,
+      "type_factor": 1.0,
+      "deduction": 2.0
+    },
+    {
+      "label": "Fieldset ohne Legende",
+      "severity": 2,
+      "frequency": 1,
+      "type_factor": 1.0,
+      "deduction": 2.0
+    },
+    {
+      "label": "Liste enthält ungültige Kinder",
+      "severity": 2,
+      "frequency": 1,
+      "type_factor": 1.0,
+      "deduction": 2.0
+    }
+  ]
+}

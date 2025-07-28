@@ -1,4 +1,3 @@
-
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
@@ -9,200 +8,13 @@ import tempfile
 from pathlib import Path
 from collections import Counter
 import matplotlib.pyplot as plt
-from typing import List, Dict
-import sys
 
-""" Pfad zu "npx" plattformunabhängig bestimmen. Unter Windows wird "npx.cmd"
- verwendet, auf anderen Systemen reicht "npx"."""
+""" Pfad zu "npx" plattformunabhängig bestimmen. Unter Windows wird "npx.cmd" verwendet,
+auf anderen Systemen reicht "npx"."""
 if os.name == "nt":
     NPX = "npx.cmd"
 else:
     NPX = "npx"
-# Alle von ``_canonicalize_message`` zurückgegebenen Meldungen. Diese Liste
-# dient dazu, standardmäßig Gewichtungen für unbekanntere Fehlertypen
-# festlegen zu können.
-CANONICAL_MESSAGES = [
-    "images must have alternative text",
-    "document should have one main landmark",
-    "all page content should be contained by landmarks",
-    "document must have a title element",
-    "document must have a language attribute",
-    "links must have discernible text",
-    "form elements must have labels",
-    "element requires an accessible name",
-    "aria-hidden element must not be focusable",
-    "avoid positive tabindex values",
-    "frames must not remove focusable content",
-    "elements must meet minimum color contrast ratio thresholds",
-    "links must be distinguishable without relying on color",
-    "interactive elements must have sufficient size",
-    "fieldsets must contain a legend element",
-    "autocomplete attribute must be valid",
-    "lists must only contain allowed children",
-    "scrollable region must be focusable",
-    "page should contain a level-one heading",
-    "aria attributes must be valid",
-    "interactive controls must not be nested",
-    "page must have a skip link or landmark",
-    "table cells must have headers",
-    "elements must have unique ids",
-    "page must not use timed refresh",
-    "page must allow zooming",
-    "element has an invalid aria role",
-]
-
-# Standardgewichtungen für alle Fehlertypen. Spezifische Kategorien können
-# diese Werte überschreiben.
-DEFAULT_SEVERITY = 2
-DEFAULT_TYPE_FACTOR = 1.0
-
-# Gewichtung wichtiger Fehlertypen für die Berechnung des Accessibility-Scores.
-# Die Schlüssel entsprechen den von ``_canonicalize_message`` gelieferten
-# Meldungen. Fehlende Einträge erhalten die obigen Standardwerte.
-ISSUE_CATEGORIES = {
-    msg: {"severity": DEFAULT_SEVERITY, "type_factor": DEFAULT_TYPE_FACTOR, "label": msg}
-    for msg in CANONICAL_MESSAGES
-}
-
-ISSUE_CATEGORIES.update(
-    {
-        "images must have alternative text": {
-            "severity": 4,
-            "type_factor": 1.0,
-            "label": "Fehlender Alternativtext",
-        },
-        "elements must meet minimum color contrast ratio thresholds": {
-            "severity": 2,
-            "type_factor": 1.2,
-            "label": "Geringer Farbkontrast",
-        },
-        "form elements must have labels": {
-            "severity": 4,
-            "type_factor": 1.5,
-            "label": "Unbeschriftetes Formularfeld",
-        },
-        "links must have discernible text": {
-            "severity": 4,
-            "type_factor": 1.0,
-            "label": "Nicht erkennbare Linktexte",
-        },
-        "element requires an accessible name": {
-            "severity": 4,
-            "type_factor": 1.0,
-            "label": "Fehlender Accessible Name",
-        },
-        "document should have one main landmark": {
-            "severity": 2,
-            "type_factor": 1.2,
-            "label": "Fehlende Haupt-Landmarke",
-        },
-        "all page content should be contained by landmarks": {
-            "severity": 2,
-            "type_factor": 1.2,
-            "label": "Inhalt außerhalb von Landmarken",
-        },
-        "document must have a title element": {
-            "severity": 2,
-            "type_factor": 1.0,
-            "label": "Fehlender Seitentitel",
-        },
-        "document must have a language attribute": {
-            "severity": 1,
-            "type_factor": 0.8,
-            "label": "Fehlendes Sprachattribut",
-        },
-        "aria-hidden element must not be focusable": {
-            "severity": 3,
-            "type_factor": 1.2,
-            "label": "ARIA-hidden ist fokussierbar",
-        },
-        "avoid positive tabindex values": {
-            "severity": 2,
-            "type_factor": 1.0,
-            "label": "Tabindex positiv gesetzt",
-        },
-        "frames must not remove focusable content": {
-            "severity": 4,
-            "type_factor": 1.3,
-            "label": "Frames entfernen fokussierbare Inhalte",
-        },
-        "links must be distinguishable without relying on color": {
-            "severity": 3,
-            "type_factor": 1.2,
-            "label": "Links nur durch Farbe unterscheidbar",
-        },
-        "interactive elements must have sufficient size": {
-            "severity": 3,
-            "type_factor": 1.5,
-            "label": "Kleine interaktive Elemente",
-        },
-        "fieldsets must contain a legend element": {
-            "severity": 2,
-            "type_factor": 1.0,
-            "label": "Fieldset ohne Legende",
-        },
-        "autocomplete attribute must be valid": {
-            "severity": 1,
-            "type_factor": 1.0,
-            "label": "Ungültiges Autocomplete-Attribut",
-        },
-        "lists must only contain allowed children": {
-            "severity": 2,
-            "type_factor": 1.0,
-            "label": "Liste enthält ungültige Kinder",
-        },
-        "scrollable region must be focusable": {
-            "severity": 2,
-            "type_factor": 1.2,
-            "label": "Nicht fokussierbarer Scrollbereich",
-        },
-        "page should contain a level-one heading": {
-            "severity": 2,
-            "type_factor": 1.0,
-            "label": "Kein H1-Element vorhanden",
-        },
-        "aria attributes must be valid": {
-            "severity": 2,
-            "type_factor": 1.1,
-            "label": "Ungültiges ARIA-Attribut",
-        },
-        "interactive controls must not be nested": {
-            "severity": 3,
-            "type_factor": 1.2,
-            "label": "Verschachtelte interaktive Elemente",
-        },
-        "page must have a skip link or landmark": {
-            "severity": 3,
-            "type_factor": 1.0,
-            "label": "Kein Skip-Link vorhanden",
-        },
-        "table cells must have headers": {
-            "severity": 4,
-            "type_factor": 1.1,
-            "label": "Tabellenzellen ohne Header",
-        },
-        "elements must have unique ids": {
-            "severity": 3,
-            "type_factor": 1.2,
-            "label": "Nicht eindeutige IDs",
-        },
-        "page must not use timed refresh": {
-            "severity": 3,
-            "type_factor": 1.1,
-            "label": "Zeitgesteuertes Refresh",
-        },
-        "page must allow zooming": {
-            "severity": 3,
-            "type_factor": 1.0,
-            "label": "Zoom-Funktion deaktiviert",
-        },
-        "element has an invalid aria role": {
-            "severity": 2,
-            "type_factor": 1.2,
-            "label": "Ungültige ARIA-Rolle",
-        },
-    }
-)
 
 def _check_node_version(min_major=20):
     """Gibt True zurück, wenn die installierte Node.js-Version die Mindestanforderung erfüllt."""
@@ -241,6 +53,10 @@ def finde_interne_links(start_url):
             full_url = urljoin(start_url, raw_link)
             if ist_internal_link(start_url, full_url):
                 visited.add(full_url)
+        with open("gefundene_urls.txt", "w", encoding="utf-8") as f:
+            for url in sorted(visited):
+                f.write(url + "\n")
+        print(f"\n Alle internen Links in 'gefundene_urls.txt' gespeichert.")  
     except requests.RequestException as e:
         print(f"Fehler beim Abrufen der Seite {start_url}: {e}")
         return []
@@ -248,7 +64,7 @@ def finde_interne_links(start_url):
 
 def run_pa11y(url, filename="pa11y_result.json"):
     """Führt Pa11y aus und speichert das Ergebnis in einer JSON-Datei."""
-    print(f" Pa11y: {url}")
+    print(f"Pa11y: {url}")
     result = subprocess.run([NPX, "pa11y", "--reporter", "json", "--include-warnings", url], capture_output=True, text=True)
 
     try:
@@ -308,7 +124,6 @@ def run_axe(url, filename="axe_result.json"):
 
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(all_data, f, indent=2, ensure_ascii=False)
-    print(" axe-core-Ergebnisse gespeichert.")
 
 def run_lighthouse(url, filename="lighthouse_results.json"):
     """Führt Lighthouse für die angegebene URL aus und hängt das JSON-Ergebnis an die angegebene Datei an."""
@@ -366,8 +181,8 @@ def accessibility_checks(urls):
         run_lighthouse(url)
 
 def _extract_pa11y_errors(data):
-    """Gibt eine Liste mit Fehlern aus den Pa11y-Ergebnissen zurück,"""
-    """jeweils bestehend aus einer Nachricht (message) und dem Kontext (context)."""    
+    """Gibt eine Liste mit Fehlern aus den Pa11y-Ergebnissen zurück,
+    jeweils bestehend aus einer Nachricht (message) und dem Kontext (context)."""    
     errors = []
     seen = set()
     for entry in data:
@@ -645,12 +460,12 @@ def delete_results():
             print(f"Nicht gefunden (oder schon gelöscht): {path}")
 
 def _load_bewertung(path: Path = Path(__file__).with_name("bewertung.json")):
-    """Load rating data from JSON file."""
+    """Lädt Bewertungsdaten aus einer JSON-Datei."""
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
 
 def _count_issues(entries):
-    """Return list of issue counts per tool for every URL."""
+    """Gibt eine Liste mit der Anzahl der Probleme pro Tool für jede URL zurück."""
     counts = []
     for entry in entries:
         counts.append({
@@ -663,7 +478,7 @@ def _count_issues(entries):
     return counts
 
 def _count_common_errors(entries):
-    """Return Counter of issue messages across all tools and URLs."""
+    """Gibt einen Counter mit der Häufigkeit jeder Fehlermeldung über alle Tools und URLs zurück."""
     counter = Counter()
     tools = ("pa11y", "axe", "lighthouse")
     for entry in entries:
@@ -675,7 +490,7 @@ def _count_common_errors(entries):
     return counter
 
 def _write_summary_text(counts, counter, output: Path = Path("visualization_summary.txt")):
-    """Write a textual summary of the visualization data for screen readers."""
+    """Schreibt eine textuelle Zusammenfassung der Visualisierungsdaten für Screenreader."""
     with output.open("w", encoding="utf-8") as f:
         f.write("Issues per tool and page:\n")
         for c in counts:
@@ -687,7 +502,9 @@ def _write_summary_text(counts, counter, output: Path = Path("visualization_summ
             f.write(f"{num}x {msg}\n")
 
 def _plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
-    """Create a bar chart comparing issue counts per tool."""
+    """Erstellt ein Balkendiagramm zum Vergleich der Anzahl der Probleme pro Tool."""
+    import matplotlib.pyplot as plt
+
     labels = [c["url"] for c in counts]
     pa11y = [c["pa11y"] for c in counts]
     axe = [c["axe"] for c in counts]
@@ -697,22 +514,35 @@ def _plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
 
     x = range(len(labels))
     width = 0.2
+    numbers = list(range(1, len(labels)+1))
+
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.bar([p - 1.5 * width for p in x], pa11y, width, label="pa11y", color=colors[0])
     ax.bar([p - 0.5 * width for p in x], axe, width, label="axe", color=colors[1])
     ax.bar([p + 0.5 * width for p in x], lighthouse, width, label="lighthouse", color=colors[2])
     ax.bar([p + 1.5 * width for p in x], all_tools, width, label="all tools", color=colors[3])
+
     ax.set_xticks(list(x))
-    ax.set_xticklabels(labels, rotation=45, ha="right")
+    ax.set_xticklabels(numbers)
     ax.set_ylabel("Number of issues")
     ax.set_title("Accessibility issues per page")
     ax.legend()
+
+    # Gesamtzahl über die "all tools"-Balken schreiben
+    for i, value in enumerate(all_tools):
+        ax.text(i + 1.5 * width, value + 0.5, str(value), ha='center', va='bottom', fontsize=10)
+
+    # Mapping unten unter das Diagramm schreiben
+    mapping = "\n".join([f"{num}: {url}" for num, url in zip(numbers, labels)])
+    fig.text(0.5, -0.15, mapping, ha="center", va="top", fontsize=9, wrap=True)
+
     fig.tight_layout()
-    fig.savefig(output)
+    fig.savefig(output, bbox_inches='tight')
     print(f"Tool comparison saved to {output}")
 
+
 def _plot_common_errors(counter: Counter, output: Path = Path("common_errors.png"), top_n: int = 10):
-    """Plot the most frequent accessibility issues."""
+    """Zeigt die häufigsten Accessibility-Probleme als Diagramm an."""
     try:
         import matplotlib.pyplot as plt
     except ModuleNotFoundError:
@@ -738,133 +568,10 @@ def visualisation():
     counts = _count_issues(entries)
     counter = _count_common_errors(entries)
 
-    print("Issues per tool and page:")
-    for c in counts:
-        print(c)
-    print()
-    print("Most common issues:")
-    for msg, num in counter.most_common(5):
-        print(f"{num}x {msg}")
-
     _plot_tool_comparison(counts)
     _plot_common_errors(counter)
     _write_summary_text(counts, counter)
 
-def calculate_score(issues: List[Dict], max_score: int = 100) -> int:
-    """Berechnet einen Accessibility-Score gemäß
-    ``max(0, 100 - Σ(S_i * H_i * T_i))``.
-
-    Die einzelnen Parameter haben folgende Bedeutung:
-    ``S_i`` (Schweregrad, 1-4), ``H_i`` (Häufigkeit des Vorkommens) und
-    ``T_i`` (Typ-Faktor, z.B. 1.0 für inhaltliche Probleme oder 1.5 für
-    Strukturfehler). Fehlen die Werte im Datensatz, wird jeweils ``1``
-    verwendet.
-    """
-    total_penalty = 0
-    for issue in issues:
-        s = issue.get("S", issue.get("severity", 1))
-        h = issue.get("H", issue.get("frequency", 1))
-        t = issue.get("T", issue.get("type_factor", 1))
-        total_penalty += s * h * t
-    return max(0, max_score - total_penalty)
-
-def _count_all_tool_messages(entries):
-    """Return Counter of canonical issue messages across all URLs."""
-    counter = Counter()
-    for entry in entries:
-        for issue in entry.get("All tools", []):
-            msg = issue.get("message", "")
-            if msg:
-                counter[_canonicalize_message(msg)] += 1
-    return counter
-
-def accessibility_score(entries):
-    """Calculate score deduction and prioritization for the given entries."""
-    counts = _count_all_tool_messages(entries)
-    details = []
-    total = 0.0
-    # Alle gefundenen Meldungen berücksichtigen. Für nicht definierte Kategorien
-    # werden Standardwerte genutzt.
-    for key, freq in counts.items():
-        if freq == 0:
-            continue
-        info = ISSUE_CATEGORIES.get(
-            key,
-            {"severity": DEFAULT_SEVERITY, "type_factor": DEFAULT_TYPE_FACTOR, "label": key},
-        )
-        sev = info["severity"]
-        fac = info["type_factor"]
-        deduction = sev * freq * fac
-        total += deduction
-        details.append(
-            {
-                "label": info.get("label", key),
-                "severity": sev,
-                "frequency": freq,
-                "type_factor": fac,
-                "deduction": deduction,
-            }
-        )
-    details.sort(key=lambda d: d["deduction"], reverse=True)
-    score = max(0.0, 100.0 - total)
-    return score, total, details
-
-def print_score_and_prioritization():
-    """Print a prioritized list of issues and overall accessibility score."""
-    entries = _load_bewertung()
-    score, total, details = accessibility_score(entries)
-    print("Priorisierte Probleme:")
-    for d in details:
-        print(
-            f"{d['label']}: Schweregrad {d['severity']} , H\xe4ufigkeit {d['frequency']} ,"
-            f"Typ-Faktor {d['type_factor']} = {d['deduction']:.1f}"
-        )
-    print(f"Gesamtabzug = {total:.1f}")
-    print(f"Accessibility Score = {score:.1f}")
-    _write_score_json(details, total, score)
-    _plot_score_details(details)
-
-def _write_score_json(details, total, score, output: Path = Path("score.json")):
-    """Speichert die Score-Berechnung als JSON-Datei."""
-    data = {
-        "total_deduction": round(total, 1),
-        "score": round(score, 1),
-        "issues": [
-            {
-                "label": d["label"],
-                "severity": d["severity"],
-                "frequency": d["frequency"],
-                "type_factor": d["type_factor"],
-                "deduction": round(d["deduction"], 1),
-            }
-            for d in details
-        ],
-    }
-    with output.open("w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-
-def _plot_score_details(details, output: Path = Path("score_chart.png"), top_n: int = 10):
-    """Visualize score deductions for the most serious issues."""
-    try:
-        import matplotlib.pyplot as plt
-    except ModuleNotFoundError:
-        print("matplotlib is not installed; skipping score chart.")
-        return
-
-    subset = details[:top_n]
-    labels = [d["label"] for d in subset]
-    values = [d["deduction"] for d in subset]
-
-    colors = plt.get_cmap("tab10").colors
-
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax.barh(labels, values, color=colors[5])
-    ax.invert_yaxis()
-    ax.set_xlabel("Score deduction")
-    ax.set_title("Top accessibility issues")
-    fig.tight_layout()
-    fig.savefig(output)
-    print(f"Score chart saved to {output}")
 
 if __name__ == "__main__":
         if not _check_node_version():
@@ -875,24 +582,14 @@ if __name__ == "__main__":
             print(" Bitte mit http:// oder https:// beginnen.")
         else:
             seiten = [user_url] + finde_interne_links(user_url)
-            print(f"\n Starte Accessibility-Checks für {len(seiten)} Seiten...")
+            print(f"\n Gefundene Seiten:{len(seiten)}")
             anzahl_seiten = int(input(" Wie viele Seiten sollen getestet werden? (0 für alle): ").strip())
             if anzahl_seiten == 0:
-                anzahl_seiten = len(seiten)
-            if anzahl_seiten > len(seiten):
-                print(f" Warnung: Es gibt nur {len(seiten)} Seiten, die getestet werden können.")
-                print(" Keine internen Links gefunden.")
+                print(f" Starte Accessibility-Checks für alle Seiten ....")
+                accessibility_checks(seiten)
             else:
-                print(f" Gefundene Seiten: {anzahl_seiten}")
-                print(" Starte Accessibility-Checks...")
-            accessibility_checks(seiten[:anzahl_seiten])
+                print(f" Starte Accessibility-Checks für {anzahl_seiten} Seite(n) ....")
+                accessibility_checks(seiten[:anzahl_seiten])
             combine_errors()
             delete_results()
             visualisation()
-            print_score_and_prioritization()
-            print("_________________________________________________________________________________________________")
-            print(" Alle Tests abgeschlossen. Ergebnisse gespeichert.")
-            print(" Sie können die Ergebnisse in den Dateien pa11y_result.json, axe_result.json und lighthouse_results.json finden.")
-            print(" Kombinierte Ergebnisse in bewertung.json.")         
-            print(" Visualisierungen in tool_comparison.png und common_errors.png.")
-            print(" Zusammenfassung in visualization_summary.txt.") 
