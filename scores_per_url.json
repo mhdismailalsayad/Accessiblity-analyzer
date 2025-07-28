@@ -1,0 +1,170 @@
+[
+  {
+    "url": "https://moodle.uni-due.de/",
+    "score": 43.8,
+    "total_deduction": 56.2,
+    "issues": [
+      {
+        "label": "Kleine interaktive Elemente",
+        "severity": 3,
+        "frequency": 7,
+        "type_factor": 1.5,
+        "deduction": 17.5
+      },
+      {
+        "label": "Geringer Farbkontrast",
+        "severity": 2,
+        "frequency": 6,
+        "type_factor": 1.2,
+        "deduction": 8.0
+      },
+      {
+        "label": "Links nur durch Farbe unterscheidbar",
+        "severity": 3,
+        "frequency": 4,
+        "type_factor": 1.2,
+        "deduction": 8.0
+      },
+      {
+        "label": "Fehlender Accessible Name",
+        "severity": 4,
+        "frequency": 3,
+        "type_factor": 1.0,
+        "deduction": 6.7
+      },
+      {
+        "label": "Nicht erkennbare Linktexte",
+        "severity": 4,
+        "frequency": 3,
+        "type_factor": 1.0,
+        "deduction": 6.7
+      },
+      {
+        "label": "Inhalt außerhalb von Landmarken",
+        "severity": 2,
+        "frequency": 3,
+        "type_factor": 1.2,
+        "deduction": 4.0
+      },
+      {
+        "label": "ARIA‑hidden ist fokussierbar",
+        "severity": 3,
+        "frequency": 1,
+        "type_factor": 1.2,
+        "deduction": 2.0
+      },
+      {
+        "label": "this form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. submit buttons are input elements with type attribute \"submit\" or \"image\", or button elements with type \"submit\" or omitted/invalid.",
+        "severity": 2,
+        "frequency": 1,
+        "type_factor": 1.0,
+        "deduction": 1.1
+      },
+      {
+        "label": "Fieldset ohne Legende",
+        "severity": 2,
+        "frequency": 1,
+        "type_factor": 1.0,
+        "deduction": 1.1
+      },
+      {
+        "label": "Liste enthält ungültige Kinder",
+        "severity": 2,
+        "frequency": 1,
+        "type_factor": 1.0,
+        "deduction": 1.1
+      }
+    ]
+  },
+  {
+    "url": "https://moodle.uni-due.de/course/index.php?categoryid=1403",
+    "score": 44.7,
+    "total_deduction": 55.3,
+    "issues": [
+      {
+        "label": "Kleine interaktive Elemente",
+        "severity": 3,
+        "frequency": 7,
+        "type_factor": 1.5,
+        "deduction": 25.0
+      },
+      {
+        "label": "Fehlender Accessible Name",
+        "severity": 4,
+        "frequency": 2,
+        "type_factor": 1.0,
+        "deduction": 6.3
+      },
+      {
+        "label": "Geringer Farbkontrast",
+        "severity": 2,
+        "frequency": 2,
+        "type_factor": 1.2,
+        "deduction": 3.8
+      },
+      {
+        "label": "this form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. submit buttons are input elements with type attribute \"submit\" or \"image\", or button elements with type \"submit\" or omitted/invalid.",
+        "severity": 2,
+        "frequency": 2,
+        "type_factor": 1.0,
+        "deduction": 3.2
+      },
+      {
+        "label": "Nicht erkennbare Linktexte",
+        "severity": 4,
+        "frequency": 1,
+        "type_factor": 1.0,
+        "deduction": 3.2
+      },
+      {
+        "label": "ARIA‑hidden ist fokussierbar",
+        "severity": 3,
+        "frequency": 1,
+        "type_factor": 1.2,
+        "deduction": 2.9
+      },
+      {
+        "label": "Links nur durch Farbe unterscheidbar",
+        "severity": 3,
+        "frequency": 1,
+        "type_factor": 1.2,
+        "deduction": 2.9
+      },
+      {
+        "label": "Ungültiges ARIA‑Attribut",
+        "severity": 2,
+        "frequency": 1,
+        "type_factor": 1.1,
+        "deduction": 1.7
+      },
+      {
+        "label": "Fieldset ohne Legende",
+        "severity": 2,
+        "frequency": 1,
+        "type_factor": 1.0,
+        "deduction": 1.6
+      },
+      {
+        "label": "elements must only use permitted aria attributes",
+        "severity": 2,
+        "frequency": 1,
+        "type_factor": 1.0,
+        "deduction": 1.6
+      },
+      {
+        "label": "heading levels should only increase by one",
+        "severity": 2,
+        "frequency": 1,
+        "type_factor": 1.0,
+        "deduction": 1.6
+      },
+      {
+        "label": "fix any of the following:\n  heading order invalid",
+        "severity": 2,
+        "frequency": 1,
+        "type_factor": 1.0,
+        "deduction": 1.6
+      }
+    ]
+  }
+]

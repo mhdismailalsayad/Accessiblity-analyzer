@@ -1,12 +1,12 @@
 Probleme pro Tool und Seite:
 https://moodle.uni-due.de/: pa11y=5, axe=12, lighthouse=16, alle=30
-https://moodle.uni-due.de/course/index.php?categoryid=638: pa11y=5, axe=4, lighthouse=10, alle=17
+https://moodle.uni-due.de/course/index.php?categoryid=1403: pa11y=5, axe=6, lighthouse=12, alle=21
 
 Häufigste Probleme:
-5× Fix any of the following:
+6× Fix any of the following:
   The link has insufficient color contrast of 1.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #004c93, surrounding text: #373a3c)
   The link has no styling (such as underline) to distinguish it from the surrounding text
-4× Links must be distinguishable without relying on color
+5× Links must be distinguishable without relying on color
 3× This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute "submit" or "image", or BUTTON elements with type "submit" or omitted/invalid.
 3× Links must have discernible text
 3× All page content should be contained by landmarks

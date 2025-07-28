@@ -633,6 +633,9 @@ def delete_old_results():
         "visualization_summary.txt",
         "tool_comparison.png",
         "common_errors.png",
+        "score_chart.png",
+        "score.json",   
+        "scores_per_url.json"
     ]
 
     for file in temp_files:
@@ -718,10 +721,7 @@ def _plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
     width = 0.2
     numbers = list(range(1, len(labels)+1))
 
-    # Verwende "constrained"‑Layout, damit Matplotlib automatisch genügend Platz
-    # für Achsenbeschriftungen und Legenden reserviert. Dies verhindert die
-    # Warnung, dass tight_layout nicht angewendet werden konnte.
-    fig, ax = plt.subplots(figsize=(10, 6), layout="constrained")
+    fig, ax = plt.subplots(figsize=(10, 6))
     ax.bar([p - 1.5 * width for p in x], pa11y, width, label="pa11y", color=colors[0])
     ax.bar([p - 0.5 * width for p in x], axe, width, label="axe", color=colors[1])
     ax.bar([p + 0.5 * width for p in x], lighthouse, width, label="lighthouse", color=colors[2])
@@ -742,9 +742,8 @@ def _plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
     mapping = "\n".join([f"{num}: {url}" for num, url in zip(numbers, labels)])
     fig.text(0.5, -0.15, mapping, ha="center", va="top", fontsize=9, wrap=True)
 
-    # Speichere die Abbildung ohne tight_layout, da das "constrained"‑Layout
-    # automatisch Platz reserviert.
-    fig.savefig(output)
+    fig.tight_layout()
+    fig.savefig(output, bbox_inches='tight')
     print(f"Diagramm zum Tool‑Vergleich wurde in {output} gespeichert.")
 
 
@@ -762,13 +761,11 @@ def _plot_common_errors(counter: Counter, output: Path = Path("common_errors.png
 
     colors = plt.get_cmap("tab10").colors
 
-    # Verwende das "constrained"‑Layout, um genügend Platz für Achsenbeschriftungen
-    # und Legenden zu reservieren und Warnungen von tight_layout zu vermeiden.
-    fig, ax = plt.subplots(figsize=(10, 6), layout="constrained")
+    fig, ax = plt.subplots(figsize=(10, 6))
     ax.barh(labels, values, color=colors[4])
     ax.set_xlabel("Häufigkeit")
     ax.set_title(f"Top {top_n} häufigste Probleme")
-    # Das "constrained"‑Layout macht einen expliziten Aufruf von tight_layout überflüssig.
+    fig.tight_layout()
     fig.savefig(output)
     print(f"Diagramm der häufigsten Probleme wurde in {output} gespeichert.")
 
@@ -861,7 +858,6 @@ def accessibility_score(entries):
     total_issues = sum(counts.values())
     if total_issues == 0:
         return 100.0, 0.0, []
-    # Bestimme den maximalen Abzug je Meldungskategorie
     if ISSUE_CATEGORIES:
         max_weight = max(
             info.get("severity", DEFAULT_SEVERITY) * info.get("type_factor", DEFAULT_TYPE_FACTOR)
@@ -898,6 +894,125 @@ def accessibility_score(entries):
     details.sort(key=lambda d: d["deduction"], reverse=True)
     score = max(0.0, 100.0 - total_penalty)
     return round(score, 1), round(total_penalty, 1), details
+
+# Neu hinzugefügte Funktion, um den Barrierefreiheits‑Score für jede einzelne
+# URL separat zu berechnen.  Dabei wird für jeden Eintrag in ``entries`` ein
+# eigener Score bestimmt, basierend auf den jeweils gemeldeten Problemen.
+def accessibility_score_per_url(entries):
+    """Berechnet den Score und die Detailinformationen für jedes einzelne URL‑Ergebnis.
+
+    Parameters
+    ----------
+    entries : List[Dict]
+        Liste der Bewertungseinträge aus ``bewertung.json``, wobei jeder Eintrag
+        die Schlüssel ``URL`` und ``All tools`` enthält.
+
+    Returns
+    -------
+    List[Dict]
+        Für jede URL ein Dictionary mit ``url``, ``score``, ``total_deduction``
+        und ``issues`` (Details nach Fehlertyp).
+    """
+    results = []
+    # Bestimme maximale Gewichtung (Severity * Type‑Factor) aus den Kategorien,
+    # wie in ``accessibility_score``. Falls keine Kategorien definiert sind,
+    # verwende die Standardwerte.
+    if ISSUE_CATEGORIES:
+        max_weight = max(
+            info.get("severity", DEFAULT_SEVERITY) * info.get("type_factor", DEFAULT_TYPE_FACTOR)
+            for info in ISSUE_CATEGORIES.values()
+        )
+    else:
+        max_weight = DEFAULT_SEVERITY * DEFAULT_TYPE_FACTOR
+    if max_weight <= 0:
+        max_weight = 1.0
+    scaling_factor = 100.0 / max_weight
+    for entry in entries:
+        url = entry.get("URL") or entry.get("url")
+        issues = entry.get("All tools", [])
+        # Zähle, wie oft jede kanonische Meldung in diesem Eintrag vorkommt.
+        counts = Counter()
+        for issue in issues:
+            msg = issue.get("message", "")
+            if msg:
+                key = _canonicalize_message(msg)
+                counts[key] += 1
+        total_issues = sum(counts.values())
+        if total_issues == 0:
+            results.append({
+                "url": url,
+                "score": 100.0,
+                "total_deduction": 0.0,
+                "issues": [],
+            })
+            continue
+        total_penalty = 0.0
+        details = []
+        for key, freq in counts.items():
+            # Hole Schweregrad, Typ‑Faktor und deutschsprachige Bezeichnung
+            info = ISSUE_CATEGORIES.get(
+                key,
+                {
+                    "severity": DEFAULT_SEVERITY,
+                    "type_factor": DEFAULT_TYPE_FACTOR,
+                    "label": key,
+                },
+            )
+            severity = info.get("severity", DEFAULT_SEVERITY)
+            type_factor = info.get("type_factor", DEFAULT_TYPE_FACTOR)
+            label = info.get("label", key)
+            ratio = freq / total_issues
+            deduction = severity * type_factor * ratio * scaling_factor
+            total_penalty += deduction
+            details.append({
+                "label": label,
+                "severity": severity,
+                "frequency": freq,
+                "type_factor": type_factor,
+                "ratio": ratio,
+                "deduction": deduction,
+            })
+        details.sort(key=lambda d: d["deduction"], reverse=True)
+        score = max(0.0, 100.0 - total_penalty)
+        results.append({
+            "url": url,
+            "score": round(score, 1),
+            "total_deduction": round(total_penalty, 1),
+            "issues": [
+                {
+                    "label": d["label"],
+                    "severity": d["severity"],
+                    "frequency": d["frequency"],
+                    "type_factor": d["type_factor"],
+                    "deduction": round(d["deduction"], 1),
+                }
+                for d in details
+            ],
+        })
+    return results
+
+
+def print_scores_per_url():
+    """Gibt die Barrierefreiheits‑Scores für alle gespeicherten URLs aus.
+
+    Diese Funktion lädt die Bewertungseinträge aus ``bewertung.json`` und
+    berechnet für jede URL einen eigenen Score.  Die Ergebnisse werden
+    anschließend ausgegeben und zusätzlich in der Datei ``scores_per_url.json``
+    gespeichert, um eine weitere Auswertung zu erleichtern.
+    """
+    entries = _load_bewertung()
+    results = accessibility_score_per_url(entries)
+    print("\nScores pro URL:")
+    for res in results:
+        print(f"{res['url']}: Score = {res['score']:.1f}, Gesamtabzug = {res['total_deduction']:.1f}")
+        for d in res["issues"]:
+            print(
+                f"  - {d['label']}: Schweregrad {d['severity']} , Häufigkeit {d['frequency']} , "
+                f"Typ‑Faktor {d['type_factor']} = {d['deduction']:.1f}"
+            )
+    # Speichere die Ergebnisse als JSON
+    with open("scores_per_url.json", "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
 
 
 def print_score_and_prioritization():
@@ -962,14 +1077,12 @@ def _plot_score_details(details, output: Path = Path("score_chart.png"), top_n: 
     labels = [d["label"] for d in subset]
     values = [d["deduction"] for d in subset]
     colors = plt.get_cmap("tab10").colors
-    # Nutze das "constrained"‑Layout, das automatisch ausreichend Platz für die
-    # Beschriftungen reserviert und die Warnung von tight_layout verhindert.
-    fig, ax = plt.subplots(figsize=(10, 6), layout="constrained")
+    fig, ax = plt.subplots(figsize=(10, 6))
     ax.barh(labels, values, color=colors[5])
     ax.invert_yaxis()
     ax.set_xlabel("Punktabzug")
     ax.set_title("Top Barrierefreiheitsprobleme")
-    # Beim "constrained"‑Layout ist kein expliziter Aufruf von tight_layout nötig.
+    fig.tight_layout()
     fig.savefig(output)
     print(f"Score‑Diagramm wurde in {output} gespeichert.")
 
@@ -1002,6 +1115,6 @@ if __name__ == "__main__":
             # Ergebnisse kombinieren und Einzelresultate löschen
             combine_errors()
             delete_results()
-            # Visualisierung und Score‑Berechnung
             visualisation()
             print_score_and_prioritization()
+            print_scores_per_url()
