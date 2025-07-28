@@ -1,4 +1,3 @@
-
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
@@ -12,15 +11,13 @@ import matplotlib.pyplot as plt
 from typing import List, Dict
 import sys
 
-""" Pfad zu "npx" plattformunabhängig bestimmen. Unter Windows wird "npx.cmd"
- verwendet, auf anderen Systemen reicht "npx"."""
+"""Pfad zu "npx" plattformunabhängig bestimmen. Unter Windows wird "npx.cmd"
+verwendet, auf anderen Systemen reicht "npx"."""
 if os.name == "nt":
     NPX = "npx.cmd"
 else:
     NPX = "npx"
-# Alle von ``_canonicalize_message`` zurückgegebenen Meldungen. Diese Liste
-# dient dazu, standardmäßig Gewichtungen für unbekanntere Fehlertypen
-# festlegen zu können.
+
 CANONICAL_MESSAGES = [
     "images must have alternative text",
     "document should have one main landmark",
@@ -51,14 +48,11 @@ CANONICAL_MESSAGES = [
     "element has an invalid aria role",
 ]
 
-# Standardgewichtungen für alle Fehlertypen. Spezifische Kategorien können
-# diese Werte überschreiben.
+# Standardgewichtungen für alle Fehlertypen. Spezifische Kategorien können diese
+# Werte überschreiben.
 DEFAULT_SEVERITY = 2
 DEFAULT_TYPE_FACTOR = 1.0
 
-# Gewichtung wichtiger Fehlertypen für die Berechnung des Accessibility-Scores.
-# Die Schlüssel entsprechen den von ``_canonicalize_message`` gelieferten
-# Meldungen. Fehlende Einträge erhalten die obigen Standardwerte.
 ISSUE_CATEGORIES = {
     msg: {"severity": DEFAULT_SEVERITY, "type_factor": DEFAULT_TYPE_FACTOR, "label": msg}
     for msg in CANONICAL_MESSAGES
@@ -204,8 +198,8 @@ ISSUE_CATEGORIES.update(
     }
 )
 
+
 def _check_node_version(min_major=20):
-    """Gibt True zurück, wenn die installierte Node.js-Version die Mindestanforderung erfüllt."""
     try:
         result = subprocess.run(["node", "-v"], capture_output=True, text=True)
         if result.returncode != 0:
@@ -215,8 +209,7 @@ def _check_node_version(min_major=20):
         major = int(version.split(".")[0])
         if major < min_major:
             print(
-                f"Gefundene Node.js Version {version}."
-                f" Bitte aktualisieren Sie Node.js auf Version {min_major} oder neuer."
+                f"Gefundene Node.js Version {version}. Bitte aktualisieren Sie Node.js auf Version {min_major} oder neuer."
             )
             return False
     except Exception as exc:
@@ -224,14 +217,14 @@ def _check_node_version(min_major=20):
         return False
     return True
 
+
 def ist_internal_link(base_url, link):
-    """Prüft, ob link zur selben Domain gehört wie base_url."""
     base_domain = urlparse(base_url).netloc
     target_domain = urlparse(link).netloc
     return (target_domain == "" or target_domain == base_domain)
 
+
 def finde_interne_links(start_url):
-    """Findet alle internen Links auf der Startseite und gibt sie als Liste zurück."""
     visited = set()
     try:
         response = requests.get(start_url)
@@ -246,45 +239,38 @@ def finde_interne_links(start_url):
         return []
     return list(visited)
 
+
 def run_pa11y(url, filename="pa11y_result.json"):
-    """Führt Pa11y aus und speichert das Ergebnis in einer JSON-Datei."""
     print(f" Pa11y: {url}")
     result = subprocess.run([NPX, "pa11y", "--reporter", "json", "--include-warnings", url], capture_output=True, text=True)
-
     try:
         results_json = json.loads(result.stdout)
     except json.JSONDecodeError as e:
         print(f"Fehler beim Parsen der pa11y Ausgabe für {url}: {e}")
         results_json = []
-
     entry = {
         "url": url,
         "results": results_json
     }
-
     try:
         with open(filename, "r", encoding="utf-8") as f:
             data = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         data = []
-
     data.append(entry)
-
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
+
 def run_axe(url, filename="axe_result.json"):
-    """Führt axe-core aus und speichert das Ergebnis als JSON-Datei."""
     print(f"axe-core: {url}")
     result = subprocess.run(
         [NPX, "@axe-core/cli", url, "--save", "axe_tmp.json"],
         capture_output=True,
         text=True,
     )
-
     if result.returncode != 0:
         print("Fehler bei axe-core:", result.stderr)
-
     try:
         with open("axe_tmp.json", "r", encoding="utf-8") as tmp:
             data = json.load(tmp)
@@ -292,30 +278,25 @@ def run_axe(url, filename="axe_result.json"):
     except Exception as e:
         print(f"Fehler beim Lesen der axe-core Ausgabe: {e}")
         data = {}
-
     entry = {
         "url": url,
         "axe_result": data,
     }
-
     try:
         with open(filename, "r", encoding="utf-8") as f:
             all_data = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         all_data = []
-
     all_data.append(entry)
-
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(all_data, f, indent=2, ensure_ascii=False)
     print(" axe-core-Ergebnisse gespeichert.")
 
+
 def run_lighthouse(url, filename="lighthouse_results.json"):
-    """Führt Lighthouse für die angegebene URL aus und hängt das JSON-Ergebnis an die angegebene Datei an."""
     print(f"Lighthouse: {url}")
     fd, tmp_path = tempfile.mkstemp(suffix=".json")
     os.close(fd)
-
     result = subprocess.run(
         [
             NPX,
@@ -329,23 +310,18 @@ def run_lighthouse(url, filename="lighthouse_results.json"):
         capture_output=True,
         text=True,
     )
-
     if result.returncode != 0:
         print("Fehler bei Lighthouse:", result.stderr)
-
     try:
         with open(tmp_path, "r", encoding="utf-8") as tmp_file:
             data = json.load(tmp_file)
         entry = {"url": url, "lighthouse_result": data}
-        
         try:
             with open(filename, "r", encoding="utf-8") as f:
                 all_data = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             all_data = []
-
         all_data.append(entry)
-
         with open(filename, "w", encoding="utf-8") as out_file:
             json.dump(all_data, out_file, indent=2, ensure_ascii=False)
     except Exception as exc:
@@ -356,18 +332,16 @@ def run_lighthouse(url, filename="lighthouse_results.json"):
         except OSError:
             pass
 
+
 def accessibility_checks(urls):
-    """Führt alle Tests für jede URL in urls aus."""
-    """Die Ergebnisse werden in den Dateien pa11y_result.json, axe_result.json und lighthouse_results.json gespeichert."""
     for url in urls:
         print(f"\n=== Teste Seite: {url} ===")
         run_pa11y(url)
         run_axe(url)
         run_lighthouse(url)
 
+
 def _extract_pa11y_errors(data):
-    """Gibt eine Liste mit Fehlern aus den Pa11y-Ergebnissen zurück,"""
-    """jeweils bestehend aus einer Nachricht (message) und dem Kontext (context)."""    
     errors = []
     seen = set()
     for entry in data:
@@ -382,8 +356,8 @@ def _extract_pa11y_errors(data):
                 errors.append({"message": msg, "context": ctx})
     return errors
 
+
 def _extract_axe_errors(data):
-    """Gibt eine Liste mit Fehlernachrichten und HTML-Kontext aus den Axe-Ergebnissen zurück."""
     errors = []
     seen = set()
     for entry in data:
@@ -401,9 +375,8 @@ def _extract_axe_errors(data):
                     errors.append({"message": msg, "context": ctx})
     return errors
 
+
 def _extract_lighthouse_errors(data):
-    """Gibt eine Liste von Fehlern aus den Lighthouse-Ergebnissen zurück,""" 
-    """jeweils mit Nachricht (message) und HTML-Kontext (Context)."""
     errors = []
     seen = set()
     for entry in data:
@@ -433,132 +406,97 @@ def _extract_lighthouse_errors(data):
                     errors.append({"message": title, "context": ""})
     return errors
 
+
 def _canonicalize_message(msg: str) -> str:
-    """Vereinfachte Darstellung zum Vergleich verschiedener Tools zurückgegeben."""
     msg_l = msg.lower()
     if ("alt attribute" in msg_l or "alternative text" in msg_l or "missing alt" in msg_l):
         return "images must have alternative text"
-
     if "one main landmark" in msg_l:
         return "document should have one main landmark"
-
     if "landmark" in msg_l:
         return "all page content should be contained by landmarks"
-
     if "page title" in msg_l or "title element" in msg_l:
         return "document must have a title element"
-
     if "lang attribute" in msg_l or "document language" in msg_l:
         return "document must have a language attribute"
-
     if (
         "no link content" in msg_l
         or "discernible text" in msg_l
         or "anchor element found with a valid href" in msg_l
     ):
         return "links must have discernible text"
-
     if "form" in msg_l and "label" in msg_l:
         return "form elements must have labels"
-
     if "<label>" in msg_l and ("implicit" in msg_l or "explicit" in msg_l):
         return "form elements must have labels"
-
     if (
         "accessible name" in msg_l
         or "name available to an accessibility api" in msg_l
         or "does not have accessible text" in msg_l
     ):
         return "element requires an accessible name"
-
     if (
         "aria hidden" in msg_l and "focusable" in msg_l
     ) or "focusable content should have tabindex" in msg_l:
         return "aria-hidden element must not be focusable"
-
     if "tabindex" in msg_l and "+" in msg_l:
         return "avoid positive tabindex values"
-
     if "frame" in msg_l and "tabindex" in msg_l:
         return "frames must not remove focusable content"
-
     if "color contrast" in msg_l:
         return "elements must meet minimum color contrast ratio thresholds"
-
     if "link has no styling" in msg_l or "relying on color" in msg_l:
         return "links must be distinguishable without relying on color"
-
     if "insufficient size" in msg_l or "tap target" in msg_l:
         return "interactive elements must have sufficient size"
-
     if "fieldset" in msg_l and "legend" in msg_l:
         return "fieldsets must contain a legend element"
-
     if "invalid autocomplete" in msg_l:
         return "autocomplete attribute must be valid"
-
     if "list element has direct children" in msg_l or "<ul> and <ol> must only directly contain" in msg_l:
         return "lists must only contain allowed children"
-
     if "scrollable" in msg_l and "focusable" in msg_l:
         return "scrollable region must be focusable"
-
     if "level-one heading" in msg_l:
         return "page should contain a level-one heading"
-
     if "aria" in msg_l and "attribute" in msg_l and "valid" in msg_l:
         return "aria attributes must be valid"
-
     if "interactive controls" in msg_l and "nested" in msg_l:
         return "interactive controls must not be nested"
-
     if "bypass" in msg_l and "repeated blocks" in msg_l:
         return "page must have a skip link or landmark"
-
     if "data cells" in msg_l and "table headers" in msg_l:
         return "table cells must have headers"
-
     if "duplicate id" in msg_l:
         return "elements must have unique ids"
-
     if "meta http-equiv\"refresh" in msg_l or "timed refresh" in msg_l:
         return "page must not use timed refresh"
-
     if "user-scalable\"=" in msg_l or "maximum-scale" in msg_l:
         return "page must allow zooming"
-
     if "aria role" in msg_l and (
         "not allowed" in msg_l or "appropriate" in msg_l or "invalid" in msg_l
     ):
         return "element has an invalid aria role"
-
     return msg_l.strip()
 
-def combine_errors(pa11y_file="pa11y_result.json", axe_file="axe_result.json", lighthouse_file="lighthouse_results.json", output="bewertung.json",):
-    """Fehler aus allen Tools kombinieren und in „output“ schreiben."""
-    """Die resultierende JSON-Datei ist eine Liste von Objekten, die jeweils die URL und eine"""
-    """Meldungs-/Kontextliste für jedes Tool enthalten. Eine einheitliche Liste „All tools“ führt"""
-    """die Meldungen aus Pa11y, Axe und Lighthouse zusammen und entfernt Duplikate."""
+
+def combine_errors(pa11y_file="pa11y_result.json", axe_file="axe_result.json", lighthouse_file="lighthouse_results.json", output="bewertung.json"):
     pa11y_data = _load_json(pa11y_file)
     axe_data = _load_json(axe_file)
     lighthouse_data = _load_json(lighthouse_file)
-
     grouped = {}
-
     for entry in pa11y_data:
         url = entry.get("url")
         if not url:
             continue
         grouped.setdefault(url, {"pa11y": [], "axe": [], "lighthouse": []})
         grouped[url]["pa11y"].extend(_extract_pa11y_errors([entry]))
-
     for entry in axe_data:
         url = entry.get("url")
         if not url:
             continue
         grouped.setdefault(url, {"pa11y": [], "axe": [], "lighthouse": []})
         grouped[url]["axe"].extend(_extract_axe_errors([entry]))
-
     for entry in lighthouse_data:
         url = entry.get("url")
         if not url:
@@ -568,7 +506,6 @@ def combine_errors(pa11y_file="pa11y_result.json", axe_file="axe_result.json", l
             continue
         grouped.setdefault(url, {"pa11y": [], "axe": [], "lighthouse": []})
         grouped[url]["lighthouse"].extend(_extract_lighthouse_errors([entry]))
-
     result_list = []
     for url, data in grouped.items():
         seen = set()
@@ -581,7 +518,6 @@ def combine_errors(pa11y_file="pa11y_result.json", axe_file="axe_result.json", l
                 if key not in seen:
                     seen.add(key)
                     all_tools.append({"message": key[0], "context": ctx})
-
         result_list.append({
             "URL": url,
             "All tools": all_tools,
@@ -589,7 +525,6 @@ def combine_errors(pa11y_file="pa11y_result.json", axe_file="axe_result.json", l
             "axe": data["axe"],
             "lighthouse": data["lighthouse"],
         })
-
     try:
         with open(output, "w", encoding="utf-8") as f:
             json.dump(result_list, f, indent=2, ensure_ascii=False)
@@ -597,8 +532,8 @@ def combine_errors(pa11y_file="pa11y_result.json", axe_file="axe_result.json", l
     except Exception as exc:
         print(f"Fehler beim Speichern der kombinierten Fehler: {exc}")
 
+
 def _load_json(path):
-    """Lädt eine JSON-Datei oder gibt eine leere Liste zurück."""
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -608,8 +543,8 @@ def _load_json(path):
     except (FileNotFoundError, json.JSONDecodeError):
         return []
 
+
 def delete_old_results():
-    """Löscht vorhandene Ergebnisdateien, falls sie existieren."""
     temp_files = [
         "axe_result.json",
         "lighthouse_results.json",
@@ -621,20 +556,14 @@ def delete_old_results():
         "tool_comparison.png",
         "common_errors.png",
     ]
-
     for file in temp_files:
         if os.path.exists(file):
             os.remove(file)
     print(" Alte Ergebnisdateien gelöscht.")
 
-def delete_results():
-    """Tool-Ergebnisdateien löschen."""
-    temp_files = [
-        "axe_result.json",
-        "lighthouse_results.json",
-        "pa11y_result.json"
-    ]
 
+def delete_results():
+    temp_files = ["axe_result.json", "lighthouse_results.json", "pa11y_result.json"]
     for path in temp_files:
         if os.path.exists(path):
             try:
@@ -644,13 +573,13 @@ def delete_results():
         else:
             print(f"Nicht gefunden (oder schon gelöscht): {path}")
 
+
 def _load_bewertung(path: Path = Path(__file__).with_name("bewertung.json")):
-    """Load rating data from JSON file."""
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
 
+
 def _count_issues(entries):
-    """Return list of issue counts per tool for every URL."""
     counts = []
     for entry in entries:
         counts.append({
@@ -662,8 +591,8 @@ def _count_issues(entries):
         })
     return counts
 
+
 def _count_common_errors(entries):
-    """Return Counter of issue messages across all tools and URLs."""
     counter = Counter()
     tools = ("pa11y", "axe", "lighthouse")
     for entry in entries:
@@ -674,8 +603,8 @@ def _count_common_errors(entries):
                     counter[msg] += 1
     return counter
 
+
 def _write_summary_text(counts, counter, output: Path = Path("visualization_summary.txt")):
-    """Write a textual summary of the visualization data for screen readers."""
     with output.open("w", encoding="utf-8") as f:
         f.write("Issues per tool and page:\n")
         for c in counts:
@@ -686,15 +615,14 @@ def _write_summary_text(counts, counter, output: Path = Path("visualization_summ
         for msg, num in counter.most_common(10):
             f.write(f"{num}x {msg}\n")
 
+
 def _plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
-    """Create a bar chart comparing issue counts per tool."""
     labels = [c["url"] for c in counts]
     pa11y = [c["pa11y"] for c in counts]
     axe = [c["axe"] for c in counts]
     lighthouse = [c["lighthouse"] for c in counts]
     all_tools = [c["all"] for c in counts]
     colors = plt.get_cmap("tab10").colors
-
     x = range(len(labels))
     width = 0.2
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -711,20 +639,17 @@ def _plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
     fig.savefig(output)
     print(f"Tool comparison saved to {output}")
 
+
 def _plot_common_errors(counter: Counter, output: Path = Path("common_errors.png"), top_n: int = 10):
-    """Plot the most frequent accessibility issues."""
     try:
         import matplotlib.pyplot as plt
     except ModuleNotFoundError:
         print("matplotlib is not installed; skipping common errors plot.")
         return
-
     most_common = counter.most_common(top_n)
     labels = [m[0][:50] + ("..." if len(m[0]) > 50 else "") for m in most_common]
     values = [m[1] for m in most_common]
-
     colors = plt.get_cmap("tab10").colors
-
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.barh(labels, values, color=colors[4])
     ax.set_xlabel("Occurrences")
@@ -733,11 +658,11 @@ def _plot_common_errors(counter: Counter, output: Path = Path("common_errors.png
     fig.savefig(output)
     print(f"Common errors plot saved to {output}")
 
+
 def visualisation():
     entries = _load_bewertung()
     counts = _count_issues(entries)
     counter = _count_common_errors(entries)
-
     print("Issues per tool and page:")
     for c in counts:
         print(c)
@@ -745,21 +670,12 @@ def visualisation():
     print("Most common issues:")
     for msg, num in counter.most_common(5):
         print(f"{num}x {msg}")
-
     _plot_tool_comparison(counts)
     _plot_common_errors(counter)
     _write_summary_text(counts, counter)
 
-def calculate_score(issues: List[Dict], max_score: int = 100) -> int:
-    """Berechnet einen Accessibility-Score gemäß
-    ``max(0, 100 - Σ(S_i * H_i * T_i))``.
 
-    Die einzelnen Parameter haben folgende Bedeutung:
-    ``S_i`` (Schweregrad, 1-4), ``H_i`` (Häufigkeit des Vorkommens) und
-    ``T_i`` (Typ-Faktor, z.B. 1.0 für inhaltliche Probleme oder 1.5 für
-    Strukturfehler). Fehlen die Werte im Datensatz, wird jeweils ``1``
-    verwendet.
-    """
+def calculate_score(issues: List[Dict], max_score: int = 100) -> int:
     total_penalty = 0
     for issue in issues:
         s = issue.get("S", issue.get("severity", 1))
@@ -768,8 +684,8 @@ def calculate_score(issues: List[Dict], max_score: int = 100) -> int:
         total_penalty += s * h * t
     return max(0, max_score - total_penalty)
 
+
 def _count_all_tool_messages(entries):
-    """Return Counter of canonical issue messages across all URLs."""
     counter = Counter()
     for entry in entries:
         for issue in entry.get("All tools", []):
@@ -778,13 +694,32 @@ def _count_all_tool_messages(entries):
                 counter[_canonicalize_message(msg)] += 1
     return counter
 
+
 def accessibility_score(entries):
-    """Calculate score deduction and prioritization for the given entries."""
+    """Calculate a normalized accessibility score with weighting based on severity and issue frequency.
+
+    This implementation normalizes deductions by the total number of issues to avoid penalizing
+    sites with many pages. It also scales the maximum possible weighted severity to correspond
+    to a 100‑point penalty, ensuring scores remain on a 0–100 scale. See accompanying documentation
+    for details on weighting choices.
+    """
     counts = _count_all_tool_messages(entries)
+    total_issues = sum(counts.values())
+    if total_issues == 0:
+        return 100.0, 0.0, []
+    # determine max weight among categories
+    if ISSUE_CATEGORIES:
+        max_weight = max(
+            info.get("severity", DEFAULT_SEVERITY) * info.get("type_factor", DEFAULT_TYPE_FACTOR)
+            for info in ISSUE_CATEGORIES.values()
+        )
+    else:
+        max_weight = DEFAULT_SEVERITY * DEFAULT_TYPE_FACTOR
+    if max_weight <= 0:
+        max_weight = 1.0
+    scaling_factor = 100.0 / max_weight
     details = []
-    total = 0.0
-    # Alle gefundenen Meldungen berücksichtigen. Für nicht definierte Kategorien
-    # werden Standardwerte genutzt.
+    total_penalty = 0.0
     for key, freq in counts.items():
         if freq == 0:
             continue
@@ -792,31 +727,32 @@ def accessibility_score(entries):
             key,
             {"severity": DEFAULT_SEVERITY, "type_factor": DEFAULT_TYPE_FACTOR, "label": key},
         )
-        sev = info["severity"]
-        fac = info["type_factor"]
-        deduction = sev * freq * fac
-        total += deduction
-        details.append(
-            {
-                "label": info.get("label", key),
-                "severity": sev,
-                "frequency": freq,
-                "type_factor": fac,
-                "deduction": deduction,
-            }
-        )
+        severity = info.get("severity", DEFAULT_SEVERITY)
+        type_factor = info.get("type_factor", DEFAULT_TYPE_FACTOR)
+        label = info.get("label", key)
+        ratio = freq / total_issues
+        deduction = severity * type_factor * ratio * scaling_factor
+        total_penalty += deduction
+        details.append({
+            "label": label,
+            "severity": severity,
+            "frequency": freq,
+            "type_factor": type_factor,
+            "ratio": ratio,
+            "deduction": deduction,
+        })
     details.sort(key=lambda d: d["deduction"], reverse=True)
-    score = max(0.0, 100.0 - total)
-    return score, total, details
+    score = max(0.0, 100.0 - total_penalty)
+    return round(score, 1), round(total_penalty, 1), details
+
 
 def print_score_and_prioritization():
-    """Print a prioritized list of issues and overall accessibility score."""
     entries = _load_bewertung()
     score, total, details = accessibility_score(entries)
     print("Priorisierte Probleme:")
     for d in details:
         print(
-            f"{d['label']}: Schweregrad {d['severity']} , H\xe4ufigkeit {d['frequency']} ,"
+            f"{d['label']}: Schweregrad {d['severity']} , Häufigkeit {d['frequency']} ,"
             f"Typ-Faktor {d['type_factor']} = {d['deduction']:.1f}"
         )
     print(f"Gesamtabzug = {total:.1f}")
@@ -824,8 +760,8 @@ def print_score_and_prioritization():
     _write_score_json(details, total, score)
     _plot_score_details(details)
 
+
 def _write_score_json(details, total, score, output: Path = Path("score.json")):
-    """Speichert die Score-Berechnung als JSON-Datei."""
     data = {
         "total_deduction": round(total, 1),
         "score": round(score, 1),
@@ -843,20 +779,17 @@ def _write_score_json(details, total, score, output: Path = Path("score.json")):
     with output.open("w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
+
 def _plot_score_details(details, output: Path = Path("score_chart.png"), top_n: int = 10):
-    """Visualize score deductions for the most serious issues."""
     try:
         import matplotlib.pyplot as plt
     except ModuleNotFoundError:
         print("matplotlib is not installed; skipping score chart.")
         return
-
     subset = details[:top_n]
     labels = [d["label"] for d in subset]
     values = [d["deduction"] for d in subset]
-
     colors = plt.get_cmap("tab10").colors
-
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.barh(labels, values, color=colors[5])
     ax.invert_yaxis()
@@ -866,33 +799,32 @@ def _plot_score_details(details, output: Path = Path("score_chart.png"), top_n: 
     fig.savefig(output)
     print(f"Score chart saved to {output}")
 
+
 if __name__ == "__main__":
-        if not _check_node_version():
-            exit(1)
-        delete_old_results()
-        user_url = input(" Gib eine URL ein (inkl. https://) : ").strip()
-        if not user_url.startswith("http"):
-            print(" Bitte mit http:// oder https:// beginnen.")
+    if not _check_node_version():
+        exit(1)
+    delete_old_results()
+    user_url = input(" Gib eine URL ein (inkl. https://) : ").strip()
+    if not user_url.startswith("http"):
+        print(" Bitte mit http:// oder https:// beginnen.")
+    else:
+        seiten = [user_url] + finde_interne_links(user_url)
+        print(f"\n Starte Accessibility-Checks für {len(seiten)} Seiten...")
+        anzahl_seiten = int(input(" Wie viele Seiten sollen getestet werden? (0 für alle): ").strip())
+        if anzahl_seiten == 0:
+            anzahl_seiten = len(seiten)
+        if anzahl_seiten > len(seiten):
+            print(f" Warnung: Es gibt nur {len(seiten)} Seiten, die getestet werden können.")
+            print(" Keine internen Links gefunden.")
         else:
-            seiten = [user_url] + finde_interne_links(user_url)
-            print(f"\n Starte Accessibility-Checks für {len(seiten)} Seiten...")
-            anzahl_seiten = int(input(" Wie viele Seiten sollen getestet werden? (0 für alle): ").strip())
-            if anzahl_seiten == 0:
-                anzahl_seiten = len(seiten)
-            if anzahl_seiten > len(seiten):
-                print(f" Warnung: Es gibt nur {len(seiten)} Seiten, die getestet werden können.")
-                print(" Keine internen Links gefunden.")
-            else:
-                print(f" Gefundene Seiten: {anzahl_seiten}")
-                print(" Starte Accessibility-Checks...")
-            accessibility_checks(seiten[:anzahl_seiten])
-            combine_errors()
-            delete_results()
-            visualisation()
-            print_score_and_prioritization()
-            print("_________________________________________________________________________________________________")
-            print(" Alle Tests abgeschlossen. Ergebnisse gespeichert.")
-            print(" Sie können die Ergebnisse in den Dateien pa11y_result.json, axe_result.json und lighthouse_results.json finden.")
-            print(" Kombinierte Ergebnisse in bewertung.json.")         
-            print(" Visualisierungen in tool_comparison.png und common_errors.png.")
-            print(" Zusammenfassung in visualization_summary.txt.") 
+            print(f" Gefundene Seiten: {anzahl_seiten}")
+            print(" Starte Accessibility-Checks...")
+        accessibility_checks(seiten[:anzahl_seiten])
+        combine_errors()
+        delete_results()
+        visualisation()
+        print_score_and_prioritization()
+        print("_________________________________________________________________________________________________")
+        print(" Alle Tests abgeschlossen. Ergebnisse gespeichert.")
+        print(" Sie können die Ergebnisse in den Dateien pa11y_result.json, axe_result.json und lighthouse_results.json finden.")
+        print(" Kombinierte Ergebnisse in bewertung.json.")

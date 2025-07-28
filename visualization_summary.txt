@@ -1,16 +1,17 @@
-Issues per tool and page:
-https://moodle.uni-due.de/: pa11y=5, axe=12, lighthouse=16, all=30
+Probleme pro Tool und Seite:
+https://moodle.uni-due.de/: pa11y=5, axe=12, lighthouse=16, alle=30
+https://moodle.uni-due.de/course/index.php?categoryid=638: pa11y=5, axe=4, lighthouse=10, alle=17
 
-Most common issues:
-5x Fix any of the following:
+Häufigste Probleme:
+5× Fix any of the following:
   The link has insufficient color contrast of 1.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #004c93, surrounding text: #373a3c)
   The link has no styling (such as underline) to distinguish it from the surrounding text
-4x Links must be distinguishable without relying on color
-3x All page content should be contained by landmarks
-2x Links must have discernible text
-1x This element has role of "button" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.
-1x This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute "submit" or "image", or BUTTON elements with type "submit" or omitted/invalid.
-1x This fieldset element does not have a name available to an accessibility API. Valid names are: legend element, aria-label undefined, aria-labelledby undefined.
-1x Fieldset does not contain a legend element. All fieldsets should contain a legend element that describes a description of the field group.
-1x Anchor element found with a valid href attribute, but no link content has been supplied.
-1x ARIA hidden element must not be focusable or contain focusable elements
+4× Links must be distinguishable without relying on color
+3× This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute "submit" or "image", or BUTTON elements with type "submit" or omitted/invalid.
+3× Links must have discernible text
+3× All page content should be contained by landmarks
+2× This element has role of "button" but does not have a name available to an accessibility API. Valid names are: element content, aria-label undefined, aria-labelledby undefined.
+2× This fieldset element does not have a name available to an accessibility API. Valid names are: legend element, aria-label undefined, aria-labelledby undefined.
+2× Fieldset does not contain a legend element. All fieldsets should contain a legend element that describes a description of the field group.
+2× ARIA hidden element must not be focusable or contain focusable elements
+2× Elements must meet minimum color contrast ratio thresholds

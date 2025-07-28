@@ -1,76 +1,90 @@
 {
-  "total_deduction": 101.1,
-  "score": 0.0,
+  "total_deduction": 57.0,
+  "score": 43.0,
   "issues": [
     {
       "label": "Kleine interaktive Elemente",
       "severity": 3,
-      "frequency": 7,
+      "frequency": 14,
       "type_factor": 1.5,
-      "deduction": 31.5
+      "deduction": 22.3
+    },
+    {
+      "label": "Fehlender Accessible Name",
+      "severity": 4,
+      "frequency": 5,
+      "type_factor": 1.0,
+      "deduction": 7.1
     },
     {
       "label": "Geringer Farbkontrast",
       "severity": 2,
-      "frequency": 6,
+      "frequency": 7,
       "type_factor": 1.2,
-      "deduction": 14.4
+      "deduction": 6.0
+    },
+    {
+      "label": "Nicht erkennbare Linktexte",
+      "severity": 4,
+      "frequency": 4,
+      "type_factor": 1.0,
+      "deduction": 5.7
     },
     {
       "label": "Links nur durch Farbe unterscheidbar",
       "severity": 3,
       "frequency": 4,
       "type_factor": 1.2,
-      "deduction": 14.4
+      "deduction": 5.1
     },
     {
-      "label": "Fehlender Accessible Name",
-      "severity": 4,
-      "frequency": 3,
-      "type_factor": 1.0,
-      "deduction": 12.0
-    },
-    {
-      "label": "Nicht erkennbare Linktexte",
-      "severity": 4,
-      "frequency": 3,
-      "type_factor": 1.0,
-      "deduction": 12.0
+      "label": "ARIA‑hidden ist fokussierbar",
+      "severity": 3,
+      "frequency": 2,
+      "type_factor": 1.2,
+      "deduction": 2.6
     },
     {
       "label": "Inhalt außerhalb von Landmarken",
       "severity": 2,
       "frequency": 3,
       "type_factor": 1.2,
-      "deduction": 7.2
-    },
-    {
-      "label": "ARIA-hidden ist fokussierbar",
-      "severity": 3,
-      "frequency": 1,
-      "type_factor": 1.2,
-      "deduction": 3.6
+      "deduction": 2.6
     },
     {
       "label": "this form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. submit buttons are input elements with type attribute \"submit\" or \"image\", or button elements with type \"submit\" or omitted/invalid.",
       "severity": 2,
-      "frequency": 1,
+      "frequency": 3,
       "type_factor": 1.0,
-      "deduction": 2.0
+      "deduction": 2.1
     },
     {
       "label": "Fieldset ohne Legende",
       "severity": 2,
-      "frequency": 1,
+      "frequency": 2,
       "type_factor": 1.0,
-      "deduction": 2.0
+      "deduction": 1.4
     },
     {
       "label": "Liste enthält ungültige Kinder",
       "severity": 2,
       "frequency": 1,
       "type_factor": 1.0,
-      "deduction": 2.0
+      "deduction": 0.7
+    },
+    {
+      "label": "heading levels should only increase by one",
+      "severity": 2,
+      "frequency": 1,
+      "type_factor": 1.0,
+      "deduction": 0.7
+    },
+    {
+      "label": "fix any of the following:\n  heading order invalid",
+      "severity": 2,
+      "frequency": 1,
+      "type_factor": 1.0,
+      "deduction": 0.7
     }
   ]
 }

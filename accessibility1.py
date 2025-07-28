@@ -16,6 +16,204 @@ if os.name == "nt":
 else:
     NPX = "npx"
 
+# ------------------------------------------------------------------------------
+# Definition von Meldungskategorien und Gewichtungen für die Berechnung des
+# Barrierefreiheits‑Scores.  Jede Meldung aus den verschiedenen Tools wird auf
+# eine kanonische Form abgebildet (siehe `_canonicalize_message`) und erhält
+# einen Schweregrad sowie einen Typ‑Faktor.  Diese Werte bestimmen, wie stark
+# sich ein bestimmter Fehler auf den Gesamtpunktestand auswirkt.  Für viele
+# Meldungen werden die Standardwerte unten überschrieben, um eine feinere
+# Priorisierung zu ermöglichen.
+
+# Liste der möglichen kanonischen Meldungen.  Diese wird verwendet, um das
+# `ISSUE_CATEGORIES`‑Dictionary mit Standardwerten zu befüllen.  Wird eine
+# Meldung durch `_canonicalize_message` nicht zugeordnet, bleibt der
+# Schweregrad auf dem Standardwert `DEFAULT_SEVERITY` und der Typ‑Faktor auf
+# `DEFAULT_TYPE_FACTOR`.
+CANONICAL_MESSAGES = [
+    "images must have alternative text",
+    "document should have one main landmark",
+    "all page content should be contained by landmarks",
+    "document must have a title element",
+    "document must have a language attribute",
+    "links must have discernible text",
+    "form elements must have labels",
+    "element requires an accessible name",
+    "aria-hidden element must not be focusable",
+    "avoid positive tabindex values",
+    "frames must not remove focusable content",
+    "elements must meet minimum color contrast ratio thresholds",
+    "links must be distinguishable without relying on color",
+    "interactive elements must have sufficient size",
+    "fieldsets must contain a legend element",
+    "autocomplete attribute must be valid",
+    "lists must only contain allowed children",
+    "scrollable region must be focusable",
+    "page should contain a level-one heading",
+    "aria attributes must be valid",
+    "interactive controls must not be nested",
+    "page must have a skip link or landmark",
+    "table cells must have headers",
+    "elements must have unique ids",
+    "page must not use timed refresh",
+    "page must allow zooming",
+    "element has an invalid aria role",
+]
+
+# Standardgewichtungen für alle Fehlertypen.  Einzelne Kategorien können diese
+# Werte überschreiben.
+DEFAULT_SEVERITY = 2
+DEFAULT_TYPE_FACTOR = 1.0
+
+# Das Dictionary `ISSUE_CATEGORIES` enthält für jede kanonische Meldung den
+# Schweregrad, den Typ‑Faktor und eine kurze, deutschsprachige Bezeichnung.
+# Diese Werte werden verwendet, um Punktabzüge zu berechnen.  Für Meldungen
+# ohne spezifischen Eintrag gelten die oben definierten Standardwerte.
+ISSUE_CATEGORIES = {
+    msg: {"severity": DEFAULT_SEVERITY, "type_factor": DEFAULT_TYPE_FACTOR, "label": msg}
+    for msg in CANONICAL_MESSAGES
+}
+
+ISSUE_CATEGORIES.update(
+    {
+        "images must have alternative text": {
+            "severity": 4,
+            "type_factor": 1.0,
+            "label": "Fehlender Alternativtext",
+        },
+        "elements must meet minimum color contrast ratio thresholds": {
+            "severity": 2,
+            "type_factor": 1.2,
+            "label": "Geringer Farbkontrast",
+        },
+        "form elements must have labels": {
+            "severity": 4,
+            "type_factor": 1.5,
+            "label": "Unbeschriftetes Formularfeld",
+        },
+        "links must have discernible text": {
+            "severity": 4,
+            "type_factor": 1.0,
+            "label": "Nicht erkennbare Linktexte",
+        },
+        "element requires an accessible name": {
+            "severity": 4,
+            "type_factor": 1.0,
+            "label": "Fehlender Accessible Name",
+        },
+        "document should have one main landmark": {
+            "severity": 2,
+            "type_factor": 1.2,
+            "label": "Fehlende Haupt‑Landmarke",
+        },
+        "all page content should be contained by landmarks": {
+            "severity": 2,
+            "type_factor": 1.2,
+            "label": "Inhalt außerhalb von Landmarken",
+        },
+        "document must have a title element": {
+            "severity": 2,
+            "type_factor": 1.0,
+            "label": "Fehlender Seitentitel",
+        },
+        "document must have a language attribute": {
+            "severity": 1,
+            "type_factor": 0.8,
+            "label": "Fehlendes Sprachattribut",
+        },
+        "aria-hidden element must not be focusable": {
+            "severity": 3,
+            "type_factor": 1.2,
+            "label": "ARIA‑hidden ist fokussierbar",
+        },
+        "avoid positive tabindex values": {
+            "severity": 2,
+            "type_factor": 1.0,
+            "label": "Tabindex positiv gesetzt",
+        },
+        "frames must not remove focusable content": {
+            "severity": 4,
+            "type_factor": 1.3,
+            "label": "Frames entfernen fokussierbare Inhalte",
+        },
+        "links must be distinguishable without relying on color": {
+            "severity": 3,
+            "type_factor": 1.2,
+            "label": "Links nur durch Farbe unterscheidbar",
+        },
+        "interactive elements must have sufficient size": {
+            "severity": 3,
+            "type_factor": 1.5,
+            "label": "Kleine interaktive Elemente",
+        },
+        "fieldsets must contain a legend element": {
+            "severity": 2,
+            "type_factor": 1.0,
+            "label": "Fieldset ohne Legende",
+        },
+        "autocomplete attribute must be valid": {
+            "severity": 1,
+            "type_factor": 1.0,
+            "label": "Ungültiges Autocomplete‑Attribut",
+        },
+        "lists must only contain allowed children": {
+            "severity": 2,
+            "type_factor": 1.0,
+            "label": "Liste enthält ungültige Kinder",
+        },
+        "scrollable region must be focusable": {
+            "severity": 2,
+            "type_factor": 1.2,
+            "label": "Nicht fokussierbarer Scrollbereich",
+        },
+        "page should contain a level-one heading": {
+            "severity": 2,
+            "type_factor": 1.0,
+            "label": "Kein H1‑Element vorhanden",
+        },
+        "aria attributes must be valid": {
+            "severity": 2,
+            "type_factor": 1.1,
+            "label": "Ungültiges ARIA‑Attribut",
+        },
+        "interactive controls must not be nested": {
+            "severity": 3,
+            "type_factor": 1.2,
+            "label": "Verschachtelte interaktive Elemente",
+        },
+        "page must have a skip link or landmark": {
+            "severity": 3,
+            "type_factor": 1.0,
+            "label": "Kein Skip‑Link vorhanden",
+        },
+        "table cells must have headers": {
+            "severity": 4,
+            "type_factor": 1.1,
+            "label": "Tabellenzellen ohne Header",
+        },
+        "elements must have unique ids": {
+            "severity": 3,
+            "type_factor": 1.2,
+            "label": "Nicht eindeutige IDs",
+        },
+        "page must not use timed refresh": {
+            "severity": 3,
+            "type_factor": 1.1,
+            "label": "Zeitgesteuertes Refresh",
+        },
+        "page must allow zooming": {
+            "severity": 3,
+            "type_factor": 1.0,
+            "label": "Zoom‑Funktion deaktiviert",
+        },
+        "element has an invalid aria role": {
+            "severity": 2,
+            "type_factor": 1.2,
+            "label": "Ungültige ARIA‑Rolle",
+        },
+    }
+)
+
 def _check_node_version(min_major=20):
     """Gibt True zurück, wenn die installierte Node.js-Version die Mindestanforderung erfüllt."""
     try:
@@ -492,14 +690,18 @@ def _count_common_errors(entries):
 def _write_summary_text(counts, counter, output: Path = Path("visualization_summary.txt")):
     """Schreibt eine textuelle Zusammenfassung der Visualisierungsdaten für Screenreader."""
     with output.open("w", encoding="utf-8") as f:
-        f.write("Issues per tool and page:\n")
+        # Kopfzeile für die Übersicht in deutscher Sprache
+        f.write("Probleme pro Tool und Seite:\n")
         for c in counts:
+            # Beschriftung der Summen: das Feld "all" repräsentiert alle Tools und wird
+            # als "alle" ausgegeben, damit deutschsprachige Leser:innen den Wert
+            # besser einordnen können.
             f.write(
-                f"{c['url']}: pa11y={c['pa11y']}, axe={c['axe']}, lighthouse={c['lighthouse']}, all={c['all']}\n"
+                f"{c['url']}: pa11y={c['pa11y']}, axe={c['axe']}, lighthouse={c['lighthouse']}, alle={c['all']}\n"
             )
-        f.write("\nMost common issues:\n")
+        f.write("\nHäufigste Probleme:\n")
         for msg, num in counter.most_common(10):
-            f.write(f"{num}x {msg}\n")
+            f.write(f"{num}× {msg}\n")
 
 def _plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
     """Erstellt ein Balkendiagramm zum Vergleich der Anzahl der Probleme pro Tool."""
@@ -516,16 +718,20 @@ def _plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
     width = 0.2
     numbers = list(range(1, len(labels)+1))
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    # Verwende "constrained"‑Layout, damit Matplotlib automatisch genügend Platz
+    # für Achsenbeschriftungen und Legenden reserviert. Dies verhindert die
+    # Warnung, dass tight_layout nicht angewendet werden konnte.
+    fig, ax = plt.subplots(figsize=(10, 6), layout="constrained")
     ax.bar([p - 1.5 * width for p in x], pa11y, width, label="pa11y", color=colors[0])
     ax.bar([p - 0.5 * width for p in x], axe, width, label="axe", color=colors[1])
     ax.bar([p + 0.5 * width for p in x], lighthouse, width, label="lighthouse", color=colors[2])
-    ax.bar([p + 1.5 * width for p in x], all_tools, width, label="all tools", color=colors[3])
+    # Der vierte Balken aggregiert alle Tools; die Legende wird ins Deutsche übersetzt
+    ax.bar([p + 1.5 * width for p in x], all_tools, width, label="alle Tools", color=colors[3])
 
     ax.set_xticks(list(x))
     ax.set_xticklabels(numbers)
-    ax.set_ylabel("Number of issues")
-    ax.set_title("Accessibility issues per page")
+    ax.set_ylabel("Anzahl der Probleme")
+    ax.set_title("Barrierefreiheitsprobleme pro Seite")
     ax.legend()
 
     # Gesamtzahl über die "all tools"-Balken schreiben
@@ -536,9 +742,10 @@ def _plot_tool_comparison(counts, output: Path = Path("tool_comparison.png")):
     mapping = "\n".join([f"{num}: {url}" for num, url in zip(numbers, labels)])
     fig.text(0.5, -0.15, mapping, ha="center", va="top", fontsize=9, wrap=True)
 
-    fig.tight_layout()
-    fig.savefig(output, bbox_inches='tight')
-    print(f"Tool comparison saved to {output}")
+    # Speichere die Abbildung ohne tight_layout, da das "constrained"‑Layout
+    # automatisch Platz reserviert.
+    fig.savefig(output)
+    print(f"Diagramm zum Tool‑Vergleich wurde in {output} gespeichert.")
 
 
 def _plot_common_errors(counter: Counter, output: Path = Path("common_errors.png"), top_n: int = 10):
@@ -546,7 +753,7 @@ def _plot_common_errors(counter: Counter, output: Path = Path("common_errors.png
     try:
         import matplotlib.pyplot as plt
     except ModuleNotFoundError:
-        print("matplotlib is not installed; skipping common errors plot.")
+        print("matplotlib ist nicht installiert; überspringe Diagramm der häufigsten Probleme.")
         return
 
     most_common = counter.most_common(top_n)
@@ -555,13 +762,15 @@ def _plot_common_errors(counter: Counter, output: Path = Path("common_errors.png
 
     colors = plt.get_cmap("tab10").colors
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    # Verwende das "constrained"‑Layout, um genügend Platz für Achsenbeschriftungen
+    # und Legenden zu reservieren und Warnungen von tight_layout zu vermeiden.
+    fig, ax = plt.subplots(figsize=(10, 6), layout="constrained")
     ax.barh(labels, values, color=colors[4])
-    ax.set_xlabel("Occurrences")
-    ax.set_title(f"Top {top_n} frequent issues")
-    fig.tight_layout()
+    ax.set_xlabel("Häufigkeit")
+    ax.set_title(f"Top {top_n} häufigste Probleme")
+    # Das "constrained"‑Layout macht einen expliziten Aufruf von tight_layout überflüssig.
     fig.savefig(output)
-    print(f"Common errors plot saved to {output}")
+    print(f"Diagramm der häufigsten Probleme wurde in {output} gespeichert.")
 
 def visualisation():
     entries = _load_bewertung()
@@ -572,24 +781,227 @@ def visualisation():
     _plot_common_errors(counter)
     _write_summary_text(counts, counter)
 
+# ------------------------------------------------------------------------------
+# Funktionen zur Berechnung und Darstellung eines Barrierefreiheits‑Scores.
+# Diese Funktionen werten die gespeicherten Fehlermeldungen aus, normieren
+# Häufigkeit und Schweregrad und ermitteln daraus einen Punktabzug.  Der
+# resultierende Score liegt zwischen 0 und 100, wobei 100 keine festgestellten
+# Probleme bedeutet.
+
+from typing import List, Dict
+
+def calculate_score(issues: List[Dict], max_score: int = 100) -> int:
+    """Berechnet einen einfachen Score basierend auf den übergebenen Issues.
+
+    Diese Funktion summiert die Produkte aus Schweregrad (S), Häufigkeit (H)
+    und Typ‑Faktor (T) für jede Meldung und zieht diese Summe vom
+    Maximalwert ab.  Sie liefert einen integerischen Score zwischen 0 und
+    ``max_score`` zurück.  Wird ``max_score`` unterschritten, wird der Score
+    auf 0 begrenzt.
+
+    Parameters
+    ----------
+    issues : List[Dict]
+        Eine Liste mit Dictionaries, die die Schlüssel ``severity``,
+        ``frequency`` und ``type_factor`` enthalten.
+    max_score : int, optional
+        Der maximal erreichbare Score (Standard: 100).
+
+    Returns
+    -------
+    int
+        Der berechnete Score.
+    """
+    total_penalty = 0
+    for issue in issues:
+        s = issue.get("S", issue.get("severity", 1))
+        h = issue.get("H", issue.get("frequency", 1))
+        t = issue.get("T", issue.get("type_factor", 1))
+        total_penalty += s * h * t
+    return max(0, max_score - total_penalty)
+
+
+def _count_all_tool_messages(entries):
+    """Zählt, wie oft jede kanonische Meldung über alle Seiten hinweg vorkommt.
+
+    Das Ergebnis ist ein ``Counter``‑Objekt, dessen Schlüssel die
+    kanonischen Meldungen (siehe ``_canonicalize_message``) sind und dessen
+    Werte die Anzahl der Vorkommen über alle geprüften Seiten darstellen.
+    """
+    counter = Counter()
+    for entry in entries:
+        for issue in entry.get("All tools", []):
+            msg = issue.get("message", "")
+            if msg:
+                counter[_canonicalize_message(msg)] += 1
+    return counter
+
+
+def accessibility_score(entries):
+    """Berechnet einen normalisierten Barrierefreiheits‑Score basierend auf den
+    gespeicherten Fehlermeldungen.
+
+    Die Methode gewichtet jede Meldung mit den Werten aus
+    ``ISSUE_CATEGORIES`` (Schweregrad und Typ‑Faktor) und skaliert die
+    Ergebnisse so, dass der Punktabzug bei der schwersten einzelnen Meldung
+    maximal 100 beträgt.  Der Rückgabewert ist ein Tupel aus Score,
+    Gesamtabzug und einer Liste detaillierter Informationen.
+
+    Parameters
+    ----------
+    entries : List[Dict]
+        Die geladenen Bewertungseinträge aus ``bewertung.json``.
+
+    Returns
+    -------
+    Tuple[float, float, List[Dict]]
+        Ein Tupel mit (Score, Gesamtabzug, Details pro Fehlertyp).
+    """
+    counts = _count_all_tool_messages(entries)
+    total_issues = sum(counts.values())
+    if total_issues == 0:
+        return 100.0, 0.0, []
+    # Bestimme den maximalen Abzug je Meldungskategorie
+    if ISSUE_CATEGORIES:
+        max_weight = max(
+            info.get("severity", DEFAULT_SEVERITY) * info.get("type_factor", DEFAULT_TYPE_FACTOR)
+            for info in ISSUE_CATEGORIES.values()
+        )
+    else:
+        max_weight = DEFAULT_SEVERITY * DEFAULT_TYPE_FACTOR
+    if max_weight <= 0:
+        max_weight = 1.0
+    scaling_factor = 100.0 / max_weight
+    details = []
+    total_penalty = 0.0
+    for key, freq in counts.items():
+        if freq == 0:
+            continue
+        info = ISSUE_CATEGORIES.get(
+            key,
+            {"severity": DEFAULT_SEVERITY, "type_factor": DEFAULT_TYPE_FACTOR, "label": key},
+        )
+        severity = info.get("severity", DEFAULT_SEVERITY)
+        type_factor = info.get("type_factor", DEFAULT_TYPE_FACTOR)
+        label = info.get("label", key)
+        ratio = freq / total_issues
+        deduction = severity * type_factor * ratio * scaling_factor
+        total_penalty += deduction
+        details.append({
+            "label": label,
+            "severity": severity,
+            "frequency": freq,
+            "type_factor": type_factor,
+            "ratio": ratio,
+            "deduction": deduction,
+        })
+    details.sort(key=lambda d: d["deduction"], reverse=True)
+    score = max(0.0, 100.0 - total_penalty)
+    return round(score, 1), round(total_penalty, 1), details
+
+
+def print_score_and_prioritization():
+    """Gibt eine priorisierte Liste der wichtigsten Probleme und den Gesamt‑Score aus.
+
+    Diese Funktion lädt die Daten aus ``bewertung.json``, berechnet den
+    Barrierefreiheits‑Score und gibt die Probleme sortiert nach ihrem
+    Punktabzug aus.  Zusätzlich wird eine JSON‑Datei mit den Detailwerten
+    geschrieben und ein Diagramm der größten Abzüge erstellt.
+    """
+    entries = _load_bewertung()
+    score, total, details = accessibility_score(entries)
+    print("Priorisierte Probleme:")
+    for d in details:
+        print(
+            f"{d['label']}: Schweregrad {d['severity']} , Häufigkeit {d['frequency']} ,"
+            f"Typ‑Faktor {d['type_factor']} = {d['deduction']:.1f}"
+        )
+    print(f"Gesamtabzug = {total:.1f}")
+    print(f"Barrierefreiheits‑Score = {score:.1f}")
+    _write_score_json(details, total, score)
+    _plot_score_details(details)
+
+
+def _write_score_json(details, total, score, output: Path = Path("score.json")):
+    """Speichert den berechneten Score und die Detailinformationen als JSON.
+
+    Die Datei enthält den gesamten Punktabzug, den Score und eine Liste der
+    einzelnen Probleme mit ihren abgeleiteten Werten.  Dies erleichtert die
+    weitere maschinelle Auswertung der Ergebnisse.
+    """
+    data = {
+        "total_deduction": round(total, 1),
+        "score": round(score, 1),
+        "issues": [
+            {
+                "label": d["label"],
+                "severity": d["severity"],
+                "frequency": d["frequency"],
+                "type_factor": d["type_factor"],
+                "deduction": round(d["deduction"], 1),
+            }
+            for d in details
+        ],
+    }
+    with output.open("w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+
+def _plot_score_details(details, output: Path = Path("score_chart.png"), top_n: int = 10):
+    """Zeichnet ein horizontales Balkendiagramm für die größten Punktabzüge.
+
+    Es werden die ``top_n`` größten Punktabzüge dargestellt.  Die Beschriftungen
+    sind deutschsprachig, um die Lesbarkeit zu verbessern.
+    """
+    try:
+        import matplotlib.pyplot as plt
+    except ModuleNotFoundError:
+        print("matplotlib ist nicht installiert; überspringe Score‑Diagramm.")
+        return
+    subset = details[:top_n]
+    labels = [d["label"] for d in subset]
+    values = [d["deduction"] for d in subset]
+    colors = plt.get_cmap("tab10").colors
+    # Nutze das "constrained"‑Layout, das automatisch ausreichend Platz für die
+    # Beschriftungen reserviert und die Warnung von tight_layout verhindert.
+    fig, ax = plt.subplots(figsize=(10, 6), layout="constrained")
+    ax.barh(labels, values, color=colors[5])
+    ax.invert_yaxis()
+    ax.set_xlabel("Punktabzug")
+    ax.set_title("Top Barrierefreiheitsprobleme")
+    # Beim "constrained"‑Layout ist kein expliziter Aufruf von tight_layout nötig.
+    fig.savefig(output)
+    print(f"Score‑Diagramm wurde in {output} gespeichert.")
+
 
 if __name__ == "__main__":
+        # Prüfen Sie die Node.js‑Version, bevor Sie mit den Tests beginnen
         if not _check_node_version():
             exit(1)
+        # Alte Ergebnisdateien entfernen
         delete_old_results()
-        user_url = input(" Gib eine URL ein (inkl. https://) : ").strip()
+        # URL vom Benutzer abfragen
+        user_url = input("Gib eine URL ein (inkl. https://): ").strip()
         if not user_url.startswith("http"):
-            print(" Bitte mit http:// oder https:// beginnen.")
+            print("Bitte mit http:// oder https:// beginnen.")
         else:
+            # interne Links sammeln
             seiten = [user_url] + finde_interne_links(user_url)
-            print(f"\n Gefundene Seiten:{len(seiten)}")
-            anzahl_seiten = int(input(" Wie viele Seiten sollen getestet werden? (0 für alle): ").strip())
+            print(f"\nGefundene Seiten: {len(seiten)}")
+            try:
+                anzahl_seiten = int(input("Wie viele Seiten sollen getestet werden? (0 für alle): ").strip())
+            except ValueError:
+                print("Ungültige Zahl. Es werden alle Seiten getestet.")
+                anzahl_seiten = 0
             if anzahl_seiten == 0:
-                print(f" Starte Accessibility-Checks für alle Seiten ....")
+                print("Starte Barrierefreiheits‑Checks für alle Seiten …")
                 accessibility_checks(seiten)
             else:
-                print(f" Starte Accessibility-Checks für {anzahl_seiten} Seite(n) ....")
+                print(f"Starte Barrierefreiheits‑Checks für {anzahl_seiten} Seite(n) …")
                 accessibility_checks(seiten[:anzahl_seiten])
+            # Ergebnisse kombinieren und Einzelresultate löschen
             combine_errors()
             delete_results()
+            # Visualisierung und Score‑Berechnung
             visualisation()
+            print_score_and_prioritization()
