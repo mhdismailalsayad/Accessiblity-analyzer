@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [
   {
     "URL": "https://moodle.uni-due.de/",
@@ -263,3 +264,11 @@
     ]
   }
 ]
+=======
+{
+  "info": "Tools kombiniert, Duplikate entfernt",
+  "scores": {
+    "https://www2.pnwx.com/": 42
+  }
+}
+>>>>>>> Stashed changes

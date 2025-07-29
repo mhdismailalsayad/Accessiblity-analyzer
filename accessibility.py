@@ -293,6 +293,7 @@ def run_axe(url, filename="axe_result.json"):
     print(" axe-core-Ergebnisse gespeichert.")
 
 
+<<<<<<< Updated upstream
 def run_lighthouse(url, filename="lighthouse_results.json"):
     print(f"Lighthouse: {url}")
     fd, tmp_path = tempfile.mkstemp(suffix=".json")
@@ -310,6 +311,23 @@ def run_lighthouse(url, filename="lighthouse_results.json"):
         capture_output=True,
         text=True,
     )
+=======
+
+
+
+
+
+def run_lighthouse(url, filename="lighthouse_result.json"):
+    print(f"Lighthouse: {url}")
+    result = subprocess.run([
+        NPX, "lighthouse", url,
+        "--only-categories=accessibility",
+        "--output=json",
+        "--chrome-flags=--headless",
+        "--output-path=./lighthouse_result.json"
+    ], capture_output=True, text=True)
+
+>>>>>>> Stashed changes
     if result.returncode != 0:
         print("Fehler bei Lighthouse:", result.stderr)
     try:
@@ -376,6 +394,7 @@ def _extract_axe_errors(data):
     return errors
 
 
+<<<<<<< Updated upstream
 def _extract_lighthouse_errors(data):
     errors = []
     seen = set()
@@ -405,6 +424,21 @@ def _extract_lighthouse_errors(data):
                     seen.add(key)
                     errors.append({"message": title, "context": ""})
     return errors
+=======
+def _load_json(path):
+    """Lädt eine JSON-Datei oder gibt eine leere Liste zurück."""
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            # Einige Ergebnisdateien enthalten nur ein einzelnes
+            # Objekt. Um die Verarbeitung zu vereinfachen, wird ein
+            # solches Objekt in eine Liste gepackt.
+            if isinstance(data, dict):
+                return [data]
+            return data
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+>>>>>>> Stashed changes
 
 
 def _canonicalize_message(msg: str) -> str:
@@ -495,6 +529,7 @@ def combine_errors(pa11y_file="pa11y_result.json", axe_file="axe_result.json", l
         url = entry.get("url")
         if not url:
             continue
+<<<<<<< Updated upstream
         grouped.setdefault(url, {"pa11y": [], "axe": [], "lighthouse": []})
         grouped[url]["axe"].extend(_extract_axe_errors([entry]))
     for entry in lighthouse_data:
@@ -525,6 +560,76 @@ def combine_errors(pa11y_file="pa11y_result.json", axe_file="axe_result.json", l
             "axe": data["axe"],
             "lighthouse": data["lighthouse"],
         })
+=======
+        combined.setdefault(url, {"pa11y": [], "lighthouse": [], "axe": [], "lh_score": 1})
+
+        axe_result = entry.get("axe_result", {})
+
+        # ``axe_result`` may be a single object or a list of objects.
+        if isinstance(axe_result, list):
+            results = axe_result
+        else:
+            results = [axe_result]
+
+        for result in results:
+            violations = result.get("violations", [])
+            for viol in violations:
+                msg = viol.get("help", viol.get("description", ""))
+                impact = viol.get("impact", "minor")
+                severity = {"minor": 1, "moderate": 3, "serious": 5, "critical": 7}.get(impact, 1)
+                combined[url]["axe"].append((msg, severity))
+    return combined
+
+
+def _calculate_scores(combined):
+    """Berechnet eine Bewertung pro Seite basierend auf Schwere der Probleme."""
+    scores = {}
+    for url, data in combined.items():
+        seen = set()
+        penalty = 0
+        for msg, sev in data.get("pa11y", []):
+            if msg in seen:
+                continue
+            seen.add(msg)
+            if sev == 1:
+                penalty += 5  # Fehler
+            elif sev == 2:
+                penalty += 3  # Warnung
+            else:
+                penalty += 1  # Hinweis
+        for msg, sev in data.get("axe", []):
+            if msg in seen:
+                continue
+            seen.add(msg)
+            penalty += sev
+        for msg in data.get("lighthouse", []):
+            if msg not in seen:
+                seen.add(msg)
+                penalty += 2
+        base = data.get("lh_score", 1) * 100
+        scores[url] = max(0, round(base - penalty, 2))
+    return scores
+
+
+def create_rating(pa11y_file="pa11y_result.json", lighthouse_file="lighthouse_result.json", axe_file="axe_result.json", output="bewertung.json"):
+    """Erstellt eine Bewertung pro Seite und speichert sie als JSON."""
+    pa11y_data = _load_json(pa11y_file)
+    lighthouse_data = _load_json(lighthouse_file)
+    axe_data = _load_json(axe_file)
+
+    if not pa11y_data and not lighthouse_data and not axe_data:
+        print("Keine Ergebnisdaten für die Bewertung gefunden.")
+        return
+
+    combined = _combine_tool_results(pa11y_data, lighthouse_data, axe_data)
+    scores = _calculate_scores(combined)
+
+    rating = {
+        "info": "Tools kombinieren",
+        "scores": scores,
+    }
+
+>>>>>>> Stashed changes
     try:
         with open(output, "w", encoding="utf-8") as f:
             json.dump(result_list, f, indent=2, ensure_ascii=False)
@@ -547,6 +652,7 @@ def _load_json(path):
 def delete_old_results():
     temp_files = [
         "axe_result.json",
+<<<<<<< Updated upstream
         "lighthouse_results.json",
         "pa11y_result.json",
         "bewertung.json",
@@ -555,6 +661,10 @@ def delete_old_results():
         "visualization_summary.txt",
         "tool_comparison.png",
         "common_errors.png",
+=======
+        "lighthouse_result.json",
+        "pa11y_result.json"
+>>>>>>> Stashed changes
     ]
     for file in temp_files:
         if os.path.exists(file):
@@ -817,6 +927,7 @@ if __name__ == "__main__":
             print(f" Warnung: Es gibt nur {len(seiten)} Seiten, die getestet werden können.")
             print(" Keine internen Links gefunden.")
         else:
+<<<<<<< Updated upstream
             print(f" Gefundene Seiten: {anzahl_seiten}")
             print(" Starte Accessibility-Checks...")
         accessibility_checks(seiten[:anzahl_seiten])
@@ -828,3 +939,10 @@ if __name__ == "__main__":
         print(" Alle Tests abgeschlossen. Ergebnisse gespeichert.")
         print(" Sie können die Ergebnisse in den Dateien pa11y_result.json, axe_result.json und lighthouse_results.json finden.")
         print(" Kombinierte Ergebnisse in bewertung.json.")
+=======
+            seiten = [user_url] + finde_interne_links(user_url)
+            print(f"\n Starte Accessibility-Checks für {len(seiten)} Seiten...")
+            accessibility_checks(seiten[:1])
+            convert_pa11y_to_custom_format()
+            create_rating()
+>>>>>>> Stashed changes
